@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Construction Cost Estimator, House Cost Calculator, Cost per square feet
+</title>
+<script>
+   
+    function fun1()
+    {
+    
+    
+   let  D4=document.getElementById("D4").value;
+   document.getElementById("div4").innerHTML=D4/1000+"m";
+   let  D5=document.getElementById("D5").value;
+   document.getElementById("div3").innerHTML=D5/1000+"m";
+   let  D8=document.getElementById("D8").value;
+   let  D9=document.getElementById("D9").value;
+
+  let fck = document.getElementById("D11");
+  let D11 = fck.options[fck.selectedIndex].value;
+
+  let fy = document.getElementById("D14");
+  let D14 = fy.options[fy.selectedIndex].value;
+  
+
+
+  let  C18=document.getElementById("C18").value;
+  let  C19=document.getElementById("C19").value;
+
+  let md = document.getElementById("D21");
+  let D21 = md.options[md.selectedIndex].value;
+
+  let bd = document.getElementById("D24");
+  let D24 = bd.options[bd.selectedIndex].value;
+
+  let pt = document.getElementById("D27");
+  let D27 = pt.options[pt.selectedIndex].value;
+
+  let D30=document.getElementById("D30").value;
+
+let oneslab= D4/D5;
+if(oneslab<2){
+   alert("Here your Length/Width<2 Go for Two Way Slab")
+  window.location.assign("https://site.ados.co.in/TWO-WAY.html");
+   
+}else{
+   alert("Here your Length/Width>2 Go for Further Calculation Ahead")
+}
+
+  //MF Calculation
+  let hm250=new Map()
+   hm250.set(.30,2)
+   hm250.set(.35,2)
+   hm250.set(.4,2)
+   hm250.set(.45,2)
+   hm250.set(.5,1.95)
+   hm250.set(.55,1.85)
+   hm250.set(.6,1.75)
+   hm250.set(.65,1.7)
+   hm250.set(.7,1.65)
+   hm250.set(.75,1.6)
+   hm250.set(.8,1.55)
+   const hm415=new Map()
+   hm415.set(.3,1.5)
+   hm415.set(.35,1.4)
+   hm415.set(.4,1.35)
+   hm415.set(.45,1.3)
+   hm415.set(.5,1.25)
+   hm415.set(.55,1.2)
+   hm415.set(.6,1.15)
+   hm415.set(.65,1.1)
+   hm415.set(.7,1.1)
+   hm415.set(.75,1.05)
+   hm415.set(.8,1.05)
+
+   const hm500=new Map()
+   hm500.set(.3,1.25)
+   hm500.set(.35,1.2)
+   hm500.set(.4,1.15)
+   hm500.set(.45,1.1)
+   hm500.set(.5,1.05)
+   hm500.set(.55,1.1)
+   hm500.set(.6,.95)
+   hm500.set(.65,.95)
+   hm500.set(.7,.9)
+   hm500.set(.75,.9)
+   hm500.set(.8,.9)
+
+  //  d and dprovided calculation........................
+   let G45;
+  
+   if(D14==250)
+   {
+
+   G45=hm250.get(parseFloat(D27));
+  
+   }
+   else if(D14==415)
+   {
+
+   
+    G45=hm415.get(parseFloat(D27));
+   }
+   else if(D14==500)
+   {
+    G45=hm500.get(parseFloat(D27));
+   }
+
+  let D45=D5/(20*G45);
+  document.getElementById("D45").innerHTML=D45+" mm";
+  alert("hello")
+  document.getElementById("G45").innerHTML=G45;
+
+  
+  
+ 
+  let D47=Math.ceil(D45 / 10) * 10; ;
+  
+  // if(remainder==10)
+  // D47=(D45).toFixed(0);
+  // else if(remain<5)
+  // D47=(D45)+parseFloat(remain);
+  // else if(remainder>5)
+  // D47=(10-remain-1);
+  document.getElementById("D47").innerHTML=D47+" mm";
+  alert("D47................"+D47);
+
+  let E52=parseInt(D47)+parseInt(D21/2)+parseInt(D30);
+  
+  document.getElementById("E52").innerHTML=E52.toFixed(2)+" mm";
+  // alert("..................E52......."+E52);
+ 
+  let E57=parseInt(D5)+parseInt(D47);
+  document.getElementById("E57").innerHTML=E57.toFixed(2)+" mm";
+  // alert("..................E57......."+E57);
+  let E58= parseInt(D5)+parseInt(D9);
+  document.getElementById("E58").innerHTML=E58.toFixed(2)+" mm";
+  // alert("..................E58......"+E58);
+ 
+ 
+  let D60=Math.min(E57,E58);
+ 
+   document.getElementById("D60").innerHTML=D60+" mm";
+ 
+ 
+    
+  let D65=(25*1)*(E52/1000);
+
+  document.getElementById("D65").innerHTML=D65+" KN/m";
+  // alert("D65................"+D65+"..."+C18+"..."+C19);
+
+  let D67=parseFloat(D65)+parseFloat(C18)+parseFloat(C19);
+
+  document.getElementById("D67").innerHTML=D67.toFixed(2)+" KN/m";
+  // alert("D67................"+D67);
+
+  let D69=1.5*D67;
+  document.getElementById("D69").innerHTML=D69.toFixed(2)+" KN/m";
+  // alert("D69................"+D69);
+
+
+  let D71=D69*D60*D60/(8*1000000);
+  document.getElementById("D71").innerHTML=D71.toFixed(2)+" KNm";
+  // // alert("D71................"+D71);
+  // let F73=D69*D60*D60*1000000/8;
+  // document.getElementById("F73").innerHTML=F73.toFixed(3);
+ 
+
+  // alert("F73................"+F73);
+
+  let C76;
+  if(D14==250)
+  {
+   C76 =Math.sqrt((D71*1000)/(0.148*D11));
+  }else if(D14==415)
+  {
+    C76 =Math.sqrt((D71*1000)/(0.138*D11));
+  }
+  else if(D14==500)
+  {
+    C76 =Math.sqrt((D71*1000)/(0.133*D11));
+  }
+ 
+  document.getElementById("C76").innerHTML=C76.toFixed(2)+" mm";
+  
+  let C79;
+  if(C76<D47){
+    C79="TRUE";
+  }else{
+    C79= "FALSE"
+  }
+  document.getElementById("C79").innerHTML=C79;
+
+
+  let F86=((50*D11)/(D14))*(1-Math.sqrt(1-((4.6*D71*1000)/(D11*D47*D47))));
+
+  document.getElementById("F86").innerHTML=F86.toFixed(3)+"%";
+  let E89 =(F86*1000*D47)/100;
+  document.getElementById("E89").innerHTML=E89.toFixed(3)+" mm <sup>2</sup>";
+  // alert("E89............."+E89);
+
+  let D91 =(Math.PI)*(D21*D21)/4;
+  document.getElementById("D91").innerHTML=D91.toFixed(2) +" mm <sup>2</sup>";
+  // alert("D91............."+D91);
+ let D93=(D91/E89)*1000;
+ document.getElementById("D93").innerHTML=D93.toFixed(2)+" mm ";
+//  alert("D93............."+D93);
+let F93=D93-D93%10;
+document.getElementById("F93").innerHTML=F93+" mm ";
+// alert("F93............."+F93);
+
+let B95=D21;
+document.getElementById("B95").innerHTML=B95+" mm &Phi; @";
+// alert("B95............."+B95);
+
+let D95=F93;
+document.getElementById("D95").innerHTML=D95+" mm c/c AS A MAIN STEEL";
+// alert("D95............."+D95);
+
+let D97=(D91/F93)*1000;
+document.getElementById("D97").innerHTML=D97.toFixed(3)+ " mm <sup>2</sup";
+// alert("D97............."+D97);
+
+
+let F99=D97/2;
+document.getElementById("F99").innerHTML=F99.toFixed(2)+" mm <sup>2</sup>";
+// alert("F99............."+F99);
+  
+let E104=(0.12*1000*E52)/100;
+document.getElementById("E104").innerHTML=E104+" mm <sup>2</sup>";
+// alert("E104............."+E104);
+
+let D106=Math.PI*D24* D24/4;
+document.getElementById("D106").innerHTML=D106.toFixed(2);
+// alert("D106............."+D106);
+
+  let D108=(D106/E104)*1000;
+
+  document.getElementById("D108").innerHTML=D108.toFixed(3)+" mm";
+// alert("D108............."+D108);
+
+let F108=D108-D108%10;
+document.getElementById("F108").innerHTML=F108+" mm";
+// alert("F108............."+F108);
+
+let D110=(D106/F108)*1000;
+document.getElementById("D110").innerHTML=D110.toFixed(3)+ " mm <sup>2</sup>";
+// alert("D110............."+D110);
+
+let B112=D24;
+document.getElementById("B112").innerHTML=B112+" mm &Phi; @";
+// alert("B112............."+B112);
+
+let D112=F108;
+document.getElementById("D112").innerHTML=D112+" mm c/c AS A DISTRIBUTION STEEL";
+// alert("D112............."+D112);
+
+let D114=(D106/F108)*1000;
+
+document.getElementById("D114").innerHTML=D114.toFixed(3)+" mm <sup>2</sup>";
+// alert("D114............."+D114);
+
+
+let F118=3*D47;
+
+document.getElementById("F118").innerHTML=F118+" mm";
+// alert("F118............."+F118);
+
+
+let F119=300;
+document.getElementById("F119").innerHTML=F119+" mm";
+// alert("F119............."+F119);
+
+let F120=F93;
+document.getElementById("F120").innerHTML=F120+" mm";
+// alert("F120............"+F120);
+
+let H122=Math.min(F118,F119,F120);
+document.getElementById("H122").innerHTML=H122+" mm";
+// alert("H122............"+H122);
+
+let F124=5*D47;
+document.getElementById("F124").innerHTML=F124+ " mm";
+// alert("F124............"+F124);
+
+let F125=300;
+document.getElementById("F125").innerHTML=F125+" mm";
+// alert("F125............"+F125);
+
+let F126=F108;
+
+document.getElementById("F126").innerHTML=F126+" mm";
+ alert("F126............"+F126);
+
+let H128=Math.min(F124,F125,F126);
+document.getElementById("H128").innerHTML=H128+" mm";
+alert("H128............"+H128);
+
+let D137=0.87*D14;
+document.getElementById("D137").innerHTML=D137+"  N/mm<sup>2</sup>";
+// alert("D137............"+D137);
+
+let H137;
+if(D11==20)
+H137=1.2;
+else if(D11==25)
+H137=1.4;
+else if(D11==30)
+H137=1.5;
+else if(D11==35)
+H137=1.7;
+else
+H137=1.9;
+
+let F139=H137*1.6;
+document.getElementById("F139").innerHTML=F139+ "  N/mm<sup>2</sup>";
+// alert("F139............"+F139);
+
+let E141=(D21*D137)/(4*F139);
+document.getElementById("E141").innerHTML=E141+" mm";
+// alert("E141............"+E141);
+
+let G144=(0.87*D97*D14)*(1-((D14*D97)/(D11*1000*D47)));
+document.getElementById("G144").innerHTML=G144.toFixed(2)+ " N.mm";
+// alert("G144............"+G144);
+
+let C146=(D69)*(D5/1000);
+
+document.getElementById("C146").innerHTML=C146+" KN";
+// alert("C146............"+C146);
+
+
+let C148=D47;
+
+document.getElementById("C148").innerHTML=C148+ " mm";
+// alert("C148............"+C148);
+
+
+let C149=12*D21;
+document.getElementById("C149").innerHTML=C149+" mm";
+// alert("C149............"+C149);
+
+let C151=Math.max(C148,C149);
+document.getElementById("C151").innerHTML=C151+" mm";
+// alert("C151............"+C151);
+
+let E154;
+if(E141<((1.3*G144/C146)+C151))
+{
+  E154="TRUE";
+}
+else{
+  E154="FALSE";
+}
+document.getElementById("E154").innerHTML=E154;
+// alert("E154............"+E154);
+
+let E162=E52;
+document.getElementById("E162").innerHTML=E162+" mm";
+// alert("E162............"+E162);
+document.getElementById("div5").innerHTML=E162+"mm";
+
+let E165=D21;
+document.getElementById("E165").innerHTML=E165+" mm";
+// alert("E165............"+E165);
+
+let E166=H122;
+document.getElementById("E166").innerHTML=E166+" mm";
+// alert("E166............"+E166);
+document.getElementById("div1").innerHTML=E165+"mm"+"Ø @"+E166+"mm c/c";
+document.getElementById("div7").innerHTML=E165+"mm"+"Ø @"+E166+"mm c/c";
+
+let E167=(D91/E166)*1000;
+document.getElementById("E167").innerHTML=E167+" mm<sup> 2</sup>";
+// alert("E167............"+E167);
+
+let E170=D24;
+
+document.getElementById("E170").innerHTML=E170+" mm";
+// alert("E170............"+E170);
+
+let E171=H128;
+
+document.getElementById("E171").innerHTML=E171+" mm";
+// alert("E171............"+E171);
+document.getElementById("div2").innerHTML=E170+"mm"+"Ø @"+E171+"mm c/c";
+document.getElementById("div6").innerHTML=E170+"mm"+"Ø @"+E171+"mm c/c";
+
+let E172=(D106/E171)*1000;
+document.getElementById("E172").innerHTML=E172+" mm<sup> 2</sup>";
+// alert("E172............"+E172);
+
+let C174=D11;
+document.getElementById("C174").innerHTML=C174+" N/mm<sup2></sup";
+// alert("C174............"+C174);
+
+let C175=D14;
+document.getElementById("C175").innerHTML=C175+" N/mm<sup2></sup";
+// alert("C175............"+C175);
+
+
+
+
+}
+
+
+
+
+</script>
+<script data-ad-client="ca-pub-1356083154313781" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta content="Construction cost estimator, Construction cost calculator, House construction cost estimation, Cost estimator calculator, Cost per square feet" name="keywords" /><meta content="The construction cost estimator/calculator helps to finalize the approximate amount of cost &amp; quantity of material required for constructing a home.The calculator estimates the approximate cost and quantity of Cement, Sand, Aggregate, Steel, Paint, Flooring, Tiles, Bricks, Fittings, Window, Doors, Plumbing, Electrical, Sanitary, etc." name="description" /><meta content="ASWDC - App Software Website Development Center - Darshan Institute of Engineering and Technology" name="author" />
+
+<link rel="shortcut icon" href="../Images/Icons/Favicon.ico" />
+
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/uniform.default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+<link rel="stylesheet" type="text/css" href="css/select2.css" />
+<link rel="stylesheet" type="text/css" href="css/multi-select.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-fileinput.css" />
+<link rel="stylesheet" type="text/css" href="css/clockface.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
+<link rel="stylesheet" type="text/css" href="css/daterangepicker-bs3.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.scroller.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.colReorder.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css" />
+<link href="css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+<link href="css/css/plugins.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/default.css" rel="stylesheet" type="text/css" id="style_color" />
+<link href="css/custom.css" rel="stylesheet" type="text/css" />
+<link href="css/gnmis.css" rel="stylesheet" />
+<link href="css/GNCustom.css" rel="stylesheet" />
+<style type="text/css">
+        .noTextDecoration:hover {
+            text-decoration: none !important;
+        }
+
+        .noTextDecorationHL:hover {
+            text-decoration: none !important;
+            border-bottom: none !important;
+            color: lightgray !important;
+        }
+    </style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECQLZF848N"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ECQLZF848N');
+    </script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div>
+    <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+    <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzODIwMTEzMDAPZBYCZg9kFgQCAQ9kFgQCBA8WAh4HY29udGVudAWOAUNvbnN0cnVjdGlvbiBjb3N0IGVzdGltYXRvciwgQ29uc3RydWN0aW9uIGNvc3QgY2FsY3VsYXRvciwgSG91c2UgY29uc3RydWN0aW9uIGNvc3QgZXN0aW1hdGlvbiwgQ29zdCBlc3RpbWF0b3IgY2FsY3VsYXRvciwgQ29zdCBwZXIgc3F1YXJlIGZlZXRkAgUPFgIfAAXPAlRoZSBjb25zdHJ1Y3Rpb24gY29zdCBlc3RpbWF0b3IvY2FsY3VsYXRvciBoZWxwcyB0byBmaW5hbGl6ZSB0aGUgYXBwcm94aW1hdGUgYW1vdW50IG9mIGNvc3QgJiBxdWFudGl0eSBvZiBtYXRlcmlhbCByZXF1aXJlZCBmb3IgY29uc3RydWN0aW5nIGEgaG9tZS5UaGUgY2FsY3VsYXRvciBlc3RpbWF0ZXMgdGhlIGFwcHJveGltYXRlIGNvc3QgYW5kIHF1YW50aXR5IG9mIENlbWVudCwgU2FuZCwgQWdncmVnYXRlLCBTdGVlbCwgUGFpbnQsIEZsb29yaW5nLCBUaWxlcywgQnJpY2tzLCBGaXR0aW5ncywgV2luZG93LCBEb29ycywgUGx1bWJpbmcsIEVsZWN0cmljYWwsIFNhbml0YXJ5LCBldGMuZAIDD2QWBmYPZBYCAgEPDxYCHgtOYXZpZ2F0ZVVybAUOfi9EZWZhdWx0LmFzcHhkZAIBD2QWAgIDD2QWAgIDDw8WAh8BBSB+L1F1YW50aXR5LUVzdGltYXRvci1DYWxjdWxhdG9yc2RkAgIPZBY2AhUPDxYCHgRUZXh0BRAxMCwwMCwwMDAuMDAgUnMuZGQCFw8PFgIfAgUPMSw2NCwwMDAuMDAgUnMuZGQCGQ8PFgIfAgUPMSwyMywwMDAuMDAgUnMuZGQCGw8PFgIfAgUNNzQsMDAwLjAwIFJzLmRkAh0PDxYCHwIFDzIsNDYsMDAwLjAwIFJzLmRkAh8PDxYCHwIFDzEsNjUsMDAwLjAwIFJzLmRkAiEPDxYCHwIFDzIsMjgsMDAwLjAwIFJzLmRkAiMPDxYCHwIFEDEwLDAwLDAwMC4wMCBScy5kZAIlDw8WAh8CBQQxMDAwZGQCKQ8PFgIfAgULNDAwLjAwIEJhZ3NkZAItDw8WAh8CBQo4MTYuMDAgVG9uZGQCMQ8PFgIfAgUKNjA4LjAwIFRvbmRkAjUPDxYCHwIFCzQwMDAuMDAgS2cuZGQCOw8PFgIfAgUJMTgwLjAwIGx0ZGQCQQ8PFgIfAgUMODAwMC4wMCBQY3MuZGQCRw8PFgIfAgUWMTMwMC4wMCBmdDxzdXA+Mjwvc3VwPmRkAksPDxYCHwIFBDEwMDBkZAJPDw8WAh8CBd4CPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+QXBwcm94IGNvc3QgcGVyIHNxLiBmdC48L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJTDw8WAh8CBY0GPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC40PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEwMDA8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwLjAwIEJhZ3M8L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPkNlbWVudCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xNi40PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTY0MDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlcPDxYCHwIFjgY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjgxNjwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC44MTY8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODE2LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+U2FuZCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xMi4zPC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTIuMzwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTIzMDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlsPDxYCHwIFkAY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjYwODwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC42MDg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NjA4LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+QWdncmVnYXRlIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NzQwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCXw8PFgIfAgWIBjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwMC4wMCBLZy48L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPlN0ZWVsIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjI0LjY8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yNC42PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yNDYwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCYw8PFgIfAgXGAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTgwLjAwIGx0PC9taT48L21hdGg+ZGQCZw8PFgIfAgXDAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODAwMC4wMCBQY3MuPC9taT48L21hdGg+ZGQCaw8PFgIfAgXKAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEuMzwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MS4zPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEzMDAuMDAgU3EuIGZ0LjwvbWk+PC9tYXRoPmRkAm0PDxYCHwIFngM8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNTwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjE2LjU8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT4xMDAwMDAwLjAwPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjE2NTAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJvDw8WAh8CBZ4DPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjIyLjg8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yMi44PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yMjgwMDAuMDAgUnMuPC9taT48L21hdGg+ZGRkA+PU/jmYhq72QGlrepje+j9rc80LOSyh9b2j5OKpyMY=" />
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+    var theForm = document.forms['aspnetForm'];
+    if (!theForm) {
+        theForm = document.aspnetForm;
+    }
+    function __doPostBack(eventTarget, eventArgument) {
+        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+        }
+    }
+    //]]>
+    </script>
+    <script src="/WebResource.axd?d=4iMq4tv8b4nx3m3_eia1aKgT3lGeG8QVI0alteLcuuUCqVnsF4iulwETM1Cewzntu9HZu_Bap_rTI16wkbOWz-pFZXRHlO7gq-xDieLmziM1&amp;t=637811927229275428" type="text/javascript"></script>
+    <script src="/WebResource.axd?d=bDFfSI-OUTSZ4LYijzA2xMfFxxAlL-1VsZZplT8VY5qED7ilt7sylXQdM1zhQd2zep2LCiZ47L2Z3Pl6sUdOBdkXFaE20wnuBRzIySMtVoI1&amp;t=637811927229275428" type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    function WebForm_OnSubmit() {
+    if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+    return true;
+    }
+    //]]>
+    </script>
+    <div>
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7C004586" />
+    <input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+    <input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+    </div>  
+<div id="ctl00_pnltopmenu">
+<div class="page-header">
+
+<div class="page-header-top">
+<div class="container-fluid margin-bottom-10">
+<div class="col-md-2 col-sm-3 col-xs-8">
+    <div style="padding-top: 5px;">
+        <a id="ctl00_hlLogo" title="Civil Engineering Calculators - Concrete Technology, Transport Technology, Geotechnical Engineering, Quantity Estimators" href="../Default.aspx"><img id="ctl00_imgCompanyLogo" class="img-responsive" src="images/Asset 9@300x-1.png" alt="logo Civil Engineering Calculators" style="border-width:0px;height: 80px; width: auto;" /></a>
+    </div>
+</div>
+<div class="col-md-8 col-sm-6 col-xs-1 text-center margin-top-10">
+<style type="text/css">
+    .adslot_3 {
+        display: inline-block;
+        width: 728px;
+        height: 90px;
+    }
+
+    @media (max-width:1000px) {
+        .adslot_3 {
+            display: none;
+        }
+    }
+
+    @media (min-width:1000px) {
+        .adslot_3 {
+            width: 728px;
+            height: 90px;
+        }
+        
+    }
+    @media only screen and (max-width: 1540px){
+         .nicebox{
+          height: 164rem;
+         }
+         .goodbox{
+          height: 97rem;
+         }
+         #div1{
+          margin-top:-908px;
+            margin-left:161px;
+            z-index:1;
+            width:400px;
+            color:Blue;
+         }
+         #div2{
+          margin-top:-11px;
+              margin-left:325px;
+              z-index:1;
+              color:red;
+              width:400px;
+         }
+         #div3{
+          margin-top:212px;
+                margin-left:625px;
+                z-index:1;
+                width:100px;
+         }
+         #div4{
+          margin-top:202px;
+                  margin-left:327px;
+                  z-index:1;
+                  width:100px;
+         }
+         #div5{
+          margin-top:154px;
+                    margin-left:631px;
+                    z-index:1;
+                    width:100px;
+
+         }
+         #div6{
+          margin-top:129px;
+                      margin-left:365px;
+                      z-index:1;
+                      color:red;
+                      width:400px;
+
+         }
+         #div7{
+          margin-top:-24px;
+                        margin-left:42px;
+                        z-index:1;
+                        color: darkviolet;
+                        width:400px; 
+
+         }
+         
+        }
+
+        @media only screen and (max-width: 1040px){
+          #div1{
+          margin-top:-703px;
+            margin-left:51px;
+            z-index:1;
+            width:400px;
+            color:Blue;
+         }
+         #div2{
+          margin-top:3px;
+              margin-left:190px;
+              z-index:1;
+              color:red;
+              width:400px;
+         }
+         #div3{
+          margin-top:149px;
+                margin-left:532px;
+                z-index:1;
+                width:100px;
+         }
+        }
+        @media only screen and (max-width: 1040px){
+         .nicebox{
+          height: 122rem;
+         }
+        }
+        @media only screen and (max-width: 1330px){
+         #div1{
+          margin-top:-614px;
+            margin-left:1px;
+            z-index:1;
+            width:400px;
+            color:Blue;
+         }
+         #div2{
+          margin-top:3px;
+              margin-left:100px;
+              z-index:1;
+              color:red;
+              width:400px;
+         }
+         #div3{
+          margin-top:149px;
+                margin-left:43%;
+                z-index:1;
+                width:100px;
+         }
+         #div4{
+          margin-top:137px;
+                  margin-left:245px;
+                  z-index:1;
+                  width:100px;
+         }
+         #div5{
+          margin-top:110px;
+                    margin-left:532px;
+                    z-index:1;
+                    width:100px;
+
+         }
+         #div6{
+          margin-top:115px;
+                      margin-left:291px;
+                      z-index:1;
+                      color:red;
+                      width:400px;
+
+         }
+         #div7{
+          margin-top:-45px;
+                        margin-left:-33px;
+                        z-index:1;
+                        color: darkviolet;
+                        width:400px; 
+
+         }
+        }
+
+        @media only screen and (max-width: 992px){
+         .nicebox{
+          height: 178rem;
+         }
+        }
+
+        @media only screen and (max-width: 900px){
+         .nicebox{
+          height: 162rem;
+         }
+        }
+
+        @media only screen and (max-width: 751px){
+         .nicebox{
+          height: 152rem;
+         }
+        }
+
+       
+
+      
+
+        @media only screen and (max-width: 390px){
+
+          .goodbox{
+          height: 79rem;
+         }
+          #div1{
+          margin-top:-336px;
+            margin-left:-87px;
+            z-index:1;
+            width:400px;
+            color:Blue;
+         }
+         #div2{
+          margin-top:3px;
+              margin-left:32px;
+              z-index:1;
+              color:red;
+              width:400px;
+         }
+         #div3{
+          margin-top:64px;
+                margin-left:73%;
+                z-index:1;
+                width:100px;
+         }
+         #div4{
+          margin-top:47px;
+                  margin-left:100px;
+                  z-index:1;
+                  width:100px;
+         }
+         #div5{
+          margin-top:37px;
+                    margin-left:235px;
+                    z-index:1;
+                    width:100px;
+
+         }
+         #div6{
+          margin-top:55px;
+                      margin-left:43px;
+                      z-index:1;
+                      color:red;
+                      width:400px;
+
+         }
+         #div7{
+                       margin-top :-39px;
+                        margin-left:-127px;
+                        z-index:1;
+                        color: darkviolet;
+                        width:400px; 
+
+         }
+        }
+
+        @media only screen and (max-width: 480px){
+          .nicebox{
+          height: 123rem;
+         }
+         .goodbox{
+          height: 57rem;
+         }
+          #div1{
+          margin-top:-131%;
+            margin-left:-2%;
+            z-index:1;
+            width:400px;
+            color:Blue;
+         }
+         #div2{
+          margin-top:-4%;
+              margin-left:34%;
+              z-index:1;
+              color:red;
+              width:400px;
+         }
+         #div3{
+          margin-top:32%;
+                margin-left:85%;
+                z-index:1;
+                width:100px;
+         }
+         #div4{
+          margin-top:25%;
+                  margin-left:35%;
+                  z-index:1;
+                  width:100px;
+         }
+         #div5{
+          margin-top:11%;
+                    margin-left:82%;
+                    z-index:1;
+                    width:100px;
+
+         }
+         #div6{
+          margin-top:27%;
+                      margin-left:30%;
+                      z-index:1;
+                      color:red;
+                      width:400px;
+
+         }
+         #div7{
+                       margin-top :-8%;
+                        margin-left:-18%;
+                        z-index:1;
+                        color: darkviolet;
+                        width:400px; 
+
+         }
+        }
+
+        @media only screen and (max-width: 417px){
+
+          #div1{
+          margin-top:-134%;
+            margin-left:17%;
+            z-index:1;
+            width: 150px;
+            color:Blue;
+         }
+         #div2{
+          margin-top:-4%;
+              margin-left:56%;
+              z-index:1;
+              color:red;
+              width:150px;
+         }
+         #div3{
+          margin-top:32%;
+                margin-left:87%;
+                z-index:1;
+                width:70px;
+         }
+         #div4{
+          margin-top:25%;
+                  margin-left:44%;
+                  z-index:1;
+                  width:70px;
+         }
+         #div5{
+          margin-top:11%;
+                    margin-left:82%;
+                    z-index:1;
+                    width:70px;
+
+         }
+         #div6{
+          margin-top:27%;
+                      margin-left:59%;
+                      z-index:1;
+                      color:red;
+                      width:150px;
+
+         }
+         #div7{
+                       margin-top :-8%;
+                        margin-left:4%;
+                        z-index:1;
+                        color: darkviolet;
+                        width:150px; 
+
+         }
+        }
+
+        @media only screen and (max-width: 417px){
+          #div6{
+          margin-top:27%;
+                      margin-left:54%;
+                      z-index:1;
+                      color:red;
+                      width:150px;
+
+         }
+         
+         #div1{
+          margin-top:-134%;
+            margin-left:13%;
+            z-index:1;
+            width: 150px;
+            color:Blue;
+         }
+         #div5{
+          margin-top:8%;
+                    margin-left:79%;
+                    z-index:1;
+                    width:70px;
+
+         }
+        }
+
+        @media only screen and (max-width: 360px){
+          .nicebox{
+          height: 106rem;
+         }
+         .goodbox{
+          height: 40rem;
+         }
+        }
+
+       
+
+
+
+        
+</style>
+
+<ins class="adsbygoogle adslot_3" data-ad-client="ca-pub-1356083154313781" data-ad-slot="9876442097"></ins>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1356083154313781" crossorigin="anonymous"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<a href="javascript:;" class="menu-toggler">
+  <img src="images/images.png" width=30 height=30/>
+</a>
+
+
+</div>
+</div>
+
+<div class="page-header-menu" >
+  <div class="container-fluid">
+  <div class="hor-menu">
+  <ul class="nav navbar-nav" >
+  <li class="menu-dropdown">
+    <a id="ctl00_hlDashboard" title="Civil Engineering Calculators" href="../Default.aspx"><img src="images/home.png" width="20" height="20"   /><span class="hidden-lg hidden-md hidden-sm">&nbsp;Home</span></a>
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="index.html"> ONE WAY SLAB
+
+  </a>
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="TWO-WAY.html" >TWO WAY SLAB
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="TENSION MEMBER BOLTED.html" >TENSION MEMBER BOLTED
+  
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+    <a  href="TENSION MEMBER WELDED.html" >TENSION MEMBER WELDED
+    </a>
+   
+    </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="DESIGN-LONG-COLUMN.html" >LONG COLUMN 
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+    <a  href="DESIGN-SHORT-COLUMN.html" >SHORT COLUMN
+
+    </a>
+   
+    </li>
+ 
+    <li class="menu-dropdown mega-menu-dropdown">
+      <a  href="SINGLY REINFORCED BEAM.html" >SINGLY REINFORCED BEAM
+     
+      </a>
+     
+      </li>
+      <li class="menu-dropdown mega-menu-dropdown">
+      <a  href="DOUBLY REINFORCED BEAM.html" >DOUBLY REINFORCED BEAM
+      </a>
+     
+      </li>
+      
+  </ul>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="page-container">
+<!-- <div id="ctl00_divPageHead" class="page-head"> 
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-7">
+<div class="page-title" style="padding: 15px 0 !important;">
+<h1>
+<span id="ctl00_cphPageHeaderText_lblCalculatorTitle" title="Construction Cost Estimator Calculator | House Construction Cost Calculator">Construction Cost Calculator</span>
+</h1>
+</div>
+</div>
+
+</div>
+</div>
+</div> -->
+<div class="page-content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+<div class="row">
+    <div class="col-md-6" >
+    <div class="portlet light" >
+      <div class="portlet-title">
+        <h2 class="caption H2_MarginTB5" title="Brick masonry calculator">
+        
+        <span id="ctl00_cphPageContent_lblTitle" class="caption-subject bold uppercase">Design Of One Way Slab</span>
+        </h2>
+      </div>
+      <!-- Design Form start----------------------------------------------------- -->
+      <div class="portlet-body form">
+     
+        <div role="form" class="form-horizontal" >
+        <div class="form-body" >
+        <div class="form-group">
+        <label class="col-md-12 control-label" style="background-color: #0f053d; color:whitesmoke;font-size: 14px;text-align:center;">
+        ROOM DIMENSION&nbsp; 
+        </label>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label">
+              LENGTH(L)&nbsp;
+                </label>
+                <div class="col-md-6">
+                <div class="input-group">
+                <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D4" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+                <span class="input-group-addon">
+                <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+                </span>
+                </div>
+                <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+                <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+                </div>
+              
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">
+            WIDTH(B)&nbsp;  </label>
+              <div class="col-md-6">
+              <div class="input-group">
+              <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D5" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+              <span class="input-group-addon">
+              <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+              </span>
+              </div>
+              <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+              <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+              </div>
+            
+        </div>
+        
+        
+        <div class="form-group">
+          <label class="col-md-12 control-label" style="background-color: #0f053d; color:whitesmoke;font-size: 14px;text-align: center;">
+            THICKNESS OF SUPPORT/WALL&nbsp; </label>
+          </div>
+          
+          <div class="form-group">
+              <label class="col-md-4 control-label">
+                LONGER&nbsp;  </label>
+                  <div class="col-md-6">
+                  <div class="input-group">
+                  <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D8" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+                  <span class="input-group-addon">
+                  <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+                  </span>
+                  </div>
+                  <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+                  <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+                  </div>
+                
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">
+             SHORTER &nbsp; </label>
+                <div class="col-md-6">
+                <div class="input-group">
+                <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D9" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+                <span class="input-group-addon">
+                <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+                </span>
+                </div>
+                <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+                <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+                </div>
+              
+          </div>
+            
+          <div class="form-group">
+                <label class="col-md-4 control-label">
+                  GRADE OF CONCRETE (fck)
+                </label>
+                    <div class="col-md-6">
+                     
+                      <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D11" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+                    
+                      <option value="20">20 N/mm<sup>2</sup> </option>
+                      <option value="25">25 N/mm<sup>2</sup></option>
+                      <option value="30">30 N/mm<sup>2</sup></option>
+                      <option value="35">35 N/mm<sup>2</sup></option>
+                      <option value="40">40 N/mm<sup>2</sup></option>
+                      <option value="45">45 N/mm<sup>2</sup></option>
+                      <option value="50">50 N/mm<sup>2</sup></option>
+                      <option value="55">55 N/mm<sup>2</sup></option>
+                  
+                      </select>
+                   
+                      </div>
+                  
+          </div>
+        
+          <div class="form-group">
+                  <label class="col-md-4 control-label">
+                    GRADE OF STEEL (fy)  </label>
+                      <div class="col-md-6">
+                       
+                        <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D14" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+                      
+                        <option value="250">250 N/mm<sup>2</sup> </option>
+                        <option value="415">415 N/mm<sup>2</sup></option>
+                        <option value="500">500 N/mm<sup>2</sup></option>
+                        
+                    
+                        </select>
+                     
+                        </div>
+                    
+              </div>
+        
+          <div class="form-group">
+                <label class="col-md-12 control-label" style="background-color: #0f053d; color:whitesmoke;font-size: 14px;text-align: center;">
+                  LOADS&nbsp; </label>
+          </div>
+                
+          <div class="form-group">
+                    <label class="col-md-4 control-label">
+                      LIVE LOAD&nbsp; </label>
+                        <div class="col-md-6">
+                        <div class="input-group">
+                        <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="C18" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+                        <span class="input-group-addon">
+                        <span id="ctl00_cphPageContent_lblLengthUnitA">KN/m</span>
+                        </span>
+                        </div>
+                        <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+                        <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+                        </div>
+                      
+          </div>
+          <div class="form-group">
+                  <label class="col-md-4 control-label">
+                   FLOOR FINISH &nbsp;</label>
+                      <div class="col-md-6">
+                      <div class="input-group">
+                      <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="C19" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+                      <span class="input-group-addon">
+                      <span id="ctl00_cphPageContent_lblLengthUnitA">KN/m</span>
+                      </span>
+                      </div>
+                      <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+                      <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+                      </div>
+                    
+          </div>
+          <div class="form-group">
+                  <label class="col-md-4 control-label">
+                    MAIN BAR DIAMETER =  </label>
+                      <div class="col-md-6">
+                       
+                        <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D21" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+                      
+                        <option value="8">8 mm</option>
+                        <option value="10">10 mm</option>
+                        <option value="12">12 mm</option>
+                        <option value="16">16 mm</option>
+                        <option value="20">20 mm</option>
+                        <option value="25">25 mm</option>
+                        <option value="28">28 mm</option>
+                        <option value="32">32 mm</option>
+                        <option value="36">36 mm</option>
+                        <option value="40">40 mm</option>
+                    
+                        </select>
+                     
+                        </div>
+                    
+          </div>
+          <div class="form-group">
+                  <label class="col-md-4 control-label">
+                    DISTRIBUTION BAR DIA =  </label>
+                      <div class="col-md-6">
+                       
+                        <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D24" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+                      
+                        <option value="8">8 mm</option>
+                        <option value="10">10 mm</option>
+                        <option value="12">12 mm</option>
+                        <option value="16">16 mm</option>
+                        <option value="20">20 mm</option>
+                        <option value="25">25 mm</option>
+                        <option value="28">28 mm</option>
+                        <option value="32">32 mm</option>
+                        <option value="36">36 mm</option>
+                        <option value="40">40 mm</option>
+                    
+                        </select>
+                     
+                        </div>
+                    
+          </div>
+        
+          <div class="form-group">
+                <label class="col-md-4 control-label">
+                   Pt </label>
+                    <div class="col-md-6">
+                     
+                      <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D27" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+                    
+                      <option value="0.3">0.3 </option>
+                      <option value="0.35">0.35</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.45">0.45 </option>
+                      <option value="0.50">0.5</option>
+                      <option value="0.55">0.55</option>
+                      <option value="0.60">0.6</option>
+                      <option value="0.65">0.65</option>
+                      <option value="0.70">0.7</option>
+                      <option value="0.75">0.75</option>
+                      <option value="0.80">0.8</option>
+                      </select>
+                   
+                      </div>
+                  
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">
+             CLEAR COVER &nbsp; </label>
+                <div class="col-md-6">
+                <div class="input-group">
+                <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D30" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+                <span class="input-group-addon">
+                <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+                </span>
+                </div>
+                <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+                <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+                </div>
+              
+    </div>
+          <div class="form-actions text-right">
+            <input type="Button" name="ctl00$cphPageContent$btnCalculateBricks" value="Calculate" onclick="return fun1()" id="ctl00_cphPageContent_btnCalculateBricks" title="Calculate Bricks" class="btn blue" />
+            <input type="submit" name="ctl00$cphPageContent$btnReset" value="Reset" id="ctl00_cphPageContent_btnReset" title="Reset" class="btn red" />
+          </div>
+        </div>
+        
+        
+        </div>
+      </div>
+        <!-- Design Form end---------------------------------------------------- -->`
+    </div>
+        <!-- Design Summary  start----------------------------------------------------- -->
+        <div id="printableArea">
+          <div class="portlet light nicebox">
+          <div class="portlet-title">
+          <h2 class="caption H2_MarginTB5" title="Cost estimator calculator | House cost estimator calculator">
+        
+           Design Summary  
+          </h2>
+          </div>
+          <div class="portlet-body">
+          <div class="row">
+          <div class="col-md-12">
+          <div class="panel panel-default">
+          <div class="panel-heading" title="Approximate cost on various work of materials">
+          <h4 class="panel-title bold">DESIGN SUMMARY  </h4>
+          </div>
+          <ul class="list-group">
+          <li class="list-group-item">DEPTH OF SLAB (D) =
+          <span class="label label-primary pull-right">
+          <Label id="E162"></span>
+          </span>
+          </li>
+          </ul>
+          <div class="panel-heading" title="Approximate cost on various work of materials">
+            <h4 class="panel-title bold">MAIN R/F </h4>
+            </div>
+            <ul class="list-group">
+          <li class="list-group-item">DIA OF BARS 
+          <span class="label label-info pull-right">
+            <Label id="E165"></Label>
+          </span>
+          </li>
+          <li class="list-group-item">SPACING PORVIDED = 
+          <span class="label label-warning pull-right">
+            <Label id="E166"></Label>
+        
+          </span>
+          </li>
+        
+          </ul>
+          <ul class="list-group">
+            <li class="list-group-item">Ast provided= 
+              <span class="label label-info pull-right"> 
+                <Label id="E167"></Label>
+              </span>
+              </li>
+              </ul>
+          <div class="panel-heading" title="Approximate cost on various work of materials">
+           
+            </div>
+            
+          <div class="panel-heading" title="Approximate cost on various work of materials">
+            <h4 class="panel-title bold">DISTRIBUTION R/F</h4>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">DIA OF BARS 
+                <span class="label label-info pull-right">
+                  <Label id="E170"></Label>
+                </span>
+                </li>
+                <li class="list-group-item" > SPACING PROVIDED
+                <span class="label label-warning pull-right">
+                  <Label id="E171"></Label>
+                </span>
+                </li>
+                <li class="list-group-item">Ast Provided =
+                  <span class="label label-success pull-right">
+                    <Label id="E172"></Label>
+                  </li>
+          </ul>
+          </div>
+        
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="panel panel-default">
+              <div class="panel-heading" title="Approximate cost on various work of materials">
+              
+              </div>
+              <ul class="list-group">
+              <li class="list-group-item">fck
+              <span class="label label-primary pull-right">
+                <Label id="C174"></span>
+              </span>
+              </li>
+              <li class="list-group-item">fy
+              <span class="label label-info pull-right">
+            <Label id="C175"></Label>
+              </span>
+              </li>
+              
+              </ul>
+              </div>
+              </div>
+              <div class="col-md-5 text-center">
+            
+              
+              </div>
+          </div>
+        
+          </div>
+          </div>
+          <div class="portlet-body">
+            <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+            <div class="panel panel-default goodbox">
+           
+            <div id="container" style="position: relative;">
+            <img src="images/one-way/ONE WAY SLAB DWG-1.png" style="width:100%"/>
+            <div id="div1" >
+              <h4></h4>
+              </div>
+              <div id="div2" >
+                <h4></h4>
+                </div>
+                <div id="div3" >
+                  <h4></h4>
+                  </div>
+                  <div id="div4" >
+                    <h4></h4>
+                    </div>
+                    <div id="div5" >
+                      <h4></h4>
+                      </div>
+                      <div id="div6" >
+                        <h4></h4>
+                        </div>
+                        <div id="div7" >
+                          <h4></h4>
+                          </div>
+            </div>
+            </div>
+            </div>
+            
+            </div>
+            </div>
+          </div>
+          
+        </div>
+          <!-- Design Summary  end---------------------------------------------------- -->
+    </div>
+        <!-- Calculation part Start------------------------------------------------- -->
+    <div class="col-md-6">
+            <div class="portlet light">
+                <div class="portlet-title">
+                <h2 class="caption H2_MarginTB5" title="Brick masonry calculator">
+                
+                <span id="ctl00_cphPageContent_lblTitle" class="caption-subject bold uppercase">Calculation & Used Formulas</span>
+                </h2>
+            </div>
+            <div role="form" class="form-horizontal">
+                <div class="form-body">
+        
+                  <div class="form-group">
+                    <div class="col-md-12 control-label">
+                    <label class="col-md-6 control-label" style="text-align: left;">
+                    EFFECTIVE DEPTH(d): -
+                    </label>
+                  
+                    <label class="col-md-6 control-label" style="text-align: center; color: darkred;" id="D45">
+                     &nbsp;
+                      </label>
+                    </div>
+                    <div class="col-md-12 control-label">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                        d povided=
+                         </label>
+                         <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D47">
+                          &nbsp;
+                          </label>
+                        </div>
+                        <div class="col-md-12 control-label">
+                          <label class="col-md-6 control-label" style="text-align: left;">
+                            MF=
+                             </label>
+                             <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="G45">
+                          
+                              </label>
+                              </div>
+                              <div class="col-md-12 control-label">
+                              <label class="col-md-6 control-label" style="text-align:left;">
+                                OVERALL DEPTH(D):-
+                              </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                              <label class="col-md-6 control-label" style="text-align: left;">
+                                D=d+(0/2)+CLEAR COVER=
+                                 </label>
+                                 <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E52">
+                                 &nbsp;
+                                  </label>
+                            </div>      
+                  </div>
+                  <hr/>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" style="text-align: center;">
+                      EFFECTIVE SPAN:-
+                    </label>
+                    <div class="col-md-12 control-label">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                        a)Lx+d=
+                         </label>
+                         <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E57">
+                         &nbsp;
+                          </label>
+                    </div>
+                    <div class="col-md-12 control-label">      
+                         <label class="col-md-6 control-label" style="text-align: left;">
+                          c/c DISTANCE BETWEEN SUPPORT=
+                           </label>
+                           <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E58">
+                            &nbsp;
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                            EFFECTIVE SPAN=
+                             </label>
+                             <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D60">
+                              &nbsp;
+                              </label>
+                    <!-- <label class="col-md-6 control-label" id="od"  style="text-align: right; color:red">
+                    
+                   </label> -->
+        
+                  </div>
+                  </div>
+                  <hr/>
+                  <div class="form-group"> 
+                    <label class="col-md-12 control-label" style="text-align: center;">
+                      Load CACULATION: -
+                      </label>
+                    <div class="col-md-12 control-label">
+                      
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                   DEAD LOAD=
+                    </label>
+                    <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D65">
+                      &nbsp;
+                      </label>
+                      </div>
+                      <div class="col-md-12 control-label">
+                    <label class="col-md-6 control-label" style="text-align: left;">
+                      TOTAL LOAD=
+                       </label>
+                       <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D67">
+                        &nbsp;
+                        </label>
+                        </div>
+                        <div class="col-md-12 control-label">
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          FACTORED LOAD=
+                           </label>
+                           <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D69">
+                            &nbsp;
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                            <label class="col-md-6 control-label" style="text-align: left;">
+                              BENDING MOMENT(M)=
+                               </label>
+                               <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D71">
+                                &nbsp;
+                                </label>      
+                  </div>
+                   
+              
+                  </div>
+                  <hr/>
+                  
+                      <div class="form-group"> 
+                        <label class="col-md-12 control-label" style="text-align: center;">
+                          EFFECTIVE DEPTH FOER FLECXURE: -
+                          </label>
+                        <div class="col-md-12 control-label">
+                        
+                          
+                          <label class="col-md-6 control-label" style="text-align: left;">
+                           d=
+                           </label>
+                           <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C76">
+                            
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                          <label class="col-md-6 control-label" style="text-align: left;">
+                            d< d provided
+                            </label>
+                            <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C79">
+                             
+                              </label>
+                          </div>
+          
+                        </div>
+                    <hr/>
+                   
+                      <div class="form-group"> 
+                        <label class="col-md-12 control-label" style="text-align: center;">
+                          MAIN STEEL REINFORCEMENT: -
+                          </label>
+<!-- do by this way----------------------------------------- -->
+                     <div class="col-md-12 control-label" style="text-align: center;">
+                       <label class="col-md-6 control-label" style="text-align: left;">
+                         pt =<img src="images/two-way/pt.png"/>
+                  
+                        </label>
+                         <label class="col-md-6 control-label" style="text-align: left;color: darkred;" id="F86">
+                     
+                        </label>
+                      </div>
+                      <div class="col-md-12 control-label">
+                         <label class="col-md-6 control-label" style="text-align: left;">
+                          Ast=ptxbxd/100=
+                          </label>
+                          <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E89">
+                       
+                            </label>
+                            </div>
+                            <!-- <label class="col-md-12 control-label" style="text-align: left;">
+                              PITCH OF LATERAL TIE,
+                            </label> -->
+                            <div class="col-md-12 control-label">
+                            <label class="col-md-6 control-label" style="text-align: left;">
+                              ast = (π/4)*Ø^2 =
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D91">
+                          
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                            <label class="col-md-4 control-label" style="text-align: left;">
+                              SPACING=
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D93">
+                           
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F93">
+                           
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                            <label class="col-md-4 control-label" style="text-align:left;">
+                              PROVIDE=
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="B95">
+                            
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D95">
+                            
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                            <label class="col-md-6 control-label" style="text-align:left;">
+                              Astprovide=
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D97">
+                             
+                            </label>
+                            </div>
+                            <div class="col-md-12 control-label">
+                            <label class="col-md-6 control-label" style="text-align:left;">
+                              CONSIDER 50% BENT UP BARS ,  Ast @ bottom =
+                            </label>
+                            <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F99">
+                            
+                            </label>
+                            </div>
+          
+                        </div>
+                    <hr/>
+        
+                     <div class="form-group"> 
+                      <label class="col-md-12 control-label" style="text-align: center;">
+                        DISTRIBUTION STEEL REINFORCEMENT: -
+                        </label>
+                      <div class="col-md-12 control-label">
+                      
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          PROVIDE  MINI 0.12% STEEL, 
+                          </label>
+                          </div>
+                          <div class="col-md-12 control-label">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                        MINI Ast = 0.12 x b x D / 100
+                        </label>
+                        <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="E104">
+                        
+                         </label>
+                         </div>
+                         <div class="col-md-12 control-label">
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          ast = (π/4)*Ø^2 =
+                         </label>
+                         <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D106">
+                          
+                           </label>
+                           </div>
+                           <!-- <label class="col-md-12 control-label" style="text-align: left;">
+                             PITCH OF LATERAL TIE,
+                           </label> -->
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-4 control-label" style="text-align: left;">
+                            SPACING =
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D108">
+                            
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F108">
+                            
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                             Astprovide=
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D110">
+                          
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-4 control-label" style="text-align:left;">
+                             Provide=
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="B112">
+                             
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D112">
+                             
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                             Astprovide=
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D114">
+                             
+                           </label>
+                           </div>
+                           
+                    </div>
+                    <hr/>
+                    <div class="form-group"> 
+                      <label class="col-md-12 control-label" style="text-align: center;">
+                        CHECK FOR CRACKING: -
+                        </label>
+                      <div class="col-md-12 control-label">
+                      
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          FOR MAIN STEEL, 
+                          </label>
+                          </div>
+                          <div class="col-md-12 control-label">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                        a)3d=
+                        </label>
+                        <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F118">
+                        
+                         </label>
+                         </div>
+                         <div class="col-md-12 control-label">
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          b)300
+                         </label>
+                         <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F119">
+                          
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                            SPACING PROV. =
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F120">
+                            
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                            SPACING PROVIDED MINIMUM OF  (a), (b) and (c)
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="H122">
+                          
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                            FOR DISTRIBUTION STEEL,
+                          </label>
+                          </div>
+                          <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                             a)5d=
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F124">
+                             
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                             b)300=
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F125">
+                             
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                            c)SPACING PROV.=
+                          </label>
+                          <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F126">
+                            
+                          </label>
+                          </div>
+                          <div class="col-md-12 control-label">
+                          <label class="col-md-6 control-label" style="text-align: left;">
+                            SPACING PROVIDED MINIMUM OF  (a), (b) and (c)
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="H128">
+                          
+                           </label>
+                           </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group"> 
+                      <label class="col-md-12 control-label" style="text-align: center;">
+                        CHECK FOR DEVLOPMENT LENGTH: -
+                        </label>
+                      <div class="col-md-12 control-label">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                        σs = 0.87fy = 
+                        </label>
+                        <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="D137">
+                        
+                         </label>
+                         </div>
+                         <div class="col-md-12 control-label">
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          τbd =  DESIGN BOND STRESS x 1.6 =
+                         </label>
+                         <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="F139">
+                          
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                            Ld =   Ø x σs / 4τbd
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="E141">
+                            
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align: left;">
+                            M1 = 0.87 *fy * Ast *(1 - (( fy *Ast ) / (fck * b* d))) =
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="G144">
+                          
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                            V = Wl/2 =
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="C146">
+                             
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                            Lo =  a) d
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="C148">
+                             
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                             b) 12Ø
+                           </label>
+                           <label class="col-md-4 control-label" style="text-align: center;color: darkred;" id="C149">
+                             
+                           </label>
+                           </div>
+                           <div class="col-md-12 control-label">
+                           <label class="col-md-6 control-label" style="text-align:left;">
+                            Lo=
+                          </label>
+                          <label class="col-md-4 control-label" style="text-align: center;color:darkred" id="C151">
+                            
+                          </label>
+                          </div>
+                          <div class="col-md-12 control-label">
+                          <label class="col-md-6 control-label" style="text-align:left;">
+                            Ld <  ( 1.3 M1 / V ) + Lo
+                          </label>
+                          <label class="col-md-4 control-label" style="text-align: center;color:darkred" id="E154">
+                            
+                          </label>
+                        </div>
+                    </div>
+                    <hr/>
+                 
+                </div>
+              
+             
+                </div>
+               
+        
+        
+        </div>
+    </div>
+           <!-- Calculation part end------------------------------------------------ -->
+</div>
+
+
+
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
+<script>
+        var oldData = [2591950, 4218391, 7348165];
+        var ctx = document.getElementById('CostEstimatorPie_Chart').getContext('2d');
+        var chart1 = new Chart(ctx, {
+            type: 'pie',
+
+            toolTipContent: "(#percent%)",
+            data: {
+                labels: ['Cement', 'Sand', 'Aggregate', 'Steel', 'Finisher', 'Fitting'],
+                datasets: [{
+                    label: 'Asp dataset',
+                    borderColor: 'white',
+                    data: oldData,
+                    backgroundColor: ['#0AAFF1', '#ff0028',
+                    '#F3B200',
+                    '#ff5e6c',
+                    '#8076a3',
+                    '#657a00'
+                    ],
+                }]
+            },
+            options: {
+                zoomOutPercentage: 15,
+                plugins: {
+                    legend: false,
+                    outlabels: {
+                        text: '%l \n %v Rs.',
+                        color: 'white',
+                        stretch: 15,
+                        font: {
+                            resizable: true,
+                            minSize: 12,
+                            maxSize: 13,
+                        }
+                    }
+                },
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 30,
+                        bottom: 30
+                    }
+                }
+            },
+        });
+
+        function updateChartPie(answer, label) {
+            chart1.data.datasets[0].data = answer;
+            chart1.data.labels = label;
+            chart1.update();
+        }
+    </script>
+<script>
+        var oldData = [219000, 184000, 111000, 169000, 178000, 139000];
+        var ctx = document.getElementById('CostEstimatorBar_Chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            toolTipContent: "(#percent%)",
+            data: {
+                labels: ['1st Month', '2nd Month', '3nd Month', '4th Month', '5th Month', '6th Month', ],
+                datasets: [{
+                    label: 'Rs',
+                    borderColor: 'green',
+                    data: oldData,
+                    backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 1, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                zoomOutPercentage: 15,
+                plugins: [{
+                    beforeInit: function (chart) {
+                        chart.data.labels.forEach(function (e, i, a) {
+                            if (/\n/.test(e)) {
+                                a[i] = e.split(/\n/)
+                            }
+                        })
+                    },
+                }],
+                legend: false,
+
+
+
+                animation: {
+                    duration: 0,
+                    onComplete: function () {
+                        // render the value of the chart above the bar
+                        var ctx = this.chart.ctx;
+                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                        ctx.fillStyle = this.chart.config.options.defaultFontColor;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        this.data.datasets.forEach(function (dataset) {
+                            for (var i = 0; i < dataset.data.length; i++) {
+                                var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                                ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                            }
+                        });
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 0,
+                            //stepSize: 20000
+                        }
+                    }]
+                },
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 20,
+                        bottom: 0
+                    }
+                }
+            },
+
+        });
+
+        function updateChartBar(answer, label) {
+            chart.data.datasets[0].data = answer;
+            chart.data.labels = label;
+            chart.update();
+        }
+</script>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="scroll-to-top">
+  <img src="images/down.png" alt="" class="icon-arrow-up" width="30px" height="20px">
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="js/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/metronic.js" type="text/javascript"></script>
+<script src="js/layout.js" type="text/javascript"></script>
+<script src="js/demo.js" type="text/javascript"></script>
+<script src="js/components-dropdowns.js"></script>
+<script src="js/CommonJSFunctions.js"></script>
+<script src="js/CommonValidation.js"></script>
+<script src="js/GN_UI.js"></script>
+<script src="js/components-pickers.js"></script>
+
+
+<script>
+            jQuery(document).ready(function () {
+
+                Metronic.init();
+                Layout.init();
+                Demo.init();
+                ComponentsDropdowns.init();
+                ComponentsPickers.init();
+                //ComponentsFormTools.init();
+            });
+
+            $('select.multiselect2').select2({
+                allowClear: true
+            });
+
+            if (typeof (Sys) !== 'undefined') {
+                Page = Sys.WebForms.PageRequestManager.getInstance();
+                Page.add_beginRequest(OnBeginRequest);
+                Page.add_endRequest(endRequest);
+            }
+
+            function OnBeginRequest(sender, args) {
+                Metronic.blockUI({
+                    boxed: true
+                });
+            }
+
+            function endRequest(sender, args) {
+                Metronic.unblockUI();
+                $('select').select2({
+                    width: 'fixed'
+                });
+
+                $('.timepicker-no-seconds').timepicker({
+                    autoclose: true,
+                    minuteStep: 5,
+                    defaultTime: null
+                });
+
+                $('.timepicker').parent('.input-group').on('blur', '.input-group-btn', function (e) {
+                    e.preventDefault();
+                    $(this).parent('.input-group').find('.timepicker').timepicker('hideWidget');
+                });
+
+                $(".form_meridian_datetime").datetimepicker({
+                    isRTL: Metronic.isRTL(),
+                    format: "dd-mm-yyyy HH:ii P",
+                    showMeridian: true,
+                    autoclose: true,
+                    pickerPosition: (Metronic.isRTL() ? "bottom-right" : "bottom-left"),
+                    todayBtn: true,
+                    todayHighlight: true
+                });
+
+                $('.date-picker-nofuture').datepicker({
+                    startDate: "01-01-1900",
+                    endDate: "new date()",
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('.date-picker-nopastdate').datepicker({
+                    startDate: "new date()",
+                    todayHighlight: true
+                });
+                $('.date-picker').datepicker({
+                    startDate: "01-01-1900",
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('a.modalButton').on('click', function (e) {
+                    var src = $(this).attr('href');
+                    var target = $(this).attr('data-target');
+
+                    $(target + " iframe").attr({
+                        'src': src
+                    });
+                });
+
+                var initPickers = function () {
+                    //init date pickers
+                    $('.date-picker').datepicker({
+                        rtl: Metronic.isRTL(),
+                        autoclose: true,
+                        todayHighlight: true
+                    });
+                }
+
+                initPickers();
+                $('select.multiselect2').select2({
+                    allowClear: true
+                });
+
+                function closeModalAndRefreshPage() {
+                    $('.modal').modal('hide');
+                    location.reload();
+                }
+
+                $('.modal .fade').on('hidden.bs.modal', function () {
+                    $(".modal .fade iframe").attr({
+                        'src': 'about:blank'
+                    });
+                });
+
+                //function ShowHelp() {
+                //    $(".DivHelp").slideToggle('slow');
+                //}
+
+                function closemyModal() {
+                    $('.modal').modal('hide');
+                }
+            }
+
+        </script>
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_cphPageContent_vsCostEstimatorCalculation"));
+var Page_Validators =  new Array(document.getElementById("ctl00_cphPageContent_rfvBuiltup"), document.getElementById("ctl00_cphPageContent_rfvApproxCost"));
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_cphPageContent_vsCostEstimatorCalculation = document.all ? document.all["ctl00_cphPageContent_vsCostEstimatorCalculation"] : document.getElementById("ctl00_cphPageContent_vsCostEstimatorCalculation");
+ctl00_cphPageContent_vsCostEstimatorCalculation.headertext = "Please Correct follwing error(s)";
+ctl00_cphPageContent_vsCostEstimatorCalculation.validationGroup = "CostEstimatorCalculation";
+var ctl00_cphPageContent_rfvBuiltup = document.all ? document.all["ctl00_cphPageContent_rfvBuiltup"] : document.getElementById("ctl00_cphPageContent_rfvBuiltup");
+ctl00_cphPageContent_rfvBuiltup.controltovalidate = "ctl00_cphPageContent_txtBuiltup";
+ctl00_cphPageContent_rfvBuiltup.errormessage = "Enter builtup square feet";
+ctl00_cphPageContent_rfvBuiltup.display = "None";
+ctl00_cphPageContent_rfvBuiltup.validationGroup = "CostEstimatorCalculation";
+ctl00_cphPageContent_rfvBuiltup.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphPageContent_rfvBuiltup.initialvalue = "";
+var ctl00_cphPageContent_rfvApproxCost = document.all ? document.all["ctl00_cphPageContent_rfvApproxCost"] : document.getElementById("ctl00_cphPageContent_rfvApproxCost");
+ctl00_cphPageContent_rfvApproxCost.controltovalidate = "ctl00_cphPageContent_txtApproxCost";
+ctl00_cphPageContent_rfvApproxCost.errormessage = "Enter approxe cost per square feet";
+ctl00_cphPageContent_rfvApproxCost.display = "None";
+ctl00_cphPageContent_rfvApproxCost.validationGroup = "CostEstimatorCalculation";
+ctl00_cphPageContent_rfvApproxCost.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphPageContent_rfvApproxCost.initialvalue = "";
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+updateChartPie([164000.000000,123000.000000,74000.000000,246000.000000,165000.000000,228000.000000], [['Cement', '16.4%'],['Sand', '12.3%'],['Aggregate', '7.4%'],['Steel', '24.6%'],['Finisher', '16.5%'],['Fitting', '22.8%']]);updateChartBar([219000.000000,184000.000000,111000.000000,169000.000000,178000.000000,139000.000000], [['1st Month', '21.9%'],['2nd Month', '18.4%'],['3rd Month', '11.1%'],['4th Month', '16.9%'],['5th Month', '17.8%'],['6th Month', '13.9%']]);
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+</html>

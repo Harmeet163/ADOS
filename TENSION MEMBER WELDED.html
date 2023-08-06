@@ -1,0 +1,3643 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      Construction Cost Estimator, House Cost Calculator, Cost per square feet
+    </title>
+    <script>
+      function fun1() {
+       let C3=document.getElementById("C3").value;
+    
+
+       let C5=document.getElementById("C5").value;
+     
+
+       //let C7=document.getElementById("C7").value;
+       let fy= document.getElementById("C7");
+       let C7=fy.options[fy.selectedIndex].value;
+
+       let C10=document.getElementById("C10").value;
+    
+
+       let D12=document.getElementById("D12").value;
+       
+       let D14=((C3*1000*1.1)/(C7)).toFixed(2);
+       document.getElementById("D14").value=D14;
+   
+
+      
+       let bt=document.getElementById("B19");
+       let B19 = bt.options[bt.selectedIndex].value;
+       let d,b ,t,a,cz;
+       alert("........................."+B19);
+       if(B19=="ISA 20203")
+       {
+        a= 1.12*100;
+        d=20;
+        b=20;
+        t=3;
+        cz=.59;
+        }
+        else if(B19=="ISA 20204")
+        {
+        a= 1.45*100;
+        d=20;
+        b=20;
+        t=4;
+        cz=.63;
+        }
+        else if(B19=="ISA 25253")
+        {
+        a= 1.41*100;
+        d=25;
+        b=25;
+        t=3;
+        cz=.71;
+        }
+
+        else if(B19=="ISA 25254")
+        {
+        a= 1.84*100;
+        d=25;
+        b=25;
+        t=4;
+        cz=.75;
+        }
+
+        else if(B19=="ISA 25255")
+        {
+        a= 1.84*100;
+        d=25;
+        b=25;
+        t=4;
+        cz=.79;
+        }
+
+        
+        else if(B19=="ISA 30303")
+        {
+        a= 1.73*100;
+        d=30;
+        b=30;
+        t=3;
+        cz=.083;
+        }
+
+
+        
+        else if(B19=="ISA 30304")
+        {
+        a= 2.66*100;
+        d=30;
+        b=30;
+        t=4;
+        cz=0.87;
+        }
+
+        
+        else if(B19=="ISA 30305")
+        {
+        a= 2.77*100;
+        d=30;
+        b=30;
+        t=5;
+        cz=0.92;
+        }
+
+        
+        else if(B19=="ISA 35353")
+        {
+        a= 2.03*100;
+        d=35;
+        b=35;
+        t=3;
+        cz=0.95;
+        }
+
+        
+        else if(B19=="ISA 35354")
+        {
+        a= 2.66*100;
+        d=35;
+        b=35;
+        t=4;
+        cz=1;
+        }
+
+        else if(B19=="ISA 35355")
+        {
+        a= 3.27*100;
+        d=35;
+        b=35;
+        t=5;
+        cz=1.04;
+        }
+
+
+        else if(B19=="ISA 35356")
+        {
+        a= 3.86*100;
+        d=35;
+        b=35;
+        t=6;
+        cz=1.08;
+        }
+
+
+        
+        else if(B19=="ISA 40403")
+        {
+        a= 2.34*100;
+        d=40;
+        b=40;
+        t=3;
+        cz=1.08;
+        }
+
+        
+        else if(B19=="ISA 40404")
+        {
+        a= 3.07*100;
+        d=40;
+        b=40;
+        t=4;
+        cz=1.12;
+        }
+       
+
+        
+        else if(B19=="ISA 40405")
+        {
+        a= 3.78*100;
+        d=40;
+        b=40;
+        t=5;
+        cz=1.16;
+        }
+       
+
+        
+        else if(B19=="ISA 40406")
+        {
+        a= 4.47*100;
+        d=40;
+        b=40;
+        t=6;
+        cz=1.2
+        }
+
+        else if(B19=="ISA 45453")
+        {
+        a= 2.64*100;
+        d=45;
+        b=45;
+        t=3;
+        cz=1.2;
+        }
+
+        else if(B19=="ISA 45454")
+        {
+        a= 3.47*100;
+        d=45;
+        b=45;
+        t=4;
+        cz=1.25;
+        }
+
+        
+        else if(B19=="ISA 45455")
+        {
+        a= 4.28*100;
+        d=45;
+        b=45;
+        t=5;
+        cz=1.29;
+        }
+
+
+        else if(B19=="ISA 45456")
+        {
+        a= 5.07*100;
+        d=45;
+        b=45;
+        t=6;
+        cz=1.33;
+        }
+
+
+        
+        else if(B19=="ISA 50503")
+        {
+        a= 2.95*100;
+        d=50;
+        b=50;
+        t=3;
+        cz=1.32;
+        }
+
+
+        
+        else if(B19=="ISA 50504")
+        {
+        a= 3.88*100;
+        d=50;
+        b=50;
+        t=4;
+        cz=1.37;
+        }
+
+
+         
+        else if(B19=="ISA 50505")
+        {
+        a= 4.79*100;
+        d=50;
+        b=50;
+        t=5;
+        cz=1.41;
+        }
+
+         
+        else if(B19=="ISA 50506")
+        {
+        a= 5.68*100;
+        d=50;
+        b=50;
+        t=6;
+        cz=1.45;
+        }
+       
+        else if(B19=="ISA 55555")
+        {
+        a= 5.27*100;
+        d=55;
+        b=55;
+        t=5;
+        cz=1.53;
+        }
+
+
+        
+        else if(B19=="ISA 55556")
+        {
+        a= 6.26*100;
+        d=55;
+        b=55;
+        t=6;
+        cz=1.57;
+        }
+
+
+         
+        else if(B19=="ISA 55558")
+        {
+        a= 8.18*100;
+        d=55;
+        b=55;
+        t=8;
+        cz=1.65;
+        }
+
+         
+        else if(B19=="ISA 555510")
+        {
+        a= 10.02*100;
+        d=55;
+        b=55;
+        t=10;
+        cz=1.72;
+        }
+       
+
+        else if(B19=="ISA 60605")
+        {
+        a= 5.27*100;
+        d=60;
+        b=60;
+        t=5;
+        cz=1.65;
+        }
+
+        else if(B19=="ISA 60606")
+        {
+        a= 6.26*100;
+        d=60;
+        b=60;
+        t=6;
+        cz=1.69;
+        }
+
+        else if(B19=="ISA 60608")
+        {
+        a= 8.96*100;
+        d=60;
+        b=60;
+        t=8;
+        cz=1.77;
+        }
+
+        
+        else if(B19=="ISA 606010")
+        {
+        a= 11*100;
+        d=60;
+        b=60;
+        t=10;
+        cz=1.85;
+        }
+
+        else if(B19=="ISA 65655")
+        {
+        a= 6.25*100;
+        d=65;
+        b=65;
+        t=5;
+        cz=1.77;
+        }
+
+        
+        else if(B19=="ISA 65656")
+        {
+        a= 7.44*100;
+        d=65;
+        b=65;
+        t=6;
+        cz=1.81;
+        }
+
+        
+        else if(B19=="ISA 65658")
+        {
+        a= 9.76*100;
+        d=65;
+        b=65;
+        t=8;
+        cz=1.98;
+        }
+
+
+        
+        else if(B19=="ISA 656510")
+        {
+        a= 12*100;
+        d=65;
+        b=65;
+        t=10;
+        cz=1.97;
+        }
+       
+        else if(B19=="ISA 70705")
+        {
+        a= 6.77*100;
+        d=70;
+        b=70;
+        t=5;
+        cz=1.89;
+        }
+       
+
+        else if(B19=="ISA 70706")
+        {
+        a= 8.06*100;
+        d=70;
+        b=70;
+        t=6;
+        cz=1.94;
+        }
+
+        
+        else if(B19=="ISA 70708")
+        {
+        a= 10.58*100;
+        d=70;
+        b=70;
+        t=8;
+        cz=2.02;
+        }
+       
+        
+        else if(B19=="ISA 707010")
+        {
+        a= 13.02*100;
+        d=70;
+        b=70;
+        t=10;
+        cz=2.1;
+        }
+
+        
+        else if(B19=="ISA 75755")
+        {
+        a= 7.27*100;
+        d=75;
+        b=75;
+        t=5;
+        cz=2.02;
+        }
+
+        
+        else if(B19=="ISA 75756")
+        {
+        a= 8.66*100;
+        d=75;
+        b=75;
+        t=6;
+        cz=2.06;
+        }
+
+        
+        else if(B19=="ISA 75758")
+        {
+        a= 11.38*100;
+        d=75;
+        b=75;
+        t=8;
+        cz=2.14;
+        }
+
+        else if(B19=="ISA 757510")
+        {
+        a= 14.02*100;
+        d=75;
+        b=75;
+        t=10;
+        cz=2.22;
+        }
+
+        else if(B19=="ISA 80806")
+        {
+        a= 9.29*100;
+        d=80;
+        b=80;
+        t=6;
+        cz=2.18;
+        }
+
+        else if(B19=="ISA 80808")
+        {
+        a= 12.21*100;
+        d=80;
+        b=80;
+        t=8;
+        cz=2.27;
+        }
+
+        
+        else if(B19=="ISA 808010")
+        {
+        a= 15.05*100;
+        d=80;
+        b=80;
+        t=10;
+        cz=2.34;
+        }
+
+        
+        else if(B19=="ISA 808012")
+        {
+        a= 17.81*100;
+        d=80;
+        b=80;
+        t=12;
+        cz=2.42;
+        }
+
+        else if(B19=="ISA 90906")
+        {
+        a= 10.47*100;
+        d=90;
+        b=90;
+        t=6;
+        cz=2.42;
+        }
+
+        else if(B19=="ISA 90908")
+        {
+        a= 13.79*100;
+        d=90;
+        b=90;
+        t=8;
+        cz=2.51;
+        }
+
+        else if(B19=="ISA 909010")
+        {
+        a= 13.79*100;
+        d=90;
+        b=90;
+        t=10;
+        cz=2.59;
+        }
+
+        
+        else if(B19=="ISA 909012")
+        {
+        a= 20.19*100;
+        d=90;
+        b=90;
+        t=12;
+        cz=2.66;
+        }
+
+        else if(B19=="ISA 1001006")
+        {
+        a= 11.67*100;
+        d=100;
+        b=100;
+        t=6;
+        cz=2.67;
+        }
+
+        else if(B19=="ISA 1001008")
+        {
+        a= 15.39*100;
+        d=100;
+        b=100;
+        t=8;
+        cz=2.76;
+        }
+
+        else if(B19=="ISA 10010010")
+        {
+        a= 19.03*100;
+        d=100;
+        b=100;
+        t=10;
+        cz=2.84;
+        }
+
+        else if(B19=="ISA 10010012")
+        {
+        a= 22.59*100;
+        d=100;
+        b=100;
+        t=12;
+        cz=2.92;
+        }
+
+        else if(B19=="ISA 1101108")
+        {
+        a= 17.02*100;
+        d=110;
+        b=110;
+        t=8;
+        cz=3;
+        }
+
+        
+        else if(B19=="ISA 11011010")
+        {
+        a= 21.06*100;
+        d=110;
+        b=110;
+        t=10;
+        cz=3.08;
+        }
+
+        
+        else if(B19=="ISA 11011012")
+        {
+        a= 25.02*100;
+        d=110;
+        b=110;
+        t=12;
+        cz=3.16;
+        }
+
+
+        
+        else if(B19=="ISA 11011015")
+        {
+        a= 30.81*100;
+        d=110;
+        b=110;
+        t=12;
+        cz=3.27;
+        }
+
+        
+        else if(B19=="ISA 1301308")
+        {
+        a= 20.22*100;
+        d=130;
+        b=130;
+        t=8;
+        cz=3.5;
+        }
+
+
+        
+        else if(B19=="ISA 13013010")
+        {
+        a= 25.06*100;
+        d=130;
+        b=130;
+        t=10;
+        cz=3.58;
+        }
+
+         
+        else if(B19=="ISA 13013012")
+        {
+        a= 29.82*100;
+        d=130;
+        b=130;
+        t=12;
+        cz=3.66;
+        }
+
+        
+        else if(B19=="ISA 13013015")
+        {
+        a= 36.81*100;
+        d=130;
+        b=130;
+        t=15;
+        cz=3.78;
+        }
+
+        
+        else if(B19=="ISA 15015010")
+        {
+        a= 23.02*100;
+        d=150;
+        b=150;
+        t=10;
+        cz=4.06;
+        }
+
+        
+        else if(B19=="ISA 15015012")
+        {
+        a= 34.59*100;
+        d=150;
+        b=150;
+        t=12;
+        cz=4.14;
+        }
+
+        else if(B19=="ISA 15015015")
+        {
+        a= 42.78*100;
+        d=150;
+        b=150;
+        t=15;
+        cz=4.26;
+        }
+
+
+      
+        else if(B19=="ISA 15015018")
+        {
+        a= 50.79*100;
+        d=150;
+        b=150;
+        t=18;
+        cz=4.38;
+        }
+
+        
+        else if(B19=="ISA 20020012")
+        {
+        a= 46.61*100;
+        d=200;
+        b=200;
+        t=12;
+        cz=5.26;
+        }
+
+        
+        else if(B19=="ISA 20020015")
+        {
+        a= 57.8*100;
+        d=200;
+        b=200;
+        t=15;
+        cz=5.49;
+        }
+
+        
+        else if(B19=="ISA 20020018")
+        {
+        a= 68.81*100;
+        d=200;
+        b=200;
+        t=15;
+        cz=5.61;
+        }
+
+        
+        else if(B19=="ISA 20020025")
+        {
+        a= 93.8*100;
+        d=200;
+        b=200;
+        t=25;
+        cz=5.88;
+        }
+
+        
+        else if(B19=="ISA 30203")
+        {
+        a= 1.41*100;
+        d=30;
+        b=20;
+        t=3;
+        cz=0.98;
+        }
+
+        
+        else if(B19=="ISA 30204")
+        {
+        a= 1.84*100;
+        d=30;
+        b=20;
+        t=4;
+        cz=1.02;
+        }
+
+        
+        else if(B19=="ISA 30205")
+        {
+        a= 2.25*100;
+        d=30;
+        b=20;
+        t=5;
+        cz=1.06;
+        }
+
+        
+        
+        else if(B19=="ISA 40253")
+        {
+        a= 1.88*100;
+        d=40;
+        b=25;
+        t=3;
+        cz=1.3;
+        }
+
+        
+        else if(B19=="ISA 40254")
+        {
+        a= 2.46*100;
+        d=40;
+        b=25;
+        t=4;
+        cz=1.35;
+        }
+
+        else if(B19=="ISA 40255")
+        {
+        a= 3.02*100;
+        d=40;
+        b=25;
+        t=5;
+        cz=1.39;
+        }
+
+
+        else if(B19=="ISA 40256")
+        {
+        a= 3.56*100;
+        d=40;
+        b=25;
+        t=6;
+        cz=1.43;
+        }
+// new
+        else if(B19=="ISA 45303")
+        {
+        a= 2.18*100;
+        d=45;
+        b=30;
+        t=3;
+        cz=1.42;
+        }
+
+        else if(B19=="ISA 45304")
+        {
+        a= 2.86*100;
+        d=45;
+        b=30;
+        t=4;
+        cz=1.47;
+        }
+
+        else if(B19=="ISA 45305")
+        {
+        a= 3.52*100;
+        d=45;
+        b=30;
+        t=5;
+        cz=1.51;
+        }
+
+        else if(B19=="ISA 45306")
+        {
+        a= 4.16*100;
+        d=45;
+        b=30;
+        t=6;
+        cz=1.55;
+        }
+// new
+        else if(B19=="ISA 50303")
+        {
+        a= 2.34*100;
+        d=50;
+        b=30;
+        t=3;
+        cz=1.63;
+        }
+
+        else if(B19=="ISA 50304")
+        {
+        a= 3.07*100;
+        d=50;
+        b=30;
+        t=4;
+        cz=1.68;
+        }
+
+        else if(B19=="ISA 50305")
+        {
+        a= 3.78*100;
+        d=50;
+        b=30;
+        t=5;
+        cz=1.72;
+        }
+
+        else if(B19=="ISA 50306")
+        {
+        a= 4.47*100;
+        d=50;
+        b=30;
+        t=6;
+        cz=1.76;
+        }
+// new
+        else if(B19=="ISA 60405")
+        {
+        a= 4.76*100;
+        d=60;
+        b=40;
+        t=5;
+        cz=1.95;
+        }
+
+        else if(B19=="ISA 60406")
+        {
+        a= 5.65*100;
+        d=60;
+        b=40;
+        t=6;
+        cz=1.99;
+        }
+
+        else if(B19=="ISA 60408")
+        {
+        a= 7.37*100;
+        d=60;
+        b=40;
+        t=8;
+        cz=2.07;
+        }
+// new
+        else if(B19=="ISA 65455")
+        {
+        a= 5.26*100;
+        d=65;
+        b=45;
+        t=5;
+        cz=2.07;
+        }
+
+        else if(B19=="ISA 65456")
+        {
+        a= 6.25*100;
+        d=65;
+        b=45;
+        t=6;
+        cz=2.11;
+        }
+
+        else if(B19=="ISA 65458")
+        {
+        a= 8.17*100;
+        d=65;
+        b=45;
+        t=8;
+        cz=2.19;
+        }
+// new
+        else if(B19=="ISA 70455")
+        {
+        a= 5.52*100;
+        d=70;
+        b=45;
+        t=5;
+        cz=2.27;
+        }
+
+        else if(B19=="ISA 70456")
+        {
+        a= 6.56*100;
+        d=70;
+        b=45;
+        t=6;
+        cz=2.32;
+        }
+
+        else if(B19=="ISA 70458")
+        {
+        a= 8.58*100;
+        d=70;
+        b=45;
+        t=8;
+        cz=2.4;
+        }
+
+        else if(B19=="ISA 704510")
+        {
+        a= 10.52*100;
+        d=70;
+        b=45;
+        t=10;
+        cz=2.48;
+        }
+// new
+        else if(B19=="ISA 75505")
+        {
+        a= 6.02*100;
+        d=75;
+        b=50;
+        t=5;
+        cz=2.39;
+        }
+
+        else if(B19=="ISA 75506")
+        {
+        a= 7.16*100;
+        d=75;
+        b=50;
+        t=6;
+        cz=2.44;
+        }
+
+        else if(B19=="ISA 75508")
+        {
+        a= 9.38*100;
+        d=75;
+        b=50;
+        t=8;
+        cz=2.52;
+        }
+
+        else if(B19=="ISA 755010")
+        {
+        a= 11.52*100;
+        d=75;
+        b=50;
+        t=10;
+        cz=2.6;
+        }
+// 
+        else if(B19=="ISA 80505")
+        {
+        a= 6.27*100;
+        d=80;
+        b=50;
+        t=5;
+        cz=2.6;
+        }
+
+        else if(B19=="ISA 80506")
+        {
+        a= 7.46*100;
+        d=80;
+        b=50;
+        t=6;
+        cz=2.64;
+        }
+
+        else if(B19=="ISA 80508")
+        {
+        a= 9.78*100;
+        d=80;
+        b=50;
+        t=8;
+        cz=2.73;
+        }
+
+        else if(B19=="ISA 805010")
+        {
+        a= 12.02*100;
+        d=80;
+        b=50;
+        t=10;
+        cz=2.81;
+        }
+// new
+        else if(B19=="ISA 90606")
+        {
+        a= 8.65*100;
+        d=90;
+        b=60;
+        t=6;
+        cz=2.87;
+        }
+
+        else if(B19=="ISA 90608")
+        {
+        a= 11.37*100;
+        d=90;
+        b=60;
+        t=8;
+        cz=2.96;
+        }
+
+        else if(B19=="ISA 906010")
+        {
+        a= 14.01*100;
+        d=90;
+        b=60;
+        t=10;
+        cz=3.04;
+        }
+
+        else if(B19=="ISA 906012")
+        {
+        a= 16.57*100;
+        d=90;
+        b=60;
+        t=12;
+        cz=3.12;
+        }
+
+        // new
+
+        else if(B19=="ISA 100656")
+        {
+        a= 9.55*100;
+        d=100;
+        b=65;
+        t=6;
+        cz=3.19;
+        }
+
+        else if(B19=="ISA 100658")
+        {
+        a= 12.57*100;
+        d=100;
+        b=65;
+        t=8;
+        cz=3.28;
+        }
+
+        else if(B19=="ISA 1006510")
+        {
+        a= 15.51*100;
+        d=100;
+        b=65;
+        t=10;
+        cz=3.37;
+        }
+        // new
+
+        else if(B19=="ISA 100756")
+        {
+        a= 10.14*100;
+        d=100;
+        b=75;
+        t=6;
+        cz=3.01;
+        }
+
+        else if(B19=="ISA 100758")
+        {
+        a= 13.36*100;
+        d=100;
+        b=75;
+        t=8;
+        cz=3.10;
+        }
+
+        else if(B19=="ISA 1007510")
+        {
+        a= 16.5*100;
+        d=100;
+        b=75;
+        t=10;
+        cz=3.19;
+        }
+
+        else if(B19=="ISA 1007512")
+        {
+        a= 19.56*100;
+        d=100;
+        b=75;
+        t=12;
+        cz=3.27;
+        }
+// new
+        else if(B19=="ISA 125756")
+        {
+        a= 11.66*100;
+        d=125;
+        b=75;
+        t=6;
+        cz=4.05;
+        }
+
+        else if(B19=="ISA 125758")
+        {
+        a= 15.38*100;
+        d=125;
+        b=75;
+        t=8;
+        cz=4.15;
+        }
+
+
+        else if(B19=="ISA 1257510")
+        {
+        a= 19.02*100;
+        d=125;
+        b=75;
+        t=10;
+        cz=4.24;
+        }
+
+
+
+        // new
+        else if(B19=="ISA 125956")
+        {
+        a= 12.86*100;
+        d=125;
+        b=95;
+        t=6;
+        cz=3.70;
+        }
+
+        else if(B19=="ISA 125958")
+        {
+        a= 16.98*100;
+        d=125;
+        b=95;
+        t=8;
+        cz=3.80;
+        }
+
+        else if(B19=="ISA 1259510")
+        {
+        a= 21.02*100;
+        d=125;
+        b=95;
+        t=10;
+        cz=3.88;
+        }
+
+        else if(B19=="ISA 1259512")
+        {
+        a= 24.98*100;
+        d=125;
+        b=95;
+        t=12;
+        cz=3.96;
+        }
+        // new
+
+        else if(B19=="ISA 150758")
+        {
+        a= 17.42*100;
+        d=150;
+        b=75;
+        t=8;
+        cz=5.23;
+        }
+
+        else if(B19=="ISA 1507510")
+        {
+        a= 21.56*100;
+        d=150;
+        b=75;
+        t=10;
+        cz=5.23;
+        }
+
+        else if(B19=="ISA 1507512")
+        {
+        a= 25.62*100;
+        d=150;
+        b=75;
+        t=12;
+        cz=5.41;
+        }
+
+        // new
+        else if(B19=="ISA 15011510")
+        {
+        a= 25.52*100;
+        d=150;
+        b=115;
+        t=10;
+        cz=4.55;
+        }
+
+        else if(B19=="ISA 15011512")
+        {
+        a= 30.38*100;
+        d=150;
+        b=115;
+        t=12;
+        cz=4.64;
+        }
+
+        else if(B19=="ISA 15011515")
+        {
+        a= 37.52*100;
+        d=150;
+        b=115;
+        t=15;
+        cz=4.76;
+        }
+        // else
+        else if(B19=="ISA 20010010")
+        {
+        a= 29.03*100;
+        d=200;
+        b=100;
+        t=10;
+        cz=6.96;
+        }
+
+        else if(B19=="ISA 20010012")
+        {
+        a= 34.59*100;
+        d=200;
+        b=100;
+        t=12;
+        cz=7.05;
+        }
+
+        else if(B19=="ISA 20010015")
+        {
+        a= 42.78*100;
+        d=200;
+        b=100;
+        t=15;
+        cz=7.18;
+        }
+
+        // new
+        else if(B19=="ISA 20015010")
+        {
+        a= 34*100;
+        d=200;
+        b=150;
+        t=10;
+        cz=5.99;
+        }
+
+        else if(B19=="ISA 20015012")
+        {
+        a= 40.56*100;
+        d=200;
+        b=150;
+        t=12;
+        cz=6.08;
+        }
+
+        else if(B19=="ISA 20015015")
+        {
+        a= 50.25*100;
+        d=200;
+        b=150;
+        t=15;
+        cz=6.20;
+        }
+
+        else if(B19=="ISA 20015018")
+        {
+        a= 59.76*100;
+        d=200;
+        b=150;
+        t=18;
+        cz=6.33;
+        }
+
+
+
+       let D21=a;
+       document.getElementById("D21").value=D21;
+
+       let F21;
+       if(D14<D21){
+        F21=`Agreq. < Agprov. OK`;
+       }else{
+        F21="SELECT ANOTHER ANGLE SECTION"
+       }
+
+       document.getElementById("F21").innerHTML=F21;
+       let D23=d;
+       document.getElementById("D23").value=D23;
+       document.getElementById("div4").innerHTML=D23+"mm";
+       let D24=b;
+       document.getElementById("D24").value=D24;
+       let D25=t; 
+       document.getElementById("D25").value=D25;
+       document.getElementById("div5").innerHTML="ISA"+D23+"x"+D24+"x"+D25+"mm";
+       let D26=cz*10;
+       document.getElementById("D26").value=D26;
+       let C32=((D21*C7)/(1.1*1000)).toFixed(2);
+       document.getElementById("C32").innerHTML=C32+" KN";
+
+       
+       let E32;
+       if (C32>C3){
+        E32=`Tdg >T HENCE OK`
+       }else{
+        E32=`SELECT ANOTHER SECTION`
+       }
+       document.getElementById("E32").innerHTML=E32;
+
+       
+
+       let D37=0.7*C10;
+       document.getElementById("D37").innerHTML=D37+" mm";
+ 
+       let D39=((C3*D26)/D23).toFixed(2);
+       document.getElementById("D39").innerHTML=D39+" KN";
+
+
+       let D42=C3-D39;
+       document.getElementById("D42").innerHTML=D42+" KN";
+
+        let Dtest=((D39*1000)/(D37*158))+(2*C10);
+        
+        let D45=Math.ceil(Dtest);
+
+        document.getElementById("D45").innerHTML=D45+" mm";
+
+       
+        let Dtest1=((D42*1000)/(D37*158))+(2*C10);
+        let D48=Math.ceil(Dtest1);
+        document.getElementById("D48").innerHTML=D48+" mm";
+
+        let D56=D24;
+        document.getElementById("D56").innerHTML=D56+" mm";
+        alert(D45+"...."+D48+"    "+(D45+D48));
+        let D57=(parseFloat(D45) + parseFloat(D48))/2;                         
+        document.getElementById("D57").innerHTML=D57+" mm";
+
+        let D53=((1.4-(0.076*(D24/D25)*(C7/410)*(D56/D57)))).toFixed(3);
+        document.getElementById("D53").innerHTML=D53+" mm";
+        let C59=(D23-(D25/2))*D25;
+        document.getElementById("C59").innerHTML=`${C59} mm <sup>2</sup>`;
+        let C61=(D24-(D25/2))*D25;
+        document.getElementById("C61").innerHTML=`${C61} mm <sup>2</sup>`;
+
+        let E63=((((0.9*C59*410)/1.25)+((D53*C61*C7)/1.1))/(1000)).toFixed(2);
+        document.getElementById("E63").innerHTML=E63+" KN";
+
+        let G63;
+        if (E63>C3){
+        G63=`Tdn >T HENCE OK`
+       }else{
+        G63=`SELECT ANOTHER SECTION`
+       }
+        document.getElementById("G63").innerHTML=G63;
+      
+        let C68=2*D57*D12;
+        document.getElementById("C68").innerHTML=`${C68} mm<sup>2</sup>`;
+
+        let C70=D23*D12;
+        document.getElementById("C70").innerHTML=`${C70} mm<sup>2</sup>`;
+        let E72=((((C68*C7)/((Math.sqrt(3))*1.1))+((0.9*C70*410)/(1.25)))/1000).toFixed(2);
+        document.getElementById("E72").innerHTML=E72+" KN";
+
+        let E76=((((0.9*C68*410)/(1.25*(Math.sqrt(3))))+((C70*C7)/1.1))/1000).toFixed(2);
+        document.getElementById("E76").innerHTML=E76+" KN";
+        let C79=Math.min(E72,E76);
+
+        document.getElementById("C79").innerHTML=C79+" KN";
+
+        let E79;
+        if (C79>C3){
+        E79=`Tdb >T HENCE OK`
+       }else{
+        E79=`SELECT ANOTHER SECTION`
+       }
+        document.getElementById("E79").innerHTML=E79;
+
+        let E89=D37;
+        document.getElementById("E89").innerHTML=E89;
+
+        let E90=D45;
+        document.getElementById("E90").innerHTML=E90;
+        document.getElementById("div1").innerHTML="LW1="+E90+"mm";
+
+        let E91=D48;
+        document.getElementById("E91").innerHTML=E91;
+        document.getElementById("div2").innerHTML="LW2="+E91+"mm";
+
+        let E94=D12;
+        document.getElementById("E94").innerHTML=E94;
+        document.getElementById("div3").innerHTML=E94+"mm thick G.P";
+
+
+        let E95=C10;
+        document.getElementById("E95").innerHTML=E95;
+
+
+        let C97=C7;
+        document.getElementById("C97").innerHTML=C97;
+        
+ 
+
+
+
+
+
+      }
+    </script>
+    <script
+      data-ad-client="ca-pub-1356083154313781"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta
+      content="Construction cost estimator, Construction cost calculator, House construction cost estimation, Cost estimator calculator, Cost per square feet"
+      name="keywords"
+    />
+    <meta
+      content="The construction cost estimator/calculator helps to finalize the approximate amount of cost &amp; quantity of material required for constructing a home.The calculator estimates the approximate cost and quantity of Cement, Sand, Aggregate, Steel, Paint, Flooring, Tiles, Bricks, Fittings, Window, Doors, Plumbing, Electrical, Sanitary, etc."
+      name="description"
+    />
+    <meta
+      content="ASWDC - App Software Website Development Center - Darshan Institute of Engineering and Technology"
+      name="author"
+    />
+
+    <link rel="shortcut icon" href="../Images/Icons/Favicon.ico" />
+
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="css/simple-line-icons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-select.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/select2.css" />
+    <link rel="stylesheet" type="text/css" href="css/multi-select.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-datepicker3.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-timepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-fileinput.css" />
+    <link rel="stylesheet" type="text/css" href="css/clockface.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-datepicker3.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="css/daterangepicker-bs3.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/bootstrap-datetimepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/dataTables.scroller.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/dataTables.colReorder.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/dataTables.bootstrap.css"
+    />
+    <link
+      href="css/components.css"
+      id="style_components"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="css/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="css/layout.css" rel="stylesheet" type="text/css" />
+    <link
+      href="css/default.css"
+      rel="stylesheet"
+      type="text/css"
+      id="style_color"
+    />
+    <link href="css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="css/gnmis.css" rel="stylesheet" />
+    <link href="css/GNCustom.css" rel="stylesheet" />
+    <style type="text/css">
+      .noTextDecoration:hover {
+        text-decoration: none !important;
+      }
+
+      .noTextDecorationHL:hover {
+        text-decoration: none !important;
+        border-bottom: none !important;
+        color: lightgray !important;
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ECQLZF848N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ECQLZF848N");
+    </script>
+
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <form
+      name="aspnetForm"
+      method="post"
+      action="./Construction-Cost-Estimator-Calculator"
+      onsubmit="javascript:return WebForm_OnSubmit();"
+      id="aspnetForm"
+    >
+      <div>
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+        <input
+          type="hidden"
+          name="__EVENTARGUMENT"
+          id="__EVENTARGUMENT"
+          value=""
+        />
+        <input
+          type="hidden"
+          name="__VIEWSTATE"
+          id="__VIEWSTATE"
+          value="/wEPDwULLTEzODIwMTEzMDAPZBYCZg9kFgQCAQ9kFgQCBA8WAh4HY29udGVudAWOAUNvbnN0cnVjdGlvbiBjb3N0IGVzdGltYXRvciwgQ29uc3RydWN0aW9uIGNvc3QgY2FsY3VsYXRvciwgSG91c2UgY29uc3RydWN0aW9uIGNvc3QgZXN0aW1hdGlvbiwgQ29zdCBlc3RpbWF0b3IgY2FsY3VsYXRvciwgQ29zdCBwZXIgc3F1YXJlIGZlZXRkAgUPFgIfAAXPAlRoZSBjb25zdHJ1Y3Rpb24gY29zdCBlc3RpbWF0b3IvY2FsY3VsYXRvciBoZWxwcyB0byBmaW5hbGl6ZSB0aGUgYXBwcm94aW1hdGUgYW1vdW50IG9mIGNvc3QgJiBxdWFudGl0eSBvZiBtYXRlcmlhbCByZXF1aXJlZCBmb3IgY29uc3RydWN0aW5nIGEgaG9tZS5UaGUgY2FsY3VsYXRvciBlc3RpbWF0ZXMgdGhlIGFwcHJveGltYXRlIGNvc3QgYW5kIHF1YW50aXR5IG9mIENlbWVudCwgU2FuZCwgQWdncmVnYXRlLCBTdGVlbCwgUGFpbnQsIEZsb29yaW5nLCBUaWxlcywgQnJpY2tzLCBGaXR0aW5ncywgV2luZG93LCBEb29ycywgUGx1bWJpbmcsIEVsZWN0cmljYWwsIFNhbml0YXJ5LCBldGMuZAIDD2QWBmYPZBYCAgEPDxYCHgtOYXZpZ2F0ZVVybAUOfi9EZWZhdWx0LmFzcHhkZAIBD2QWAgIDD2QWAgIDDw8WAh8BBSB+L1F1YW50aXR5LUVzdGltYXRvci1DYWxjdWxhdG9yc2RkAgIPZBY2AhUPDxYCHgRUZXh0BRAxMCwwMCwwMDAuMDAgUnMuZGQCFw8PFgIfAgUPMSw2NCwwMDAuMDAgUnMuZGQCGQ8PFgIfAgUPMSwyMywwMDAuMDAgUnMuZGQCGw8PFgIfAgUNNzQsMDAwLjAwIFJzLmRkAh0PDxYCHwIFDzIsNDYsMDAwLjAwIFJzLmRkAh8PDxYCHwIFDzEsNjUsMDAwLjAwIFJzLmRkAiEPDxYCHwIFDzIsMjgsMDAwLjAwIFJzLmRkAiMPDxYCHwIFEDEwLDAwLDAwMC4wMCBScy5kZAIlDw8WAh8CBQQxMDAwZGQCKQ8PFgIfAgULNDAwLjAwIEJhZ3NkZAItDw8WAh8CBQo4MTYuMDAgVG9uZGQCMQ8PFgIfAgUKNjA4LjAwIFRvbmRkAjUPDxYCHwIFCzQwMDAuMDAgS2cuZGQCOw8PFgIfAgUJMTgwLjAwIGx0ZGQCQQ8PFgIfAgUMODAwMC4wMCBQY3MuZGQCRw8PFgIfAgUWMTMwMC4wMCBmdDxzdXA+Mjwvc3VwPmRkAksPDxYCHwIFBDEwMDBkZAJPDw8WAh8CBd4CPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+QXBwcm94IGNvc3QgcGVyIHNxLiBmdC48L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJTDw8WAh8CBY0GPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC40PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEwMDA8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwLjAwIEJhZ3M8L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPkNlbWVudCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xNi40PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTY0MDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlcPDxYCHwIFjgY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjgxNjwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC44MTY8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODE2LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+U2FuZCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xMi4zPC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTIuMzwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTIzMDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlsPDxYCHwIFkAY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjYwODwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC42MDg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NjA4LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+QWdncmVnYXRlIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NzQwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCXw8PFgIfAgWIBjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwMC4wMCBLZy48L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPlN0ZWVsIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjI0LjY8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yNC42PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yNDYwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCYw8PFgIfAgXGAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTgwLjAwIGx0PC9taT48L21hdGg+ZGQCZw8PFgIfAgXDAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODAwMC4wMCBQY3MuPC9taT48L21hdGg+ZGQCaw8PFgIfAgXKAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEuMzwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MS4zPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEzMDAuMDAgU3EuIGZ0LjwvbWk+PC9tYXRoPmRkAm0PDxYCHwIFngM8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNTwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjE2LjU8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT4xMDAwMDAwLjAwPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjE2NTAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJvDw8WAh8CBZ4DPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjIyLjg8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yMi44PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yMjgwMDAuMDAgUnMuPC9taT48L21hdGg+ZGRkA+PU/jmYhq72QGlrepje+j9rc80LOSyh9b2j5OKpyMY="
+        />
+      </div>
+      <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms["aspnetForm"];
+        if (!theForm) {
+          theForm = document.aspnetForm;
+        }
+        function __doPostBack(eventTarget, eventArgument) {
+          if (!theForm.onsubmit || theForm.onsubmit() != false) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+          }
+        }
+        //]]>
+      </script>
+      <script
+        src="/WebResource.axd?d=4iMq4tv8b4nx3m3_eia1aKgT3lGeG8QVI0alteLcuuUCqVnsF4iulwETM1Cewzntu9HZu_Bap_rTI16wkbOWz-pFZXRHlO7gq-xDieLmziM1&amp;t=637811927229275428"
+        type="text/javascript"
+      ></script>
+      <script
+        src="/WebResource.axd?d=bDFfSI-OUTSZ4LYijzA2xMfFxxAlL-1VsZZplT8VY5qED7ilt7sylXQdM1zhQd2zep2LCiZ47L2Z3Pl6sUdOBdkXFaE20wnuBRzIySMtVoI1&amp;t=637811927229275428"
+        type="text/javascript"
+      ></script>
+      <script type="text/javascript">
+        //<![CDATA[
+        function WebForm_OnSubmit() {
+          if (
+            typeof ValidatorOnSubmit == "function" &&
+            ValidatorOnSubmit() == false
+          )
+            return false;
+          return true;
+        }
+        //]]>
+      </script>
+      <div>
+        <input
+          type="hidden"
+          name="__VIEWSTATEGENERATOR"
+          id="__VIEWSTATEGENERATOR"
+          value="7C004586"
+        />
+        <input
+          type="hidden"
+          name="__SCROLLPOSITIONX"
+          id="__SCROLLPOSITIONX"
+          value="0"
+        />
+        <input
+          type="hidden"
+          name="__SCROLLPOSITIONY"
+          id="__SCROLLPOSITIONY"
+          value="0"
+        />
+      </div>
+      <div id="ctl00_pnltopmenu">
+        <div class="page-header">
+          <div class="page-header-top">
+            <div class="container-fluid margin-bottom-10">
+              <div class="col-md-2 col-sm-3 col-xs-8">
+                <div style="padding-top: 5px">
+                  <a
+                    id="ctl00_hlLogo"
+                    title="Civil Engineering Calculators - Concrete Technology, Transport Technology, Geotechnical Engineering, Quantity Estimators"
+                    href="../Default.aspx"
+                    ><img
+                      id="ctl00_imgCompanyLogo"
+                      class="img-responsive"
+                      src="images/Asset 9@300x-1.png"
+                      alt="logo Civil Engineering Calculators"
+                      style="border-width: 0px; height: 80px; width: auto"
+                  /></a>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-6 col-xs-1 text-center margin-top-10">
+                <style type="text/css">
+                  .adslot_3 {
+                    display: inline-block;
+                    width: 728px;
+                    height: 90px;
+                  }
+
+                  @media (max-width: 1000px) {
+                    .adslot_3 {
+                      display: none;
+                    }
+                  }
+
+                  @media (min-width: 1000px) {
+                    .adslot_3 {
+                      width: 728px;
+                      height: 90px;
+                    }
+                  }
+                  @media only screen and (max-width:1540px){
+                    .nicebox{
+                      height: 93rem;
+                    }
+                    #div1{
+                      margin-top:-233px;
+                                    margin-left:-39px;
+                                    z-index:1;
+                                    width:400px;
+                    }
+                    #div2{
+                      margin-top:192px;
+                                      margin-left:-33px;
+                                      z-index:1;
+                                      width:400px;
+                    }
+                    #div3{
+                      margin-top:-223px;
+                                        margin-left:56px;
+                                        z-index:1;
+                                       width:400px;
+
+                    }
+                    #div4{
+
+                      margin-top:91px;
+                                          margin-left:225px;
+                                          z-index:1;
+                                          width:400px;
+                    }
+                    #div5{
+                      margin-top:-34px;
+                                            margin-left:422px;
+                                            z-index:1;
+                                            width:400px;
+                    }
+                  }
+
+                  @media only screen and (max-width:500px){
+                    .nicebox{
+                      height: 83rem;
+                    }
+
+                    #div1{
+                      margin-top:-34%;
+                                    margin-left:-24%;
+                                    z-index:1;
+                                    width:400px;
+                                    font-size: 10px;
+                    }
+                    #div2{
+                      margin-top:27%;
+                                      margin-left:-22%;
+                                      z-index:1;
+                                      width:400px;
+                                      font-size: 10px;
+                    }
+                    #div3{
+                      margin-top:-33%;
+                                        margin-left:0;
+                                        z-index:1;
+                                       width:400px;
+                                       font-size: 10px;
+
+                    }
+                    #div4{
+
+                      margin-top:9%;
+                                          margin-left:17%;
+                                          z-index:1;
+                                          width:400px;
+                                          font-size: 10px;
+                    }
+                    #div5{
+                      margin-top:-6%;
+                                            margin-left:39%;
+                                            z-index:1;
+                                            width:400px;
+                                            font-size: 10px;
+                    }
+                  }
+
+                  @media only screen and (max-width:465px){
+
+                    
+                    #div1{
+                      margin-top:-34%;
+                                    margin-left:-30%;
+                                    z-index:1;
+                                    width:400px;
+                                    font-size: 10px;
+                    }
+                    #div2{
+                      margin-top:27%;
+                                      margin-left:-30%;
+                                      z-index:1;
+                                      width:400px;
+                                      font-size: 10px;
+                    }
+                    #div3{
+                      margin-top:-33%;
+                                        margin-left:-5%;
+                                        z-index:1;
+                                       width:400px;
+                                       font-size: 10px;
+
+                    }
+                    #div4{
+
+                      margin-top:9%;
+                                          margin-left:11%;
+                                          z-index:1;
+                                          width:400px;
+                                          font-size: 10px;
+                    }
+                    #div5{
+                      margin-top:-5%;
+                                            margin-left:36%;
+                                            z-index:1;
+                                            width:400px;
+                                            font-size: 10px;
+                    }
+                  }
+
+
+                  @media only screen and (max-width:436px){
+
+                    
+#div1{
+  margin-top:-34%;
+                margin-left:-36%;
+                z-index:1;
+                width:400px;
+                font-size: 10px;
+}
+#div2{
+  margin-top:26%;
+                  margin-left:-36%;
+                  z-index:1;
+                  width:400px;
+                  font-size: 10px;
+}
+#div3{
+  margin-top:-33%;
+                    margin-left:-11%;
+                    z-index:1;
+                   width:400px;
+                   font-size: 10px;
+
+}
+#div4{
+
+  margin-top:10%;
+                      margin-left:7%;
+                      z-index:1;
+                      width:400px;
+                      font-size: 10px;
+}
+#div5{
+  margin-top:-6%;
+                        margin-left:30%;
+                        z-index:1;
+                        width:400px;
+                        font-size: 10px;
+}
+}
+
+
+
+@media only screen and (max-width:414px){
+
+                    
+
+#div4{
+
+  margin-top:10%;
+                      margin-left:4%;
+                      z-index:1;
+                      width:400px;
+                      font-size: 10px;
+}
+#div5{
+  margin-top:-6%;
+                        margin-left:27%;
+                        z-index:1;
+                        width:400px;
+                        font-size: 10px;
+}
+}
+
+
+@media only screen and (max-width:400px){
+
+     
+  #div1{
+  margin-top:-34%;
+                margin-left:-44%;
+                z-index:1;
+                width:400px;
+                font-size: 10px;
+}
+#div2{
+  margin-top:26%;
+                  margin-left:-40%;
+                  z-index:1;
+                  width:400px;
+                  font-size: 10px;
+}
+#div3{
+  margin-top:-34%;
+                    margin-left:-16%;
+                    z-index:1;
+                   width:400px;
+                   font-size: 10px;
+
+}
+
+#div4{
+
+  margin-top:10%;
+                      margin-left:1%;
+                      z-index:1;
+                      width:400px;
+                      font-size: 10px;
+}
+#div5{
+  margin-top:-6%;
+                        margin-left:23%;
+                        z-index:1;
+                        width:400px;
+                        font-size: 10px;
+}
+}
+
+
+                </style>
+
+                <ins
+                  class="adsbygoogle adslot_3"
+                  data-ad-client="ca-pub-1356083154313781"
+                  data-ad-slot="9876442097"
+                ></ins>
+                <script
+                  async
+                  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1356083154313781"
+                  crossorigin="anonymous"
+                ></script>
+                <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </div>
+              <a href="javascript:;" class="menu-toggler"><img src="images/images.png" width=30 height=30/></a>
+            </div>
+          </div>
+          <div class="page-header-menu" >
+            <div class="container-fluid">
+            <div class="hor-menu">
+            <ul class="nav navbar-nav" >
+            <li class="menu-dropdown">
+              <a id="ctl00_hlDashboard" title="Civil Engineering Calculators" href="../Default.aspx"><img src="images/home.png" width="20" height="20"   /><span class="hidden-lg hidden-md hidden-sm">&nbsp;Home</span></a>
+            </li>
+            <li class="menu-dropdown mega-menu-dropdown">
+            <a  href="index.html"> ONE WAY SLAB
+          
+            </a>
+            </li>
+            <li class="menu-dropdown mega-menu-dropdown">
+            <a  href="TWO-WAY.html" >TWO WAY SLAB
+            </a>
+           
+            </li>
+            <li class="menu-dropdown mega-menu-dropdown">
+            <a  href="TENSION MEMBER BOLTED.html" >TENSION MEMBER BOLTED
+            
+            </a>
+           
+            </li>
+            <li class="menu-dropdown mega-menu-dropdown">
+              <a  href="TENSION MEMBER WELDED.html" >TENSION MEMBER WELDED
+              </a>
+             
+              </li>
+            <li class="menu-dropdown mega-menu-dropdown">
+            <a  href="DESIGN-LONG-COLUMN.html" >LONG COLUMN 
+            </a>
+           
+            </li>
+            <li class="menu-dropdown mega-menu-dropdown">
+              <a  href="DESIGN-SHORT-COLUMN.html" >SHORT COLUMN
+          
+              </a>
+             
+              </li>
+           
+              <li class="menu-dropdown mega-menu-dropdown">
+                <a  href="SINGLY REINFORCED BEAM.html" >SINGLY REINFORCED BEAM
+               
+                </a>
+               
+                </li>
+                <li class="menu-dropdown mega-menu-dropdown">
+                <a  href="DOUBLY REINFORCED BEAM.html" >DOUBLY REINFORCED BEAM
+                </a>
+               
+                </li>
+                
+            </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-container">
+        
+        <div class="page-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="portlet light">
+                          <div class="portlet-title">
+                            <h2
+                              class="caption H2_MarginTB5"
+                              title="Brick masonry calculator"
+                            >
+                            
+                              <span
+                                id="ctl00_cphPageContent_lblTitle"
+                                class="caption-subject bold uppercase"
+                                >DESIGN OF TENSION MEMBER WELDED</span
+                              >
+                            </h2>
+                          </div>
+                          <!-- Design Form start----------------------------------------------------- -->
+                          <div class="portlet-body form">
+                            <div role="form" class="form-horizontal">
+                              <div class="form-body">
+                              
+                               <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    TENSILE FORCE(T)&nbsp;
+                                  </label>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="C3"
+                                        title="Enter length"
+                                        class="form-control"
+                                        onkeypress="return IsPositiveInteger(event)"
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >KN</span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    LENGTH OF MEMBER&nbsp;
+                                  </label>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="C5"
+                                        title="Enter length"
+                                        class="form-control"
+                                        onkeypress="return IsPositiveInteger(event)"
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >mm</span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                </div>
+
+                             
+
+                           
+                                  <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                      GRADE OF STEEL (fy)
+                                    </label>
+                                    <div class="col-md-6">
+                                      <select
+                                        name="ctl00$cphPageContent$ddlGradeofConcrete"
+                                        id="C7"
+                                        title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))"
+                                        class="form-control"
+                                        style="margin-top: 10px"
+                                      >
+                                        <option value="250">250 N/mm<sup>2</sup></option>
+                                        <option value="415">415 N/mm<sup>2</sup></option>
+                                        <option value="500">500 N/mm<sup>2</sup></option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                
+
+                                  <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                      SIZE OF WILD(S)=&nbsp;
+                                    </label>
+                                    <div class="col-md-6">
+                                      <div class="input-group">
+                                        <input
+                                          name="ctl00$cphPageContent$txtWallLengthA"
+                                          type="text"
+                                          value=""
+                                          maxlength="7"
+                                          id="C10"
+                                          title="Enter length"
+                                          class="form-control"
+                                          onkeypress="return IsPositiveInteger(event)"
+                                        />
+                                        <span class="input-group-addon">
+                                          <span
+                                            id="ctl00_cphPageContent_lblLengthUnitA"
+                                            >mm</span
+                                          >
+                                        </span>
+                                      </div>
+                                      <span
+                                        id="ctl00_cphPageContent_rfvLengthA"
+                                        style="color: Red; display: none"
+                                      ></span>
+                                      <span
+                                        id="ctl00_cphPageContent_cvLengthA"
+                                        style="color: Red; display: none"
+                                      ></span>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                      THICKNESS OF GUSSET PLATE&nbsp;
+                                    </label>
+                                    <div class="col-md-6">
+                                      <div class="input-group">
+                                        <input
+                                          name="ctl00$cphPageContent$txtWallLengthA"
+                                          type="text"
+                                          value=""
+                                          maxlength="7"
+                                          id="D12"
+                                          title="Enter length"
+                                          class="form-control"
+                                          onkeypress="return IsPositiveInteger(event)"
+                                        />
+                                        <span class="input-group-addon">
+                                          <span
+                                            id="ctl00_cphPageContent_lblLengthUnitA"
+                                            >mm</span
+                                          >
+                                        </span>
+                                      </div>
+                                      <span
+                                        id="ctl00_cphPageContent_rfvLengthA"
+                                        style="color: Red; display: none"
+                                      ></span>
+                                      <span
+                                        id="ctl00_cphPageContent_cvLengthA"
+                                        style="color: Red; display: none"
+                                      ></span>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                   <img src="images/tension-welded/D14.png"/>
+                                    </label>
+                                    <div class="col-md-6">
+                                      <div class="input-group">
+                                        <input
+                                          name="ctl00$cphPageContent$txtWallLengthA"
+                                          type="text"
+                                          value=""
+                                          maxlength="7"
+                                          id="D14"
+                                          title="Enter length"
+                                          class="form-control"
+                                          disabled
+                                        />
+                                        <span class="input-group-addon">
+                                          <span
+                                            id="ctl00_cphPageContent_lblLengthUnitA"
+                                            >mm<sup>2</sup></span
+                                          >
+                                        </span>
+                                      </div>
+                                      <span
+                                        id="ctl00_cphPageContent_rfvLengthA"
+                                        style="color: Red; display: none"
+                                      ></span>
+                                      <span
+                                        id="ctl00_cphPageContent_cvLengthA"
+                                        style="color: Red; display: none"
+                                      ></span>
+                                    </div>
+                                  </div>
+                               
+                                      
+                                  <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                      SELECT ANGLE SECTION
+                                    </label>
+                                    <div class="col-md-6">
+                                      <select
+                                        name="ctl00$cphPageContent$ddlGradeofConcrete"
+                                        id="B19"
+                                        title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))"
+                                        class="form-control"
+                                        style="margin-top: 10px"
+                                      >
+                                      <option value="ISA 20203">ISA 20203 </option>
+                                      <option value="ISA 20204">ISA 20204</option>
+                                      <option value="ISA 25253">ISA 25253</option>
+                                      <option value="ISA 25254">ISA 25254</option>
+                                      <option value="ISA 25255">ISA 25255</option>
+                                      <option value="ISA 30303">ISA 30303</option>
+                                      <option value="ISA 30303">ISA 30303</option>
+                                      <option value="ISA 30304">ISA 30304</option>
+                                      <option value="ISA 30305">ISA 30305 </option>
+
+                                      
+
+
+                                      <option value="ISA 35353">ISA 35353 </option>
+                                      <option value="ISA 35354">ISA 35354</option>
+                                      <option value="ISA 35355">ISA 35355</option>
+                                      <option value="ISA 35356">ISA 35356</option>
+                                      <option value="ISA 40403">ISA 40403</option>
+                                      <option value="ISA 40404">ISA 40404</option>
+                                      <option value="ISA 40405">ISA 40405</option>
+                                      <option value="ISA 40406">ISA 40406</option>
+                                     
+                                      
+                                      
+
+                                      
+                                      <option value="ISA 45453">ISA 45453 </option>
+                                      <option value="ISA 45454">ISA 45454</option>
+                                      <option value="ISA 45455">ISA 45455</option>
+                                      <option value="ISA 45456">ISA 45456</option>
+                                      <option value="ISA 50503">ISA 50503</option>
+                                      <option value="ISA 50504">ISA 50504</option>
+                                      <option value="ISA 50505">ISA 50505</option>
+                                      <option value="ISA 50506">ISA 50506</option>
+
+                                      
+                                      
+                                      <option value="ISA 55555">ISA 55555 </option>
+                                      <option value="ISA 55556">ISA 55556</option>
+                                      <option value="ISA 55558">ISA 55558</option>
+                                      <option value="ISA 555510">ISA 555510</option>
+                                      <option value="ISA 60605">ISA 60605</option>
+                                      <option value="ISA 60606">ISA 60606</option>
+                                      <option value="ISA 60608">ISA 60608</option>
+                                      <option value="ISA 606010">ISA 606010</option>
+
+
+                                      
+
+
+                                      
+                                      <option value="ISA 65655">ISA 65655</option>
+                                      <option value="ISA 65656">ISA 65656</option>
+                                      <option value="ISA 65658">ISA 65658</option>
+                                      <option value="ISA 656510">ISA 656510</option>
+                                      <option value="ISA 70705">ISA 70705</option>
+                                      <option value="ISA 70706">ISA 70706</option>
+                                      <option value="ISA 70708">ISA 70708</option>
+                                      <option value="ISA 707010">ISA 707010</option>
+
+
+
+                                     
+                                      <option value="ISA 75755">ISA 75755</option>
+                                      <option value="ISA 75756">ISA 75756</option>
+                                      <option value="ISA 75758">ISA 75758</option>
+                                      <option value="ISA 757510">ISA 757510</option>
+                                      <option value="ISA 80806">ISA 80806</option>
+                                      <option value="ISA 80808">ISA 80808</option>
+                                      <option value="ISA 808010">ISA 808010</option>
+                                      <option value="ISA 808012">ISA 808012</option>
+
+                                      
+                                      <option value="ISA 90906">ISA 90906</option>
+                                      <option value="ISA 90908">ISA 90908</option>
+                                      <option value="ISA 909010">ISA 909010</option>
+                                      <option value="ISA 909012">ISA 909012</option>
+                                      <option value="ISA 1001006">ISA 1001006</option>
+                                      <option value="ISA 1001008">ISA 1001008</option>
+                                      <option value="ISA 10010010">ISA 10010010</option>
+                                      <option value="ISA 10010012">ISA 10010012</option>
+
+                                      
+                                      
+
+                                      
+                                      <option value="ISA 1101108">ISA 1101108</option>
+                                      <option value="ISA 11011010">ISA 11011010</option>
+                                      <option value="ISA 11011012">ISA 11011012</option>
+                                      <option value="ISA 11011015">ISA 11011015</option>
+                                      <option value="ISA 1301308">ISA 1301308</option>
+                                      <option value="ISA 13013010">ISA 13013010</option>
+                                      <option value="ISA 13013012">ISA 13013012</option>
+                                      <option value="ISA 13013015">ISA 13013015</option>
+
+
+
+                                      
+                                      
+                                      
+                                      <option value="ISA 15015010">ISA 15015010</option>
+                                      <option value="ISA 15015012">ISA 15015012</option>
+                                      <option value="ISA 15015015">ISA 15015015</option>
+                                      <option value="ISA 15015018">ISA 15015018</option>
+                                      <option value="ISA 20020012">ISA 20020012</option>
+                                      <option value="ISA 20020015">ISA 20020015</option>
+                                      <option value="ISA 20020018">ISA 20020018</option>
+                                      <option value="ISA 20020025">ISA 20020025</option>
+
+
+                                    
+                                      
+                                      
+
+                                      
+                                      <option value="ISA 30203">ISA 30203</option>
+                                      <option value="ISA 30204">ISA 30204</option>
+                                      <option value="ISA 30205">ISA 30205</option>
+                                      <option value="ISA 40253">ISA 40253</option>
+                                      <option value="ISA 40254">ISA 40254</option>
+                                      <option value="ISA 40255">ISA 40255</option>
+                                      <option value="ISA 40256">ISA 40256</option>
+                                      
+
+
+                                     
+                                      
+                                      
+                                      <option value="ISA 45303">ISA 45303</option>
+                                      <option value="ISA 45304">ISA 45304</option>
+                                      <option value="ISA 45305">ISA 45305</option>
+                                      <option value="ISA 45306">ISA 45306</option>
+                                      <option value="ISA 50303">ISA 50303</option>
+                                      <option value="ISA 50304">ISA 50304</option>
+                                      <option value="ISA 50305">ISA 50305</option>
+                                      <option value="ISA 50306">ISA 50306</option>
+
+
+
+
+                                      
+                                      <option value="ISA 60405">ISA 60405</option>
+                                      <option value="ISA 60406">ISA 60406</option>
+                                      <option value="ISA 60408">ISA 60408</option>
+                                      <option value="ISA 65455">ISA 65455</option>
+                                      <option value="ISA 65456">ISA 65456</option>
+                                      <option value="ISA 65458">ISA 65458</option>
+                                      
+
+                                      
+                                      
+
+
+                                      <option value="ISA 70455">ISA 70455</option>
+                                      <option value="ISA 70456">ISA 70456</option>
+                                      <option value="ISA 70458">ISA 70458</option>
+                                      <option value="ISA 704510">ISA 704510</option>
+                                      <option value="ISA 75505">ISA 75505</option>
+                                      <option value="ISA 75506">ISA 75506</option>
+                                      <option value="ISA 75508">ISA 75508</option>
+                                      <option value="ISA 755010">ISA 755010</option>
+
+
+
+                                     
+                                      
+                                      <option value="ISA 80505">ISA 80505</option>
+                                      <option value="ISA 80506">ISA 80506</option>
+                                      <option value="ISA 80508">ISA 80508</option>
+                                      <option value="ISA 805010">ISA 805010</option>
+                                      <option value="ISA 90606">ISA 90606</option>
+                                      <option value="ISA 90608">ISA 90608</option>
+                                      <option value="ISA 906010">ISA 906010</option>
+                                      <option value="ISA 906012">ISA 906012</option>
+
+
+
+                                      
+                                      
+
+                                      
+                                      <option value="ISA 100656">ISA 100656</option>
+                                      <option value="ISA 100658">ISA 100658</option>
+                                      <option value="ISA 1006510">ISA 1006510</option>
+                                      <option value="ISA 100756">ISA 100756</option>
+                                      <option value="ISA 100758">ISA 100758</option>
+                                      <option value="ISA 1007510">ISA 1007510</option>
+                                      <option value="ISA 1007512">ISA 1007512</option>
+                                      
+
+
+                                      
+                                      
+
+                                      
+                                      <option value="ISA 125756">ISA 125756</option>
+                                      <option value="ISA 125758">ISA 125758</option>
+                                      <option value="ISA 1257510">ISA 1257510</option>
+                                      <option value="ISA 125956">ISA 125956</option>
+                                      <option value="ISA 125958">ISA 125958</option>
+                                      <option value="ISA 1259510">ISA 1259510</option>
+                                      <option value="ISA 1259512">ISA 1259512</option>
+                                      
+
+
+
+                                      
+                                      <option value="ISA 150758">ISA 150758</option>
+                                      <option value="ISA 1507510">ISA 1507510</option>
+                                      <option value="ISA 1507512">ISA 1507512</option>
+                                      <option value="ISA 1501158">ISA 1501158</option>
+                                      <option value="ISA 15011510">ISA 15011510</option>
+                                      <option value="ISA 15011512">ISA 15011512</option>
+                                      <option value="ISA 15011515">ISA 15011515</option>
+                                      
+                                  
+
+
+                                      <option value="ISA 20010010">ISA 20010010</option>
+                                      <option value="ISA 20010012">ISA 20010012</option>
+                                      <option value="ISA 20010015">ISA 20010015</option>
+                                      <option value="ISA 20015010">ISA 20015010</option>
+                                      <option value="ISA 20015012">ISA 20015012</option>
+                                      <option value="ISA 20015015">ISA 20015015</option>
+                                      <option value="ISA 20015018">ISA 20015018</option>
+                                     
+
+                                  
+                                  
+                                      </select>
+                                    </div>
+                                  </div>
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    SELECTION AREA(a)&nbsp;
+                                  </label>
+                                  <div class="col-md-5">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="D21"
+                                        title="Enter length"
+                                        class="form-control"
+                                      disabled
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >mm<sup>2</sup></span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                  <label class="col-md-3 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="F21">
+
+                                  </label>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    DEPTH OF THE ANGLE(d)&nbsp;
+                                  </label>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="D23"
+                                        title="Enter length"
+                                        class="form-control"
+                                      disabled
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >mm</span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    WIDTH OF THE ANGLE(b)nbsp;
+                                  </label>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="D24"
+                                        title="Enter length"
+                                        class="form-control"
+                                      disabled
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >mm</span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    THICKNESS OF THE ANGLE(t)&nbsp;
+                                  </label>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="D25"
+                                        title="Enter length"
+                                        class="form-control"
+                                      disabled
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >mm</span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-4 control-label">
+                                    CENTER OF GRAVITY(Czz) &nbsp;
+                                  </label>
+                                  <div class="col-md-6">
+                                    <div class="input-group">
+                                      <input
+                                        name="ctl00$cphPageContent$txtWallLengthA"
+                                        type="text"
+                                        value=""
+                                        maxlength="7"
+                                        id="D26"
+                                        title="Enter length"
+                                        class="form-control"
+                                      
+                                        disabled
+                                      />
+                                      <span class="input-group-addon">
+                                        <span
+                                          id="ctl00_cphPageContent_lblLengthUnitA"
+                                          >mm</span
+                                        >
+                                      </span>
+                                    </div>
+                                    <span
+                                      id="ctl00_cphPageContent_rfvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                    <span
+                                      id="ctl00_cphPageContent_cvLengthA"
+                                      style="color: Red; display: none"
+                                    ></span>
+                                  </div>
+                                </div>
+                                <div class="form-actions text-right">
+                                  <input
+                                    type="Button"
+                                    name="ctl00$cphPageContent$btnCalculateBricks"
+                                    value="Calculate"
+                                    onclick="return fun1()"
+                                    id="ctl00_cphPageContent_btnCalculateBricks"
+                                    title="Calculate Bricks"
+                                    class="btn blue"
+                                  />
+                                  <input
+                                    type="submit"
+                                    name="ctl00$cphPageContent$btnReset"
+                                    value="Reset"
+                                    id="ctl00_cphPageContent_btnReset"
+                                    title="Reset"
+                                    class="btn red"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                        
+                          </div>
+                          <!-- Design Form end---------------------------------------------------- -->
+                        </div>
+                        <!-- Design Summary  start----------------------------------------------------- -->
+                        <div id="printableArea">
+                          <div class="portlet light nicebox">
+                            <div class="portlet-title">
+                              <h2
+                                class="caption H2_MarginTB5"
+                                title="Cost estimator calculator | House cost estimator calculator"
+                              >
+                                Design Summary
+                              </h2>
+                            </div>
+                            <div class="portlet-body">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="panel panel-default">
+                                    <div
+                                      class="panel-heading"
+                                      title="Approximate cost on various work of materials"
+                                    >
+                                      <h4 class="panel-title bold">
+                                        DESIGN SUMMARY
+                                      </h4>
+                                    </div>
+                                    <ul class="list-group">
+                                      <li class="list-group-item">
+                                        PROVIDE ISA 90X60X8mm=
+                                        <span
+                                          class="label label-primary pull-right"
+                                        >
+                                          <label id="dsa"></label>
+                                        </span>
+                                      </li>
+                                    </ul>
+                                    <div
+                                      class="panel-heading"
+                                      title="Approximate cost on various work of materials"
+                                    >
+                                      <h4 class="panel-title bold">
+                                        DESIGN OF WELD CONNECTION
+                                      </h4>
+                                    </div>
+                                    <ul class="list-group">
+                                      <li class="list-group-item">
+                                        THROAT THICKNESS(tt)
+                                        <span
+                                          class="label label-info pull-right"
+                                        >
+                                          <label id="E89"></label>
+                                        </span>
+                                      </li>
+                                      <li class="list-group-item">
+                                        SIZE OF WELD Lw1 
+                                        <span
+                                          class="label label-warning pull-right"
+                                        >
+                                          <label id="E90"></label>
+                                        </span>
+                                      </li>
+                                    </ul>
+                                    <ul class="list-group">
+                                      <li class="list-group-item">
+                                        SIZE OF WELD Lw2
+                                        <span
+                                          class="label label-info pull-right"
+                                        >
+                                          <label id="E91"></label>
+                                        </span>
+                                      </li>
+                                    </ul>
+                                    <div
+                                      class="panel-heading"
+                                      title="Approximate cost on various work of materials"
+                                    ></div>
+
+                                    <div
+                                      class="panel-heading"
+                                      title="Approximate cost on various work of materials"
+                                    >
+                                      <h4 class="panel-title bold"></h4>
+                                    </div>
+                                    <ul class="list-group">
+                                      <li class="list-group-item">
+                                        THICKNESS OF GUSSET PLATE=
+                                        <span
+                                          class="label label-info pull-right"
+                                        >
+                                          <label id="E94"></label>
+                                        </span>
+                                      </li>
+                                      <li class="list-group-item">
+                                        SIZE OF WELD(S)
+                                        <span
+                                          class="label label-warning pull-right"
+                                        >
+                                          <label id="E95"></label>
+                                        </span>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-7">
+                                    <div class="panel panel-default">
+                                      <div
+                                        class="panel-heading"
+                                        title="Approximate cost on various work of materials"
+                                      ></div>
+                                      <ul class="list-group">
+                                        <li class="list-group-item">
+                                          fy
+                                          <span
+                                            class="label label-info pull-right"
+                                          >
+                                            <label id="C97"></label>
+                                          </span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-5 text-center">
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="portlet-body">
+                              <div class="row">
+                                <div
+                                  class="col-md-12"
+                                  style="text-align: center"
+                                >
+                                  <div class="panel panel-default">
+                                   
+                                    <div id="container">
+                                    <img
+                                      src="images/tension-bolted/a78c525e-cecc-4c45-bf91-fee6aa3d0625.jpeg"
+                                      style="width: 100%; height: 100%;"
+                                    />
+                                    <div id="div1" >
+                                      <h5></h5>
+                                      </div>
+                                      <div id="div2" >
+                                        <h4></h4>
+                                        </div>
+                                        <div id="div3" >
+                                          <h5></h5>
+                                          </div>
+                                          <div id="div4" >
+                                            <h5></h5>
+                                            </div>
+                                            <div id="div5" >
+                                              <h5></h5>
+                                              </div>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Design Summary  end---------------------------------------------------- -->
+                      </div>
+                      <!-- Calculation part Start------------------------------------------------- -->
+                      <div class="col-md-6">
+                        <div class="portlet light">
+                          <div class="portlet-title">
+                            <h2
+                              class="caption H2_MarginTB5"
+                              title="Brick masonry calculator"
+                            >
+                            
+                              <span
+                                id="ctl00_cphPageContent_lblTitle"
+                                class="caption-subject bold uppercase"
+                                >Calculation & Used Formulas</span
+                              >
+                            </h2>
+                          </div>
+                          <div role="form" class="form-horizontal">
+                            <div class="form-body">
+                              <div class="form-group">
+
+                                <label
+                                  class="col-md-12 control-label"
+                                  style="text-align: center;color:darkred"
+                                >
+                                  STRENGTH DUE TO YEILDING OF G/S
+                                </label>
+                                <div class="col-md-12 control-label">
+                                <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                   <img src="images/tension-welded/C32.png"/>
+                                  </label>
+                                <label
+                                  class="col-md-6 control-label"
+                                  style="text-align: center;color:darkred"
+                                  id="C32"
+                                >
+                            
+                                </label>
+
+                              </div>
+                              <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="E32">
+
+                              </label>
+                              </div>
+                              <hr />
+                              <div class="form-group">
+                                <label
+                                  class="col-md-12 control-label"
+                                  style="text-align: center;color:darkred"
+                                >
+                                  DESIGN OF WELD
+                                </label>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    THORT THICKNESS(tt)=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D37"
+                                  >
+                                    
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                     <img src="images/tension-welded/D39.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D39"
+                                  >
+                               
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                    P<sub>2</sub>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D42"
+                                  >
+                                
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                  <img src="images/tension-welded/D45.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D45"
+                                  >
+                                  
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                      <img src="images/tension-welded//D48.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D48"
+                                  >
+                                
+                                  </label>
+                                </div>
+                              </div>
+                              <hr />
+                              <div class="form-group">
+                                <label
+                                  class="col-md-12 control-label"
+                                  style="text-align: center;color:darkred"
+                                >
+                                  DESIGN DUE TO RUPTURE OF CRITICAL SELECTION
+                                </label>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                      <img src="images/tension-welded/D52.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D53"
+                                  >
+                                  
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    bs=w=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D56"
+                                  >
+                                    
+                                  </label>
+                                  </div>
+                                  <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    Lc=(Lw1+Lw2)/2=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="D57"
+                                  >
+                                   
+                                  </label>
+                                  </div>
+                                  <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    Anc=(CL-t/2)*t=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="C59"
+                                  >
+                                    
+                                  </label>
+                                  </div>
+                                  <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    Ago=(w-t/2)*t=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="C61"
+                                  >
+                                    
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                      <img src="images/tension-welded/E63.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="E63"
+                                  >
+                                  
+                                  </label>
+
+                                  <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="G63">
+
+                                  </label>
+                                </div>
+                              </div>
+                              <hr />
+                              <div class="form-group">
+                                <label
+                                  class="col-md-12 control-label"
+                                  style="text-align: center;color:darkred"
+                                >
+                                  DESIGN FOR BLOCK SHEAR
+                                </label>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    Avg=Avn=2Lc*tg=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="C68"
+                                  >
+                                   
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    Atg=Atn=CL*t=
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="C70"
+                                  >
+                                   
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                     <img src="images/tension-welded/E72.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="E72"
+                                  >
+                                  
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                      class="col-md-6 control-label"
+                                      style="text-align: left"
+                                    >
+                                    <img src="images/tension-welded/E76.png"/>
+                                    </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="E76"
+                                  >
+                                  
+                                  </label>
+                                </div>
+                                <div class="col-md-12 control-label">
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: left"
+                                  >
+                                    Tdb
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: center;color:darkred"
+                                    id="C79"
+                                  >
+                                  
+                                  </label>
+                                  <label
+                                    class="col-md-6 control-label"
+                                    style="text-align: right; color: rgb(218, 120, 120)"
+                                    id="E79"
+                                  >
+                                  </label>
+                                </div>
+                              </div>
+                              <hr />
+
+                       
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Calculation part end------------------------------------------------ -->
+                    </div>
+                  </div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
+                <script>
+                  var oldData = [2591950, 4218391, 7348165];
+                  var ctx = document
+                    .getElementById("CostEstimatorPie_Chart")
+                    .getContext("2d");
+                  var chart1 = new Chart(ctx, {
+                    type: "pie",
+
+                    toolTipContent: "(#percent%)",
+                    data: {
+                      labels: [
+                        "Cement",
+                        "Sand",
+                        "Aggregate",
+                        "Steel",
+                        "Finisher",
+                        "Fitting",
+                      ],
+                      datasets: [
+                        {
+                          label: "Asp dataset",
+                          borderColor: "white",
+                          data: oldData,
+                          backgroundColor: [
+                            "#0AAFF1",
+                            "#ff0028",
+                            "#F3B200",
+                            "#ff5e6c",
+                            "#8076a3",
+                            "#657a00",
+                          ],
+                        },
+                      ],
+                    },
+                    options: {
+                      zoomOutPercentage: 15,
+                      plugins: {
+                        legend: false,
+                        outlabels: {
+                          text: "%l \n %v Rs.",
+                          color: "white",
+                          stretch: 15,
+                          font: {
+                            resizable: true,
+                            minSize: 12,
+                            maxSize: 13,
+                          },
+                        },
+                      },
+                      layout: {
+                        padding: {
+                          left: 0,
+                          right: 0,
+                          top: 30,
+                          bottom: 30,
+                        },
+                      },
+                    },
+                  });
+
+                  function updateChartPie(answer, label) {
+                    chart1.data.datasets[0].data = answer;
+                    chart1.data.labels = label;
+                    chart1.update();
+                  }
+                </script>
+                <script>
+                  var oldData = [
+                    219000, 184000, 111000, 169000, 178000, 139000,
+                  ];
+                  var ctx = document
+                    .getElementById("CostEstimatorBar_Chart")
+                    .getContext("2d");
+                  var chart = new Chart(ctx, {
+                    type: "bar",
+                    toolTipContent: "(#percent%)",
+                    data: {
+                      labels: [
+                        "1st Month",
+                        "2nd Month",
+                        "3nd Month",
+                        "4th Month",
+                        "5th Month",
+                        "6th Month",
+                      ],
+                      datasets: [
+                        {
+                          label: "Rs",
+                          borderColor: "green",
+                          data: oldData,
+                          backgroundColor: [
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 1, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                          ],
+                          borderColor: [
+                            "rgba(255,99,132,1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                          ],
+                          borderWidth: 2,
+                        },
+                      ],
+                    },
+                    options: {
+                      zoomOutPercentage: 15,
+                      plugins: [
+                        {
+                          beforeInit: function (chart) {
+                            chart.data.labels.forEach(function (e, i, a) {
+                              if (/\n/.test(e)) {
+                                a[i] = e.split(/\n/);
+                              }
+                            });
+                          },
+                        },
+                      ],
+                      legend: false,
+
+                      animation: {
+                        duration: 0,
+                        onComplete: function () {
+                          // render the value of the chart above the bar
+                          var ctx = this.chart.ctx;
+                          ctx.font = Chart.helpers.fontString(
+                            Chart.defaults.global.defaultFontSize,
+                            "normal",
+                            Chart.defaults.global.defaultFontFamily
+                          );
+                          ctx.fillStyle =
+                            this.chart.config.options.defaultFontColor;
+                          ctx.textAlign = "center";
+                          ctx.textBaseline = "bottom";
+                          this.data.datasets.forEach(function (dataset) {
+                            for (var i = 0; i < dataset.data.length; i++) {
+                              var model =
+                                dataset._meta[Object.keys(dataset._meta)[0]]
+                                  .data[i]._model;
+                              ctx.fillText(
+                                dataset.data[i],
+                                model.x,
+                                model.y - 5
+                              );
+                            }
+                          });
+                        },
+                      },
+                      scales: {
+                        yAxes: [
+                          {
+                            display: true,
+                            ticks: {
+                              suggestedMin: 0,
+                              //stepSize: 20000
+                            },
+                          },
+                        ],
+                      },
+                      layout: {
+                        padding: {
+                          left: 0,
+                          right: 0,
+                          top: 20,
+                          bottom: 0,
+                        },
+                      },
+                    },
+                  });
+
+                  function updateChartBar(answer, label) {
+                    chart.data.datasets[0].data = answer;
+                    chart.data.labels = label;
+                    chart.update();
+                  }
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-to-top">
+        <img src="images/down.png" alt="" class="icon-arrow-up" width="30px" height="20px">
+      </div>
+
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+      <script src="js/jquery-migrate.min.js" type="text/javascript"></script>
+      <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+      <script src="js/bootstrap.min.js" type="text/javascript"></script>
+      <script
+        src="js/bootstrap-hover-dropdown.min.js"
+        type="text/javascript"
+      ></script>
+      <script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
+      <script src="js/jquery.blockui.min.js" type="text/javascript"></script>
+      <script src="js/jquery.cokie.min.js" type="text/javascript"></script>
+      <script src="js/jquery.uniform.min.js" type="text/javascript"></script>
+      <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src="js/select2.min.js"></script>
+      <script type="text/javascript" src="js/jquery.multi-select.js"></script>
+      <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+      <script
+        type="text/javascript"
+        src="js/dataTables.tableTools.min.js"
+      ></script>
+      <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+      <script type="text/javascript" src="js/bootstrap-fileinput.js"></script>
+      <script
+        type="text/javascript"
+        src="js/bootstrap-datepicker.min.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="js/bootstrap-timepicker.min.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="js/bootstrap-datetimepicker.min.js"
+      ></script>
+      <script src="js/metronic.js" type="text/javascript"></script>
+      <script src="js/layout.js" type="text/javascript"></script>
+      <script src="js/demo.js" type="text/javascript"></script>
+      <script src="js/components-dropdowns.js"></script>
+      <script src="js/CommonJSFunctions.js"></script>
+      <script src="js/CommonValidation.js"></script>
+      <script src="js/GN_UI.js"></script>
+      <script src="js/components-pickers.js"></script>
+
+      <script>
+        jQuery(document).ready(function () {
+          Metronic.init();
+          Layout.init();
+          Demo.init();
+          ComponentsDropdowns.init();
+          ComponentsPickers.init();
+          //ComponentsFormTools.init();
+        });
+
+        $("select.multiselect2").select2({
+          allowClear: true,
+        });
+
+        if (typeof Sys !== "undefined") {
+          Page = Sys.WebForms.PageRequestManager.getInstance();
+          Page.add_beginRequest(OnBeginRequest);
+          Page.add_endRequest(endRequest);
+        }
+
+        function OnBeginRequest(sender, args) {
+          Metronic.blockUI({
+            boxed: true,
+          });
+        }
+
+        function endRequest(sender, args) {
+          Metronic.unblockUI();
+          $("select").select2({
+            width: "fixed",
+          });
+
+          $(".timepicker-no-seconds").timepicker({
+            autoclose: true,
+            minuteStep: 5,
+            defaultTime: null,
+          });
+
+          $(".timepicker")
+            .parent(".input-group")
+            .on("blur", ".input-group-btn", function (e) {
+              e.preventDefault();
+              $(this)
+                .parent(".input-group")
+                .find(".timepicker")
+                .timepicker("hideWidget");
+            });
+
+          $(".form_meridian_datetime").datetimepicker({
+            isRTL: Metronic.isRTL(),
+            format: "dd-mm-yyyy HH:ii P",
+            showMeridian: true,
+            autoclose: true,
+            pickerPosition: Metronic.isRTL() ? "bottom-right" : "bottom-left",
+            todayBtn: true,
+            todayHighlight: true,
+          });
+
+          $(".date-picker-nofuture").datepicker({
+            startDate: "01-01-1900",
+            endDate: "new date()",
+            autoclose: true,
+            todayHighlight: true,
+          });
+          $(".date-picker-nopastdate").datepicker({
+            startDate: "new date()",
+            todayHighlight: true,
+          });
+          $(".date-picker").datepicker({
+            startDate: "01-01-1900",
+            autoclose: true,
+            todayHighlight: true,
+          });
+          $("a.modalButton").on("click", function (e) {
+            var src = $(this).attr("href");
+            var target = $(this).attr("data-target");
+
+            $(target + " iframe").attr({
+              src: src,
+            });
+          });
+
+          var initPickers = function () {
+            //init date pickers
+            $(".date-picker").datepicker({
+              rtl: Metronic.isRTL(),
+              autoclose: true,
+              todayHighlight: true,
+            });
+          };
+
+          initPickers();
+          $("select.multiselect2").select2({
+            allowClear: true,
+          });
+
+          function closeModalAndRefreshPage() {
+            $(".modal").modal("hide");
+            location.reload();
+          }
+
+          $(".modal .fade").on("hidden.bs.modal", function () {
+            $(".modal .fade iframe").attr({
+              src: "about:blank",
+            });
+          });
+
+          //function ShowHelp() {
+          //    $(".DivHelp").slideToggle('slow');
+          //}
+
+          function closemyModal() {
+            $(".modal").modal("hide");
+          }
+        }
+      </script>
+      <script type="text/javascript">
+        //<![CDATA[
+        var Page_ValidationSummaries = new Array(
+          document.getElementById(
+            "ctl00_cphPageContent_vsCostEstimatorCalculation"
+          )
+        );
+        var Page_Validators = new Array(
+          document.getElementById("ctl00_cphPageContent_rfvBuiltup"),
+          document.getElementById("ctl00_cphPageContent_rfvApproxCost")
+        );
+        //]]>
+      </script>
+      <script type="text/javascript">
+        //<![CDATA[
+        var ctl00_cphPageContent_vsCostEstimatorCalculation = document.all
+          ? document.all["ctl00_cphPageContent_vsCostEstimatorCalculation"]
+          : document.getElementById(
+              "ctl00_cphPageContent_vsCostEstimatorCalculation"
+            );
+        ctl00_cphPageContent_vsCostEstimatorCalculation.headertext =
+          "Please Correct follwing error(s)";
+        ctl00_cphPageContent_vsCostEstimatorCalculation.validationGroup =
+          "CostEstimatorCalculation";
+        var ctl00_cphPageContent_rfvBuiltup = document.all
+          ? document.all["ctl00_cphPageContent_rfvBuiltup"]
+          : document.getElementById("ctl00_cphPageContent_rfvBuiltup");
+        ctl00_cphPageContent_rfvBuiltup.controltovalidate =
+          "ctl00_cphPageContent_txtBuiltup";
+        ctl00_cphPageContent_rfvBuiltup.errormessage =
+          "Enter builtup square feet";
+        ctl00_cphPageContent_rfvBuiltup.display = "None";
+        ctl00_cphPageContent_rfvBuiltup.validationGroup =
+          "CostEstimatorCalculation";
+        ctl00_cphPageContent_rfvBuiltup.evaluationfunction =
+          "RequiredFieldValidatorEvaluateIsValid";
+        ctl00_cphPageContent_rfvBuiltup.initialvalue = "";
+        var ctl00_cphPageContent_rfvApproxCost = document.all
+          ? document.all["ctl00_cphPageContent_rfvApproxCost"]
+          : document.getElementById("ctl00_cphPageContent_rfvApproxCost");
+        ctl00_cphPageContent_rfvApproxCost.controltovalidate =
+          "ctl00_cphPageContent_txtApproxCost";
+        ctl00_cphPageContent_rfvApproxCost.errormessage =
+          "Enter approxe cost per square feet";
+        ctl00_cphPageContent_rfvApproxCost.display = "None";
+        ctl00_cphPageContent_rfvApproxCost.validationGroup =
+          "CostEstimatorCalculation";
+        ctl00_cphPageContent_rfvApproxCost.evaluationfunction =
+          "RequiredFieldValidatorEvaluateIsValid";
+        ctl00_cphPageContent_rfvApproxCost.initialvalue = "";
+        //]]>
+      </script>
+      <script type="text/javascript">
+        //<![CDATA[
+        updateChartPie(
+          [164000.0, 123000.0, 74000.0, 246000.0, 165000.0, 228000.0],
+          [
+            ["Cement", "16.4%"],
+            ["Sand", "12.3%"],
+            ["Aggregate", "7.4%"],
+            ["Steel", "24.6%"],
+            ["Finisher", "16.5%"],
+            ["Fitting", "22.8%"],
+          ]
+        );
+        updateChartBar(
+          [219000.0, 184000.0, 111000.0, 169000.0, 178000.0, 139000.0],
+          [
+            ["1st Month", "21.9%"],
+            ["2nd Month", "18.4%"],
+            ["3rd Month", "11.1%"],
+            ["4th Month", "16.9%"],
+            ["5th Month", "17.8%"],
+            ["6th Month", "13.9%"],
+          ]
+        );
+        var Page_ValidationActive = false;
+        if (typeof ValidatorOnLoad == "function") {
+          ValidatorOnLoad();
+        }
+
+        function ValidatorOnSubmit() {
+          if (Page_ValidationActive) {
+            return ValidatorCommonOnSubmit();
+          } else {
+            return true;
+          }
+        }
+
+        theForm.oldSubmit = theForm.submit;
+        theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+        theForm.oldOnSubmit = theForm.onsubmit;
+        theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+        //]]>
+      </script>
+    </form>
+  </body>

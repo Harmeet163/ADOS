@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Construction Cost Estimator, House Cost Calculator, Cost per square feet
+</title>
+
+<script>
+   
+    function fun1()
+    {
+     
+  let D3=document.getElementById("D3").value;
+
+  let D4=document.getElementById("D4").value;
+  let C6=document.getElementById("C6").value;
+  let D7=document.getElementById("D7").value;
+
+// Select Box value----------------------------
+  let fck = document.getElementById("D9");
+  let D9 = fck.options[fck.selectedIndex].value;
+
+  let fy = document.getElementById("D12");
+  let D12 = fy.options[fy.selectedIndex].value;
+
+  let rf=document.getElementById("D15");
+  let D15=rf.options[rf.selectedIndex].value;
+
+  let rc=document.getElementById("D18");
+
+  let D18=rc.options[rc.selectedIndex].value;
+let D21;
+  if(D18 == 1){
+  D21=0.65;
+  document.getElementById("D21").value=D21;
+
+    }
+    else if(D18 == 2)
+    {
+      D21=0.8;
+      document.getElementById("D21").value=D21;
+    }
+    else if(D18 == 3)
+    {
+      D21=1;
+      document.getElementById("D21").value=D21;
+    }
+    else if(D18 == 4)
+    {
+      D21=1.2;
+      document.getElementById("D21").value=D21;
+    }
+    else if(D18 == 5)
+    {
+      D21=1.5;
+      document.getElementById("D21").value=D21;
+    }
+    else if(D18 == 6)
+    {
+      D21=2;
+      document.getElementById("D21").value=D21;
+    }
+    else if(D18 == 7)
+    {
+      D21=2;
+      document.getElementById("D21").value=D21;
+    }
+  // Select Box value----------------------------
+  let pt=document.getElementById("D23");
+  let D23=pt.options[pt.selectedIndex].value;
+
+  // Select Box value- end---------------------------
+  
+  let D28=parseFloat(D7)*parseFloat(D21);
+  document.getElementById("D28").innerHTML=D28+" m";
+ 
+  let D32=C6*1.5;
+  document.getElementById("D32").innerHTML=D32+" KN";
+
+  let D33=D32*.01;
+  document.getElementById("D33").innerHTML=D33+" KN";
+
+  let D34=D32+D33;
+  document.getElementById("D34").innerHTML=D34+" KN";
+
+  let part1=D34*1000;
+  let part3=0.4*D9;
+
+
+  let part4=(0.0067*D12)*(D23);
+  let part2 =part3+part4;
+
+  let D36=part1/part2;
+
+  document.getElementById("D36").innerHTML=D36.toFixed(2)+" mm<sup>2</sup>";
+ 
+  let D37=D3*D4;
+  document.getElementById("D37").innerHTML=D37+" mm<sup>2</sup>";  
+  let C41=D28/D3*1000;
+  
+  document.getElementById("D41").innerHTML=C41.toFixed(2);
+ 
+  
+  document.getElementById('container45').style.display ='none';
+
+  let C42=(D28/D4)*1000
+
+  document.getElementById("D42").innerHTML=C42.toFixed(2);
+  let D48=((D34*1000)-0.4*D9*D36)/(0.67*D12);
+  document.getElementById("D48").innerHTML=D48.toFixed(2)+" mm<sup>2</sup>";
+  let B44;
+  let Bot=12;
+  if(C41<Bot && C42<Bot){
+   B44="HERE Le/b<12 AND Le/D<12 HENCE DESIGN AS SHORT COLUMN"
+  }else{
+   B44="IT IS NOT OK AND HENCE DESIGN AS LONG COLUMN"
+  }
+  document.getElementById("B44").innerHTML=B44;
+
+
+  
+
+  let D50=D48*4/(3.14*D15*D15);
+  document.getElementById("D50").innerHTML=D50.toFixed(2)+" nos.";
+
+    let D52 =Math.ceil(D50);
+  
+  document.getElementById("D52").innerHTML=D52+" nos.";
+
+  let part5=((Math.PI));
+  let D54=D52*part5/4*D15*D15;
+  document.getElementById("D54").innerHTML=D54.toFixed(2)+" mm<sup>2</sup>";
+
+  let D56=D37-D54
+  document.getElementById("D56").innerHTML=D56.toFixed(2)+" mm<sup>2</sup>";
+  
+  let B58;
+  if(D56>D36){
+    B58="Ac prov. >Ac req. HENCE OK"
+  }else{
+    B58="CHANGE THE COLUMN DIMENSIONS"
+  }
+  document.getElementById("B58").innerHTML=B58;
+
+  document.getElementById("B60").innerHTML=`Provide ${D52} nos. of ${D15} mm Ø as Longitudial R/F`
+  let var1=(D28*1000/500+D3/30).toFixed(2);
+  let E64;
+  if(var1>20)
+  E64=var1;
+  else
+  E64=20;
+
+  document.getElementById("E64").innerHTML=E64;
+  let F64;
+  let fu1=(0.05*D3)
+  if(E64<fu1){
+    F64 =" exmin<0.05b HENCE OK";
+  }else{
+    F64=" it is not ok";
+  }
+  document.getElementById("F64").innerHTML=F64
+  let var2=(D28*1000/500+D4/30).toFixed(2);
+
+  let E66;
+  if(var2>20)
+  E66=var2;
+  else
+  E66=20;
+  document.getElementById("E66").innerHTML=E66;
+  let F66;
+  let fu2=(0.05*D4);
+  if(E66<fu2){
+    F66 ="exmin<0.05D HENCE OK ";
+  }else{
+    F66=" it is not ok";
+  }
+  document.getElementById("F66").innerHTML=F66;
+
+  let E71=D15/4;
+  document.getElementById("E71").innerHTML=E71+" mm";
+  let E72=6;
+  document.getElementById("E72").innerHTML=E72+" mm";
+  let B74=Math.max(E71 , E72);
+  document.getElementById("B74").innerHTML="PROVIDE "+B74+"mm Ø  LATERIAL TIE";
+  
+  let E77=Math.min(D3,D4);
+  let E78=16*D15;
+  let E79=300;
+  let B81 = Math.min(E77,E79);
+  document.getElementById("B81").innerHTML="PROVIDE "+B74+"mm Ø @ "+B81+" mm C/C SPACING";
+  
+  
+
+  document.getElementById("E77").innerHTML=E77+" mm";
+  document.getElementById("E78").innerHTML=E78+" mm";
+  document.getElementById("E79").innerHTML=300+" mm";
+
+
+
+  document.getElementById("D85").innerHTML=D3+" mm";
+  document.getElementById("div3-innerValue").innerHTML=D3+" mm";
+ 
+  document.getElementById("D86").innerHTML=D4+" mm";
+  document.getElementById("div4-innerValue").innerHTML=D4+" mm";
+ let D89=D15;
+  document.getElementById("D89").innerHTML=D89+" mm";
+  let D90=D52;
+  document.getElementById("D90").innerHTML=D90+" nos.";
+  
+  document.getElementById("div1-innerValue").innerHTML=D90 +"-"+ D89 +"mm &Phi;";
+
+  document.getElementById("D91").innerHTML=D54+" mm<sup>2</sup>";
+
+  let E94=Math.max(E71,E72);
+
+  document.getElementById("E94").innerHTML=E94+" mm";
+  let E95=Math.min(E77,E78,E79);
+
+  document.getElementById("E95").innerHTML=E95+" mm C/C";
+ 
+  document.getElementById("D97").innerHTML=D9+" N/mm<sup>2</sup>";  
+
+  document.getElementById("D98").innerHTML=D12+" N/mm<sup>2</sup>";
+
+  document.getElementById("div2-innerValue").innerHTML=E94+"mm &Phi;"+"@" + E95+ "mm c/c 2 lgd stirrups";
+
+  var div=document.getElementById("container");
+
+  div.style.display="block";
+
+  
+
+  
+ }
+
+  
+      
+</script>
+<script data-ad-client="ca-pub-1356083154313781" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta content="Construction cost estimator, Construction cost calculator, House construction cost estimation, Cost estimator calculator, Cost per square feet" name="keywords" /><meta content="The construction cost estimator/calculator helps to finalize the approximate amount of cost &amp; quantity of material required for constructing a home.The calculator estimates the approximate cost and quantity of Cement, Sand, Aggregate, Steel, Paint, Flooring, Tiles, Bricks, Fittings, Window, Doors, Plumbing, Electrical, Sanitary, etc." name="description" /><meta content="ASWDC - App Software Website Development Center - Darshan Institute of Engineering and Technology" name="author" />
+
+<link rel="shortcut icon" href="../Images/Icons/Favicon.ico" />
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/uniform.default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+<link rel="stylesheet" type="text/css" href="css/select2.css" />
+<link rel="stylesheet" type="text/css" href="css/multi-select.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-fileinput.css" />
+<link rel="stylesheet" type="text/css" href="css/clockface.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
+<link rel="stylesheet" type="text/css" href="css/daterangepicker-bs3.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.scroller.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.colReorder.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css" />
+<link href="css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+<link href="css/css/plugins.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/default.css" rel="stylesheet" type="text/css" id="style_color" />
+<link href="css/custom.css" rel="stylesheet" type="text/css" />
+<link href="css/gnmis.css" rel="stylesheet" />
+<link href="css/GNCustom.css" rel="stylesheet" />
+<style type="text/css">
+        .noTextDecoration:hover {
+            text-decoration: none !important;
+        }
+
+        .noTextDecorationHL:hover {
+            text-decoration: none !important;
+            border-bottom: none !important;
+            color: lightgray !important;
+        }
+    </style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECQLZF848N"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ECQLZF848N');
+    </script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div>
+    <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+    <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzODIwMTEzMDAPZBYCZg9kFgQCAQ9kFgQCBA8WAh4HY29udGVudAWOAUNvbnN0cnVjdGlvbiBjb3N0IGVzdGltYXRvciwgQ29uc3RydWN0aW9uIGNvc3QgY2FsY3VsYXRvciwgSG91c2UgY29uc3RydWN0aW9uIGNvc3QgZXN0aW1hdGlvbiwgQ29zdCBlc3RpbWF0b3IgY2FsY3VsYXRvciwgQ29zdCBwZXIgc3F1YXJlIGZlZXRkAgUPFgIfAAXPAlRoZSBjb25zdHJ1Y3Rpb24gY29zdCBlc3RpbWF0b3IvY2FsY3VsYXRvciBoZWxwcyB0byBmaW5hbGl6ZSB0aGUgYXBwcm94aW1hdGUgYW1vdW50IG9mIGNvc3QgJiBxdWFudGl0eSBvZiBtYXRlcmlhbCByZXF1aXJlZCBmb3IgY29uc3RydWN0aW5nIGEgaG9tZS5UaGUgY2FsY3VsYXRvciBlc3RpbWF0ZXMgdGhlIGFwcHJveGltYXRlIGNvc3QgYW5kIHF1YW50aXR5IG9mIENlbWVudCwgU2FuZCwgQWdncmVnYXRlLCBTdGVlbCwgUGFpbnQsIEZsb29yaW5nLCBUaWxlcywgQnJpY2tzLCBGaXR0aW5ncywgV2luZG93LCBEb29ycywgUGx1bWJpbmcsIEVsZWN0cmljYWwsIFNhbml0YXJ5LCBldGMuZAIDD2QWBmYPZBYCAgEPDxYCHgtOYXZpZ2F0ZVVybAUOfi9EZWZhdWx0LmFzcHhkZAIBD2QWAgIDD2QWAgIDDw8WAh8BBSB+L1F1YW50aXR5LUVzdGltYXRvci1DYWxjdWxhdG9yc2RkAgIPZBY2AhUPDxYCHgRUZXh0BRAxMCwwMCwwMDAuMDAgUnMuZGQCFw8PFgIfAgUPMSw2NCwwMDAuMDAgUnMuZGQCGQ8PFgIfAgUPMSwyMywwMDAuMDAgUnMuZGQCGw8PFgIfAgUNNzQsMDAwLjAwIFJzLmRkAh0PDxYCHwIFDzIsNDYsMDAwLjAwIFJzLmRkAh8PDxYCHwIFDzEsNjUsMDAwLjAwIFJzLmRkAiEPDxYCHwIFDzIsMjgsMDAwLjAwIFJzLmRkAiMPDxYCHwIFEDEwLDAwLDAwMC4wMCBScy5kZAIlDw8WAh8CBQQxMDAwZGQCKQ8PFgIfAgULNDAwLjAwIEJhZ3NkZAItDw8WAh8CBQo4MTYuMDAgVG9uZGQCMQ8PFgIfAgUKNjA4LjAwIFRvbmRkAjUPDxYCHwIFCzQwMDAuMDAgS2cuZGQCOw8PFgIfAgUJMTgwLjAwIGx0ZGQCQQ8PFgIfAgUMODAwMC4wMCBQY3MuZGQCRw8PFgIfAgUWMTMwMC4wMCBmdDxzdXA+Mjwvc3VwPmRkAksPDxYCHwIFBDEwMDBkZAJPDw8WAh8CBd4CPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+QXBwcm94IGNvc3QgcGVyIHNxLiBmdC48L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJTDw8WAh8CBY0GPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC40PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEwMDA8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwLjAwIEJhZ3M8L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPkNlbWVudCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xNi40PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTY0MDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlcPDxYCHwIFjgY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjgxNjwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC44MTY8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODE2LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+U2FuZCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xMi4zPC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTIuMzwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTIzMDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlsPDxYCHwIFkAY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjYwODwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC42MDg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NjA4LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+QWdncmVnYXRlIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NzQwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCXw8PFgIfAgWIBjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwMC4wMCBLZy48L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPlN0ZWVsIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjI0LjY8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yNC42PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yNDYwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCYw8PFgIfAgXGAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTgwLjAwIGx0PC9taT48L21hdGg+ZGQCZw8PFgIfAgXDAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODAwMC4wMCBQY3MuPC9taT48L21hdGg+ZGQCaw8PFgIfAgXKAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEuMzwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MS4zPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEzMDAuMDAgU3EuIGZ0LjwvbWk+PC9tYXRoPmRkAm0PDxYCHwIFngM8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNTwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjE2LjU8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT4xMDAwMDAwLjAwPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjE2NTAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJvDw8WAh8CBZ4DPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjIyLjg8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yMi44PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yMjgwMDAuMDAgUnMuPC9taT48L21hdGg+ZGRkA+PU/jmYhq72QGlrepje+j9rc80LOSyh9b2j5OKpyMY=" />
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+    var theForm = document.forms['aspnetForm'];
+    if (!theForm) {
+        theForm = document.aspnetForm;
+    }
+    function __doPostBack(eventTarget, eventArgument) {
+        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+        }
+    }
+    //]]>
+    </script>
+    <script src="/WebResource.axd?d=4iMq4tv8b4nx3m3_eia1aKgT3lGeG8QVI0alteLcuuUCqVnsF4iulwETM1Cewzntu9HZu_Bap_rTI16wkbOWz-pFZXRHlO7gq-xDieLmziM1&amp;t=637811927229275428" type="text/javascript"></script>
+    <script src="/WebResource.axd?d=bDFfSI-OUTSZ4LYijzA2xMfFxxAlL-1VsZZplT8VY5qED7ilt7sylXQdM1zhQd2zep2LCiZ47L2Z3Pl6sUdOBdkXFaE20wnuBRzIySMtVoI1&amp;t=637811927229275428" type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    function WebForm_OnSubmit() {
+    if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+    return true;
+    }
+    //]]>
+    </script>
+    <div>
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7C004586" />
+    <input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+    <input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+    </div>
+<div id="ctl00_pnltopmenu">
+<div class="page-header">
+
+<div class="page-header-top">
+<div class="container-fluid margin-bottom-10">
+<div class="col-md-2 col-sm-3 col-xs-8">
+<div style="padding-top: 5px;">
+<a id="ctl00_hlLogo" title="Civil Engineering Calculators - Concrete Technology, Transport Technology, Geotechnical Engineering, Quantity Estimators" href="../Default.aspx"><img id="ctl00_imgCompanyLogo" class="img-responsive" src="images/Asset 9@300x-1.png" alt="logo Civil Engineering Calculators" style="border-width:0px;height: 80px; width: auto;" /></a>
+</div>
+</div>
+<div class="col-md-8 col-sm-6 col-xs-1 text-center margin-top-10">
+<style type="text/css">
+    .adslot_3 {
+        display: inline-block;
+        width: 728px;
+        height: 90px;
+    }
+
+    @media (max-width:1000px) {
+        .adslot_3 {
+            display: none;
+        }
+    }
+    @media only screen and (max-width:1540px){
+                    .nicebox{
+                      height: 120rem;
+                    }
+                    .goodbox{
+                      height: 43rem;
+                    }
+                    #div1-innerValue{
+
+
+                      margin-top:-25%;
+            margin-left: 0%;
+    z-index: 1;
+    color:rgb(24, 152, 24);
+    width: 400px;
+
+                    }
+                    #div2-innerValue{
+                      margin-top:14%;
+            margin-left: 31%;
+    z-index: 1;
+    color:black;
+    width: 400px;
+
+                    }
+                    #div3-innerValue{
+                      margin-top:-44%;
+            margin-left: 23%;
+    z-index: 1;
+    color:black;
+    width: 400px;
+
+                    }
+                    #div4-innerValue{
+                      margin-top:16%;
+            margin-left: 48%;
+    z-index: 1;
+    color:black;
+    width: 400px;
+
+                    }
+                }
+
+                @media only screen and (max-width:500px){
+
+                  .nicebox{
+                      height: 96rem;
+                    }
+                    .goodbox{
+                      height: 28rem;
+                    }
+
+                    #div1-innerValue{
+                      margin-top:-25%;
+            margin-left: -22%;
+                    }
+                    #div2-innerValue{
+                      margin-top:14%;
+            margin-left: 10%;
+                    }
+                    #div3-innerValue{
+                      margin-top:-49%;
+            margin-left: 7%;
+                    }
+                    #div4-innerValue{
+                      margin-top:16%;
+            margin-left: 34%;
+                    }
+                   
+                }
+
+                @media only screen and (max-width:480px){
+                  #div1-innerValue{
+                      margin-top:-25%;
+            margin-left: -25%;
+                    }
+                }
+                @media only screen and (max-width:460px){
+                  #div1-innerValue{
+                      margin-top:-25%;
+            margin-left: -30%;
+                    }
+                    #div3-innerValue{
+                      margin-top:-50%;
+            margin-left: 4%;
+                    }
+                    #div4-innerValue{
+                      margin-top:16%;
+            margin-left: 30%;
+                    }
+                }
+
+                @media only screen and (max-width:435px){
+                  #div1-innerValue{
+                    margin-top:-25%;
+            margin-left: -34%;
+                  }
+                  #div2-innerValue{
+                    margin-top:12%;
+            margin-left: 1%;
+                  }
+                  #div3-innerValue{
+                    margin-top:-50%;
+            margin-left: 1%;
+                  }
+                  #div4-innerValue{
+                    margin-top:16%;
+            margin-left: 26%;
+                  }
+                }
+
+                @media only screen and (max-width:420px){
+                  #div1-innerValue{
+                    margin-top:-25%;
+            margin-left: -38%;
+                  }
+                  #div2-innerValue{
+                    margin-top:12%;
+            margin-left: -3%;
+                  }
+                  #div3-innerValue{
+                    margin-top:-50%;
+            margin-left: -4%;
+                  }
+                  #div4-innerValue{
+                    margin-top:16%;
+            margin-left: 24%;
+                  }
+                }
+
+                
+    @media only screen and (max-width:400px){
+                    .nicebox{
+                      height: 92rem;
+                    }
+                    .goodbox{
+                      height: 26rem;
+                    }
+
+                    #div1-innerValue{
+                      margin-top:-25%;
+            margin-left: 10%;
+                      font-size: 10px;
+                      width: 100px;
+                    }
+                    #div2-innerValue{
+                      margin-left: 36%;
+                      font-size: 10px;
+                      width: 150px;
+                    }
+                    #div3-innerValue{
+                      margin-top:-53%;
+            margin-left: 36%;
+                      font-size: 10px;
+                      width: 100px;
+                    }
+                    #div4-innerValue{
+                      margin-top:16%;
+            margin-left: 64%;
+                      font-size: 10px;
+                      width: 100px;
+                    }
+                }
+
+    @media (min-width:1000px) {
+        .adslot_3 {
+            width: 728px;
+            height: 90px;
+        }
+    }
+
+
+
+                 
+    @media only screen and (max-width:375px){
+      #div1-innerValue{
+        margin-top:-25%;
+            margin-left: 7%;
+      }
+      #div2-innerValue{
+        margin-top:12%;
+            margin-left: 31%;
+      }
+
+    }
+</style>
+
+<ins class="adsbygoogle adslot_3" data-ad-client="ca-pub-1356083154313781" data-ad-slot="9876442097"></ins>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1356083154313781" crossorigin="anonymous"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<a href="javascript:;" class="menu-toggler"><img src="images/images.png" width=30 height=30/></a>
+
+
+</div>
+</div>
+
+<div class="page-header-menu" >
+  <div class="container-fluid">
+  <div class="hor-menu">
+  <ul class="nav navbar-nav" >
+  <li class="menu-dropdown">
+    <a id="ctl00_hlDashboard" title="Civil Engineering Calculators" href="../Default.aspx"><img src="images/home.png" width="20" height="20"   /><span class="hidden-lg hidden-md hidden-sm">&nbsp;Home</span></a>
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="index.html"> ONE WAY SLAB
+
+  </a>
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="TWO-WAY.html" >TWO WAY SLAB
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="TENSION MEMBER BOLTED.html" >TENSION MEMBER BOLTED
+  
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+    <a  href="TENSION MEMBER WELDED.html" >TENSION MEMBER WELDED
+    </a>
+   
+    </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="DESIGN-LONG-COLUMN.html" >LONG COLUMN 
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+    <a  href="DESIGN-SHORT-COLUMN.html" >SHORT COLUMN
+
+    </a>
+   
+    </li>
+ 
+    <li class="menu-dropdown mega-menu-dropdown">
+      <a  href="SINGLY REINFORCED BEAM.html" >SINGLY REINFORCED BEAM
+     
+      </a>
+     
+      </li>
+      <li class="menu-dropdown mega-menu-dropdown">
+      <a  href="DOUBLY REINFORCED BEAM.html" >DOUBLY REINFORCED BEAM
+      </a>
+     
+      </li>
+      
+  </ul>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="page-container">
+<div id="ctl00_divPageHead" class="page-head">
+<div class="container-fluid">
+<div class="row">
+
+
+</div>
+</div>
+</div>
+<div class="page-content" >
+<div class="container-fluid">
+<div class="row" >
+<div class="col-md-12">
+<div class="row">
+<div class="col-lg-12 col-md-9 col-sm-12 col-xs-12">
+
+
+<div class="row" >
+<div class="col-md-6" >
+<div class="portlet light" >
+<div class="portlet-title">
+<h2 class="caption H2_MarginTB5" title="Brick masonry calculator">
+
+<span id="ctl00_cphPageContent_lblTitle" class="caption-subject bold uppercase" style="color:darkblue">DESIGN OF SHORT COLUMN</span>
+</h2>
+</div>
+<div class="portlet-body form">
+<div class="row">
+<div class="col-md-12">
+<div id="ctl00_cphPageContent_vsClayBricks" style="color:Red;display:none;">
+
+</div>
+</div>
+</div>
+<div role="form" class="form-horizontal" >
+<div class="form-body" >
+
+<div class="form-group">
+    <label class="col-md-4 control-label">
+        ASSUME,WIDTH OF COLUMN =&nbsp; </label>
+        <div class="col-md-6">
+        <div class="input-group"  style="margin-top: 10px;">
+        <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D3" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+        <span class="input-group-addon">
+        <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+        </span>
+        </div>
+        <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+        <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+        </div>
+      
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label">
+    DEPTH OF COLUMN =&nbsp;     </label>
+      <div class="col-md-6">
+      <div class="input-group"  style="margin-top: 10px;">
+      <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D4" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+      <span class="input-group-addon">
+      <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+      </span>
+      </div>
+      <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+      <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+      </div>
+    
+</div>
+
+
+
+  <div class="form-group">
+      <label class="col-md-4 control-label">
+        AXIAL LOAD (Pu) =    </label>
+          <div class="col-md-6">
+          <div class="input-group"  style="margin-top: 10px;">
+          <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="C6" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+          <span class="input-group-addon">
+          <span id="ctl00_cphPageContent_lblLengthUnitA">KN</span>
+          </span>
+          </div>
+          <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+          <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+          </div>
+        
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+        UNSUPPORTED LENGTH (L) =    </label>
+        <div class="col-md-6">
+        <div class="input-group"  style="margin-top: 10px;">
+        <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D7" title="Enter length" class="form-control" />
+        <span class="input-group-addon">
+        <span id="ctl00_cphPageContent_lblLengthUnitA">m</span>
+        </span>
+        </div>
+        <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+        <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+        </div>
+      
+  </div>
+    
+
+
+ 
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">
+          GRADE OF CONCRETE (fck)
+        </label>
+            <div class="col-md-6">
+             
+              <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D9" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+                <option value="15">15 N/mm <sup>2</sup></option>
+              <option value="20">20 N/mm <sup>2</sup></option>
+              <option value="25">25 N/mm <sup>2</sup></option>
+              <option value="30">30 N/mm <sup>2</sup></option>
+              <option value="35">35 N/mm <sup>2</sup></option>
+              <option value="40">40 N/mm <sup>2</sup></option>
+              <option value="45">45 N/mm <sup>2</sup></option>
+              <option value="50">50 N/mm <sup>2</sup></option>
+              <option value="55">55 N/mm <sup>2</sup></option>
+              
+          
+              </select>
+           
+              </div>
+          
+    </div>
+
+
+  
+      <div class="form-group">
+          <label class="col-md-4 control-label">
+            GRADE OF STEEL (fy   </label>
+              <div class="col-md-6">
+               
+                <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D12" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+              
+                <option value="250">250 N/mm <sup>2</sup> </option>
+                <option value="415">415 N/mm <sup>2</sup></option>
+                <option value="500">500 N/mm <sup>2</sup></option>
+
+                </select>
+             
+                </div>
+            
+      </div>
+
+  
+      
+        <div class="form-group">
+          <label class="col-md-4 control-label">
+            LONGITUDINAL R/F DIA =   </label>
+              <div class="col-md-6">
+               
+                <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D15" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+              
+                <option value="8">8 mm</option>
+                <option value="10">10 mm</option>
+                <option value="12">12 mm</option>
+                <option value="16">16 mm</option>
+                <option value="20">20 mm</option>
+                <option value="25">25 mm</option>
+                <option value="28">28 mm</option>
+                <option value="32">32 mm</option>
+                <option value="36">36 mm</option>
+                <option value="40">40 mm</option>
+            
+                </select>
+             
+                </div>
+            
+      </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">
+            RESTRAINED CONDITIONS</label>
+              <div class="col-md-6">
+               
+                <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D18" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+              
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+    
+            
+                </select>
+             
+                </div>
+            
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">
+        K   </label>
+            <div class="col-md-6">
+            <div class="input-group"  style="margin-top: 10px;">
+            <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D21" title="Enter length" class="form-control" />
+            <span class="input-group-addon">
+            <span id="ctl00_cphPageContent_lblLengthUnitA"></span>
+            </span>
+            </div>
+            <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+            <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+            </div>
+          
+    </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">
+           Pt </label>
+            <div class="col-md-6">
+             
+              <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D23" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+            
+              
+              <option value="0.3">0.3</option>
+              <option value="0.4">0.4</option>
+              <option value="0.5">0.5</option>
+              <option value="0.6">0.6</option>
+              <option value="0.7">0.7</option>
+              <option value="0.8">0.8</option>
+              <option value="0.9">0.9</option>
+              <option value="1.0">1.0</option>
+              <option value="1.1">1.1</option>
+              <option value="1.2">1.2</option>
+              <option value="1.3">1.3</option>
+              <option value="1.4">1.4</option>
+              <option value="1.5">1.5</option>
+              <option value="1.6">1.6</option>
+              <option value="1.7">1.7</option>
+              <option value="1.8">1.8</option>
+              <option value="1.9">1.9</option>
+              <option value="2.0">2.0</option>
+              <option value="2.1">2.1</option>
+              <option value="2.2">2.2</option>
+              <option value="2.3">2.3</option>
+              <option value="2.4">2.4</option>
+              <option value="2.5">2.5</option>
+              <option value="2.6">2.6</option>
+              <option value="2.7">2.7</option>
+              <option value="2.8">2.8</option>
+              <option value="2.9">2.9</option>
+              <option value="3.0">3.0</option>
+              <option value="3.1">3.1</option>
+              <option value="3.2">3.2</option>
+              <option value="3.3">3.3</option>
+              <option value="3.4">3.4</option>
+              <option value="3.5">3.5</option>
+              <option value="3.6">3.6</option>
+              <option value="3.7">3.7</option>
+              <option value="3.8">3.8</option>
+              <option value="3.9">3.9</option>
+              <option value="4.0">4.0</option>
+              </select>
+           
+              </div>
+          
+    </div>
+  
+<div class="form-actions text-right">
+    <input type="Button" name="ctl00$cphPageContent$btnCalculateBricks" value="Calculate" onclick="return fun1()" id="ctl00_cphPageContent_btnCalculateBricks" title="Calculate Bricks" class="btn blue" />
+    <input type="submit" name="ctl00$cphPageContent$btnReset" value="Reset" id="ctl00_cphPageContent_btnReset" title="Reset" class="btn red" />
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+<!-- new area -->
+<div id="printableArea">
+  <div class="portlet light nicebox">
+  <div class="portlet-title">
+  <h2 class="caption H2_MarginTB5" title="Cost estimator calculator | House cost estimator calculator">
+
+ Design Summary  </h2>
+  </div>
+  <div class="portlet-body">
+  <div class="row">
+  <div class="col-md-12">
+  <div class="panel panel-default">
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+  <h4 class="panel-title bold">Design Summary  </h4>
+  </div>
+  <ul class="list-group">
+  <li class="list-group-item">WIDTH OF COLUMN (b) =
+  <span class="label label-primary pull-right">
+  <Label id="D85"></span>
+  </span>
+  </li>
+
+  <li class="list-group-item">DEPTH OF COLUMN (D) =
+    <span class="label label-primary pull-right">
+    <Label id="D86"></span>
+    </span>
+    </li>
+  </ul>
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+    <h4 class="panel-title bold">Longitudianal R/F</h4>
+    </div>
+    <ul class="list-group">
+  <li class="list-group-item">DIA OF BARS = 
+  <span class="label label-info pull-right">
+    <Label id="D89"></Label>
+  </span>
+  </li>
+  <li class="list-group-item">NOS. OF BAR PROVIDED = 
+  <span class="label label-warning pull-right">
+    <Label id="D90"></Label>
+
+  </span>
+  </li>
+  <li class="list-group-item">Ast provided =
+    <span class="label label-warning pull-right">
+      <Label id="D91"></Label>
+  
+    </span>
+    </li>
+  </ul>
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+   
+    </div>
+  
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+    <h4 class="panel-title bold">Lateral Tie R/F</h4>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">DIA OF BARS = 
+        <span class="label label-info pull-right">
+          <Label id="E94"></Label>
+        </span>
+        </li>
+        <li class="list-group-item" >PITCH OF TIES = 
+        <span class="label label-warning pull-right">
+          <Label id="E95"></Label>
+        </span>
+        </li>
+       
+  
+  </ul>
+  </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="panel panel-default">
+      <div class="panel-heading" title="Approximate cost on various work of materials">
+      
+      </div>
+      <ul class="list-group">
+      <li class="list-group-item">fck
+      <span class="label label-primary pull-right">
+        <Label id="D97"></span>
+      </span>
+      </li>
+      <li class="list-group-item">fy
+      <span class="label label-info pull-right">
+    <Label id="D98"></Label>
+      </span>
+      </li>
+      
+      </ul>
+      </div>
+      </div>
+      <div class="col-md-5 text-center">
+    
+      
+      </div>
+  </div>
+
+  </div>
+  </div>
+  <div class="portlet-body">
+    <div class="row" style="height: 400px;">
+    <div class="col-md-12" style="text-align: center;">
+    <div class="panel panel-default goodbox">
+      
+
+        <div id="container45">
+          <img src="images/LONG & SHORT COLUMN DWG-1.png" style="width: 55%;" alt="photo">
+        </div>
+
+      <div id="container" style="display:none; position: relative;">
+
+        <img
+        id="container-img"
+        src="images/LONG & SHORT COLUMN DWG-1.png"
+        style="
+        width: 55%;  
+       "
+       
+      />
+
+      <div id="div1-innerValue" >
+    </div>
+
+    <div id="div2-innerValue" >
+  </div>
+
+  <div id="div3-innerValue" 
+>
+</div>
+
+<div id="div4-innerValue" 
+>
+</div>
+      
+        <!-- <table style="width:70%;margin-left: 15%;">
+          <tr  style="background-color: aqua;">
+            <td>
+            A
+            </td>
+            <td>
+              <h4 id="div1-innerValue"> </h4>
+            </td>
+          </tr>
+          <tr style="background-color: cadetblue">
+            <td>
+            B
+            </td>
+            <td>
+              <h4 id="div2-innerValue"> </h4>
+            </td>
+          </tr> 
+
+          <tr style="background-color:darkgoldenrod">
+            <td>
+            C
+            </td>
+            <td>
+              <h4 id="div3-innerValue"> </h4>
+            </td>
+          </tr>
+          <tr style="background-color:darkolivegreen">
+            <td>
+           D
+            </td>
+            <td>
+              <h4 id="div4-innerValue"> </h4>
+            </td>
+          </tr>
+        </table> -->
+        <br>
+        
+     
+      
+        <div id="div2" style="
+         margin-top:10px;
+         color:darkred;
+       
+          z-index: 1;
+          width: 400px;
+         
+        "
+        >
+       
+        </div>
+        <div id="div3" style="
+           margin-top:20px;
+          z-index: 1;
+          width: 400px;
+          color:darkred;
+         "
+        >
+        
+        </div>
+        <div id="div4" style="
+          margin-top:25px;
+          z-index: 3;
+          width: 400px;
+          color:darkred;
+          "
+        >
+          
+       
+        </div>
+      </div>
+
+ 
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+<!-- Calulation part star here--------------------------------------------------- -->
+<div class="col-md-6">
+    <div class="portlet light">
+        <div class="portlet-title">
+        <h2 class="caption H2_MarginTB5" title="Brick masonry calculator">
+
+        <span id="ctl00_cphPageContent_lblTitle" class="caption-subject bold uppercase" style="color:darkblue">Calculation & Used Formulas</span>
+        </h2>
+    </div>
+    <div role="form" class="form-horizontal">
+        <div class="form-body">
+
+    
+          <div class="form-group">
+            <label class="col-md-6 control-label" style="text-align: center;color:darkred;">
+            EFFECTIVE LENGTH(Le)
+            </label>
+            <label class="col-md-6 control-label" style="text-align: center;color:darkred" id="D28">
+          
+              </label>
+          
+          </div>
+          <hr/>
+          <div class="form-group">
+            <label class="col-md-12 control-label" style="text-align: center;color:darkred;">
+              DETERMINATION THE SIZE OF THE COLUMN
+            </label>
+            <label class="col-md-12 control-label">
+              <label class="col-md-6 control-label" style="text-align: left;">
+                FACTORED LOAD=
+                 </label>
+                 <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D32">
+                  
+                  </label>
+                 <label class="col-md-6 control-label" style="text-align: left;">
+                  SELF WEIGHT OF COLUMN=
+                   </label>
+                   <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D33">
+                  
+                    </label>
+                   <label class="col-md-6 control-label" style="text-align: left;">
+                    TOTAL FACTORED LOAD(Pu)=
+                     </label>
+                     <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D34">
+                      
+                      </label>
+                     <label class="col-md-6 control-label" style="text-align: left;">
+                      Ac required=
+                       </label>
+                       <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D36">
+                        
+                        </label>
+                       <label class="col-md-6 control-label" style="text-align: left;">
+                        Ag provided=
+                         </label>
+                         <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D37">
+                        
+                          </label>
+           
+            <!-- <label class="col-md-6 control-label" id="od"  style="text-align: right; color:red">
+            
+           </label> -->
+
+            </label>
+          </div>
+          <hr/>
+          <div class="form-group"> 
+            <label class="col-md-12 control-label" style="text-align: center;color:darkred;">
+              CHECK FOR SLENDERNESS RATIO
+              </label>
+            <label class="col-md-6 control-label">
+              
+              <label class="col-md-6 control-label" style="text-align: left;">
+           Le/b:
+            </label>
+            <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D41">
+           
+              </label>
+            <label class="col-md-6 control-label" style="text-align: left;">
+              Le/D:
+               </label>
+               <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D42">
+                
+                </label>
+            <label class="col-md-6 control-label" style="text-align:left; color:red" id="lxd">
+        
+            </label>
+
+
+            </label>
+            <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B44">
+
+            </label>
+            
+            <hr>
+     
+          </div>
+          <hr>
+            <div class="form-group"> 
+              <label class="col-md-12 control-label" style="text-align: center;color:darkred;">
+               ESTIMATE LOGINTUDINAL REINFORCEMENT
+                </label>
+              <label class="col-md-6 control-label">
+              
+                
+                <label class="col-md-6 control-label" style="text-align: left;">
+                 Asc required = 
+              </label>
+              <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D48">
+             
+                </label>
+              <label class="col-md-6 control-label" style="text-align:right; color:red" id="dload">
+           
+              </label>
+  
+              </label>
+              <label class="col-md-6 control-label">
+                
+                <label class="col-md-6 control-label" style="text-align: right;">
+                  NO. OF BAR REQ. =
+              </label>
+              <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D50">
+                
+                </label>
+              <label class="col-md-6 control-label" style="text-align: left; color:red" id="tload">
+              
+              </label>
+           
+              </label>
+
+              
+            
+
+              </div>
+              <div class="form-group"> 
+            
+                <label class="col-md-6 control-label">
+                
+                  
+                  <label class="col-md-6 control-label" style="text-align: left;">
+                    NO. OF BAR PROV. =
+                </label>
+                <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D52">
+                
+                  </label>
+                <label class="col-md-6 control-label" style="text-align:right; color:red" id="factload">
+          
+               </label>
+    
+                </label>
+                <label class="col-md-6 control-label">
+                  
+                <label class="col-md-6 control-label" style="text-align: right;" >
+                    Asc Provided =  
+                </label>
+                <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D54">
+                 
+                  </label>
+                <label class="col-md-6 control-label" style="text-align: left; color:red" id="bm">
+               
+                </label>
+             
+                </label>
+                <label class="col-md-6 control-label">
+                  
+                  <label class="col-md-6 control-label" style="text-align: right;">
+                      Ac Provided =
+                  </label>
+                  <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="D56">
+                    
+                    </label>  
+                  <label class="col-md-6 control-label" style="text-align: left; color:red" id="bm">
+                 
+                  </label>
+               
+                  </label>
+
+                  <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B58">
+
+                  </label>
+    
+                  <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B60">
+    
+                  </label>
+              
+          
+              </div>
+              <hr>
+              <div class="form-group"> 
+                <label class="col-md-12 control-label" style="text-align: center;color:darkred;">
+                  CHECK FOR MINIMUM ECCENTRICITY
+                  </label>
+                <label class="col-md-12 control-label">
+                
+                  
+                  <label class="col-md-6 control-label" style="text-align: left;">
+                 ex min=<img src="images/short/E64.png"/>
+                   </label>
+                   <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="E64">
+                    
+                    </label>
+                    <label class="col-md-6 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="F64">
+    
+                    </label>
+                    </label>
+                    <label class="col-md-12 control-label">
+                  <label class="col-md-6 control-label" style="text-align: left;">
+                    ey min= <img src="images/short/E66.png"/>
+                      </label>
+                      <label class="col-md-6 control-label" style="text-align: center;color:darkred;" id="E66">
+                       
+                        </label>
+                        <label class="col-md-6 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="F66">
+    
+                        </label>
+                      </label>
+                 <label class="col-md-4 control-label" style="text-align:left; color:red" id="d">
+                  
+                  </label>
+                      <label class="col-md-6 control-label" style="text-align:left; color:red" id="d">
+                  
+                      </label>
+                </label>
+    
+                  </div>
+              <hr/>
+                <hr>
+                <div class="form-group"> 
+                  <label class="col-md-12 control-label" style="text-align: center;color:darkred;">
+                    DESIGN OF LATERAL TIES
+                    </label>
+                  <label class="col-md-12 control-label">
+                  
+                    
+                    <label class="col-md-12 control-label" style="text-align: left;">
+                     DIA OF LATERAL TIE,
+                     </label>
+           
+                 <label class="col-md-6 control-label" style="text-align: left;">
+                   a)LOGINTUDINAL R/F DIA./4 =
+                   </label>
+                   <label class="col-md-4 control-label" style="text-align: center;color:darkred;" id="E71">
+                   
+                    </label>
+                   <label class="col-md-6 control-label" style="text-align: left;" >
+                    b)6 mm =
+                    </label>
+                    <label class="col-md-4 control-label" style="text-align: center;color:darkred;" id="E72">
+                  
+                      </label>
+                 <label class="col-md-6 control-label" style="text-align:left; color:red" id="d">
+                  
+                  </label>
+
+                  <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B74">
+                  
+                  </label>
+
+                  
+
+
+                 
+                  <label class="col-md-12 control-label" style="text-align: left;">
+                    PITCH OF LATERAL TIE,
+                    </label>
+                    <label class="col-md-6 control-label" style="text-align: left;">
+                      a)LATEST LATERAL DIMENSION=
+                      </label>
+                      <label class="col-md-4 control-label" style="text-align: center;color:darkred;" id="E77">
+                      
+                        </label>
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                        b)16 X DIA OF LOGINTUDINAL R/F=
+                        </label>
+                        <label class="col-md-4 control-label" style="text-align: center;color:darkred;" id="E78">
+                          
+                          </label>
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                          c)300mm=
+                          </label>
+                          <label class="col-md-4 control-label" style="text-align: center;color:darkred;" id="E79">
+                           
+                            </label>
+
+                            <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B81">
+                  
+                            </label>
+    
+                  </div>
+              <hr/>
+     
+        </div>
+      
+     
+        </div>
+       
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+    
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="scroll-to-top">
+  <img src="images/down.png" alt="" class="icon-arrow-up" width="30px" height="20px">
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="js/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/metronic.js" type="text/javascript"></script>
+<script src="js/layout.js" type="text/javascript"></script>
+<script src="js/demo.js" type="text/javascript"></script>
+<script src="js/components-dropdowns.js"></script>
+<script src="js/CommonJSFunctions.js"></script>
+<script src="js/CommonValidation.js"></script>
+<script src="js/GN_UI.js"></script>
+<script src="js/components-pickers.js"></script>
+
+
+<script>
+            jQuery(document).ready(function () {
+
+                Metronic.init();
+                Layout.init();
+                Demo.init();
+                ComponentsDropdowns.init();
+                ComponentsPickers.init();
+                //ComponentsFormTools.init();
+            });
+
+            $('select.multiselect2').select2({
+                allowClear: true
+            });
+
+            if (typeof (Sys) !== 'undefined') {
+                Page = Sys.WebForms.PageRequestManager.getInstance();
+                Page.add_beginRequest(OnBeginRequest);
+                Page.add_endRequest(endRequest);
+            }
+
+            function OnBeginRequest(sender, args) {
+                Metronic.blockUI({
+                    boxed: true
+                });
+            }
+
+            function endRequest(sender, args) {
+                Metronic.unblockUI();
+                $('select').select2({
+                    width: 'fixed'
+                });
+
+                $('.timepicker-no-seconds').timepicker({
+                    autoclose: true,
+                    minuteStep: 5,
+                    defaultTime: null
+                });
+
+                $('.timepicker').parent('.input-group').on('blur', '.input-group-btn', function (e) {
+                    e.preventDefault();
+                    $(this).parent('.input-group').find('.timepicker').timepicker('hideWidget');
+                });
+
+                $(".form_meridian_datetime").datetimepicker({
+                    isRTL: Metronic.isRTL(),
+                    format: "dd-mm-yyyy HH:ii P",
+                    showMeridian: true,
+                    autoclose: true,
+                    pickerPosition: (Metronic.isRTL() ? "bottom-right" : "bottom-left"),
+                    todayBtn: true,
+                    todayHighlight: true
+                });
+
+                $('.date-picker-nofuture').datepicker({
+                    startDate: "01-01-1900",
+                    endDate: "new date()",
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('.date-picker-nopastdate').datepicker({
+                    startDate: "new date()",
+                    todayHighlight: true
+                });
+                $('.date-picker').datepicker({
+                    startDate: "01-01-1900",
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('a.modalButton').on('click', function (e) {
+                    var src = $(this).attr('href');
+                    var target = $(this).attr('data-target');
+
+                    $(target + " iframe").attr({
+                        'src': src
+                    });
+                });
+
+                var initPickers = function () {
+                    //init date pickers
+                    $('.date-picker').datepicker({
+                        rtl: Metronic.isRTL(),
+                        autoclose: true,
+                        todayHighlight: true
+                    });
+                }
+
+                initPickers();
+                $('select.multiselect2').select2({
+                    allowClear: true
+                });
+
+                function closeModalAndRefreshPage() {
+                    $('.modal').modal('hide');
+                    location.reload();
+                }
+
+                $('.modal .fade').on('hidden.bs.modal', function () {
+                    $(".modal .fade iframe").attr({
+                        'src': 'about:blank'
+                    });
+                });
+
+                //function ShowHelp() {
+                //    $(".DivHelp").slideToggle('slow');
+                //}
+
+                function closemyModal() {
+                    $('.modal').modal('hide');
+                }
+            }
+
+        </script>
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_cphPageContent_vsCostEstimatorCalculation"));
+var Page_Validators =  new Array(document.getElementById("ctl00_cphPageContent_rfvBuiltup"), document.getElementById("ctl00_cphPageContent_rfvApproxCost"));
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_cphPageContent_vsCostEstimatorCalculation = document.all ? document.all["ctl00_cphPageContent_vsCostEstimatorCalculation"] : document.getElementById("ctl00_cphPageContent_vsCostEstimatorCalculation");
+ctl00_cphPageContent_vsCostEstimatorCalculation.headertext = "Please Correct follwing error(s)";
+ctl00_cphPageContent_vsCostEstimatorCalculation.validationGroup = "CostEstimatorCalculation";
+var ctl00_cphPageContent_rfvBuiltup = document.all ? document.all["ctl00_cphPageContent_rfvBuiltup"] : document.getElementById("ctl00_cphPageContent_rfvBuiltup");
+ctl00_cphPageContent_rfvBuiltup.controltovalidate = "ctl00_cphPageContent_txtBuiltup";
+ctl00_cphPageContent_rfvBuiltup.errormessage = "Enter builtup square feet";
+ctl00_cphPageContent_rfvBuiltup.display = "None";
+ctl00_cphPageContent_rfvBuiltup.validationGroup = "CostEstimatorCalculation";
+ctl00_cphPageContent_rfvBuiltup.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphPageContent_rfvBuiltup.initialvalue = "";
+var ctl00_cphPageContent_rfvApproxCost = document.all ? document.all["ctl00_cphPageContent_rfvApproxCost"] : document.getElementById("ctl00_cphPageContent_rfvApproxCost");
+ctl00_cphPageContent_rfvApproxCost.controltovalidate = "ctl00_cphPageContent_txtApproxCost";
+ctl00_cphPageContent_rfvApproxCost.errormessage = "Enter approxe cost per square feet";
+ctl00_cphPageContent_rfvApproxCost.display = "None";
+ctl00_cphPageContent_rfvApproxCost.validationGroup = "CostEstimatorCalculation";
+ctl00_cphPageContent_rfvApproxCost.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphPageContent_rfvApproxCost.initialvalue = "";
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+updateChartPie([164000.000000,123000.000000,74000.000000,246000.000000,165000.000000,228000.000000], [['Cement', '16.4%'],['Sand', '12.3%'],['Aggregate', '7.4%'],['Steel', '24.6%'],['Finisher', '16.5%'],['Fitting', '22.8%']]);updateChartBar([219000.000000,184000.000000,111000.000000,169000.000000,178000.000000,139000.000000], [['1st Month', '21.9%'],['2nd Month', '18.4%'],['3rd Month', '11.1%'],['4th Month', '16.9%'],['5th Month', '17.8%'],['6th Month', '13.9%']]);
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+</html>

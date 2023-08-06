@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Construction Cost Estimator, House Cost Calculator, Cost per square feet
+</title>
+<script>
+   
+    function fun1()
+    {
+     
+        let E4 = document.getElementById("E4").value;
+      
+        let E5 = document.getElementById("E5").value;
+ 
+        let E6 = document.getElementById("E6").value;
+       
+        let E7 = document.getElementById("E7").value;
+     
+
+        let fck = document.getElementById("D9");
+        let D9 = fck.options[fck.selectedIndex].value;
+ 
+
+        let fy = document.getElementById("D12");
+        let D12 = fy.options[fy.selectedIndex].value;
+       
+
+        let C16 = document.getElementById("C16").value;
+     
+        let C17 = document.getElementById("C17").value;
+       
+
+        let mb = document.getElementById("D19");
+        let D19 = mb.options[mb.selectedIndex].value;
+       
+
+        let csd = document.getElementById("D22");
+        let D22 = csd.options[csd.selectedIndex].value;
+      
+    
+
+        let sd = document.getElementById("D25");
+      
+        let D25 = sd.options[sd.selectedIndex].value;
+     
+
+        let D28 = document.getElementById("D28").value;
+      
+       
+        let D29= document.getElementById("D29").value;
+       
+
+        let D33 =E5-D28
+        document.getElementById("D33").innerHTML = D33+" mm";
+        document.getElementById("div4").innerHTML=D33+"mm";
+
+        
+        let D37=parseInt(E6)+parseInt(E7);
+        document.getElementById("D37").innerHTML = D37+" mm";
+        
+        let D38=parseInt(E6)+parseInt(D33);
+        document.getElementById("D38").innerHTML = D38+ "mm";
+        
+        let D40=Math.min(D37,D38);
+   
+
+        document.getElementById("D40").innerHTML = D40+" mm";
+        
+
+        let D44=25*E4*E5/1000000;
+        document.getElementById("D44").innerHTML = D44+" KN/m";
+        
+        
+        let D46=parseFloat(D44)+parseFloat(C17)+parseFloat(C16);
+
+        document.getElementById("D46").innerHTML = D46+" KN/m";
+        
+        
+        let D48=1.5*D46;
+        document.getElementById("D48").innerHTML = D48+" KN/m";
+        
+      
+        
+        let D50=(D48*D40*D40)/(8*1000000);
+    
+        document.getElementById("D50").innerHTML = D50.toFixed(2)+" KNm";
+        
+        let D52=(D40*D46)/(2*1000);
+
+        document.getElementById("D52").innerHTML = D52.toFixed(2)+"  KN";
+        
+        let C56;
+        if(D12 == 250){
+          C56=0.53;
+        }else if(D12 == 415){
+          C56=0.48;
+        }else if(D12 == 500){
+          C56=0.46;
+        }
+
+        document.getElementById("C56").innerHTML = C56;
+        
+
+
+        let C60;
+        if(D12 == 250){
+          C60=(0.148 *D9 *E4*E5*E5)/1000000;
+        }else if(D12 == 415){
+          C60=(0.138 *D9 *E4*E5*E5)/1000000;
+        }else if(D12 == 500){
+          C60=(0.133 *D9 *E4*E5*E5)/1000000;
+        }
+
+        document.getElementById("C60").innerHTML = (C60).toFixed(0)+" KNm";
+        let A63;
+        if(D50<C60){
+         A63=`OK since Mu < Mulim and hence designed as SRB`;
+        }else{
+          A63="NOT OK hence revise the section or go for DRB"
+
+        }
+        document.getElementById("A63").innerHTML = A63;
+        
+         
+        let var1=D28/D33;
+        let C68=Math.ceil(var1*20)/20;
+       
+        document.getElementById("C68").innerHTML = C68;
+        
+         
+        let D70=(0.446*D9)
+        document.getElementById("D70").innerHTML = D70;
+        
+
+
+        let C72;
+        if(D12 == 250 && C68 == 0.05){
+          C72=218;
+        }else if(D12 == 250 && C68 == 0.1){
+          C72=218;
+        }
+        else if(D12 == 250 && C68 == 0.15){
+          C72=218;
+        }
+        else if(D12 == 250 && C68 == 0.2){
+          C72=218;
+        }
+        else if(D12 ==415  && C68 == 0.05){
+          C72=355;
+        }
+        else if(D12 ==415  && C68 == 0.1){
+          C72=353;
+        }
+        else if(D12 ==415  && C68 == 0.15){
+          C72=342;
+        }
+        else if(D12 ==415  && C68 == 0.2){
+          C72=329;
+        }
+        else if(D12 ==500  && C68 == 0.05){
+          C72=424;
+        }
+        else if(D12 ==500  && C68 == 0.1){
+          C72=415;
+        }
+        else if(D12 ==500  && C68 == 0.15){
+          C72=395;
+        }
+        else if(D12 ==500  && C68 == 0.2){
+          C72=370;
+        }
+        
+        document.getElementById("C72").innerHTML = C72+" N/mm<sup>2</sup>";
+    
+        let F74=1000000*(D50-C60)/((C72-D70)*(D33-D28));
+      
+
+        document.getElementById("F74").innerHTML = F74.toFixed(2)+" mm<sup>2</sup>";
+      
+        let E76=F74*4/(3.14*D22*D22);
+      
+        document.getElementById("E76").innerHTML = E76.toFixed(2)+" nos.";
+     
+
+        let E78=Math.ceil(E76);
+        
+        document.getElementById("E78").innerHTML = E78.toFixed(0)+" nos.";
+    
+        document.getElementById("B80").innerHTML="Hence provide "+E78.toFixed(0)+" bars of "+D22+ " mm dia."
+
+       let E85=250;
+       let E86=415;
+       let E87=500;
+        let C84;
+        if(D12 == 250){
+          C84 = (21.97 * D9)/E85;
+        }else if(D12 == 415){
+          C84 = ( 19.82 *D9)/E86;
+        }else if(D12 == 500){
+          C84 = (18.87 * D9)/E87;
+        }
+      
+        document.getElementById("C84").innerHTML = C84;
+
+        let C89=C84*E4*D33/100;
+        
+        
+        document.getElementById("C89").innerHTML = C89+" mm<sup>2</sup>";
+
+        let C91=(F74*(C72-D70))/(0.87*D12);
+        
+        document.getElementById("C91").innerHTML = C91.toFixed(2)+" mm<sup>2</sup>";
+        
+        let C93=C89+C91;
+        
+        document.getElementById("C93").innerHTML = C93.toFixed(2)+" mm<sup>2</sup>";
+        
+        let E95=C93*4/(3.14*D19*D19);
+    
+        document.getElementById("E95").innerHTML = E95.toFixed(2)+" nos.";
+
+        
+        let E97=Math.ceil(E95);
+ 
+        document.getElementById("E97").innerHTML = E97.toFixed(0)+" nos.";
+
+      
+        document.getElementById("B99").innerHTML="Hence provide "+E97.toFixed(0)+" bars of "+D19+ " mm dia.";
+
+        let E103=(D52*1000)/(E4*D33);
+      
+        document.getElementById("E103").innerHTML = E103.toFixed(2)+" N/mm<sup>2</sup>";
+
+        let E106;
+        
+
+        if(D9==15)
+        E106=2.5;
+        else if(D9==20)
+        E106=2.8;
+        else if(D9==25)
+        E106=3.1;
+        else if(D9==30)
+        E106=3.5;
+        else if(D9==35)
+        E106=3.7;
+        else if(D9==40)
+        E106=4;
+        else if(D9==45)
+        E106=4;
+        else if(D9==50)
+        E106=4;
+        else if(D9==55)
+        E106=4;
+       
+        document.getElementById("E106").innerHTML = E106+" N/mm<sup>2</sup>";
+
+        let E108=(100*C93)/(E4*D33);
+      
+        document.getElementById("E108").innerHTML = E108.toFixed(2 );
+      
+        let F110;
+        const hm15=new Map()
+   hm15.set(.15,.28);
+   hm15.set(.25,.35);
+   hm15.set(.5,.46);
+   hm15.set(.75,.54);
+   hm15.set(1,.6);
+   hm15.set(1.25,.64);
+   hm15.set(1.5,.68);
+   hm15.set(1.75,.71);
+   hm15.set(2,.71);
+   hm15.set(2.25,.71);
+   hm15.set(2.5,.71);
+   hm15.set(2.75,.71);
+   hm15.set(3,.71);
+
+
+  
+   const hm20=new Map()
+   hm20.set(.15,.28);
+   hm20.set(.25,.36);
+   hm20.set(.5,.48);
+   hm20.set(.75,.56);
+   hm20.set(1,.62);
+   hm20.set(1.25,.67);
+   hm20.set(1.5,.72);
+   hm20.set(1.75,.75);
+   hm20.set(2,.79);
+   hm20.set(2.25,.82);
+   hm20.set(2.5,.82);
+   hm20.set(2.75,.82);
+   hm20.set(3,.82);
+
+   const hm25=new Map()
+   hm25.set(.15,.29);
+   hm25.set(.25,.36);
+   hm25.set(.5,.49);
+   hm25.set(.75,.57);
+   hm25.set(1,.64);
+   hm25.set(1.25,.7);
+   hm25.set(1.5,.74);
+   hm25.set(1.75,.78);
+   hm25.set(2,.82);
+   hm25.set(2.25,.85);
+   hm25.set(2.5,.88);
+   hm25.set(2.75,.9);
+   hm25.set(3,.92);
+
+   const hm30=new Map()
+   hm30.set(.15,.29);
+   hm30.set(.25,.37);
+   hm30.set(.5,.5);
+   hm30.set(.75,.59);
+   hm30.set(1,.66);
+   hm30.set(1.25,.71);
+   hm30.set(1.5,.76);
+   hm30.set(1.75,.8);
+   hm30.set(2,.84);
+   hm30.set(2.25,.88);
+   hm30.set(2.5,.91);
+   hm30.set(2.75,.94);
+   hm30.set(3,.96);
+
+   const hm35=new Map()
+   hm35.set(.15,.29);
+   hm35.set(.25,.37);
+   hm35.set(.5,.5);
+   hm35.set(.75,.59);
+   hm35.set(1,.67);
+   hm35.set(1.25,.73);
+   hm35.set(1.5,.78);
+   hm35.set(1.75,.82);
+   hm35.set(2,.86);
+   hm35.set(2.25,.9);
+   hm35.set(2.5,.93);
+   hm35.set(2.75,.96);
+   hm35.set(3,.99);
+
+   
+   const hm40=new Map()
+   hm40.set(.15,.3);
+   hm40.set(.25,.38);
+   hm40.set(.5,.51);
+   hm40.set(.75,.6);
+   hm40.set(1,.68);
+   hm40.set(1.25,.74);
+   hm40.set(1.5,.79);
+   hm40.set(1.75,.84);
+   hm40.set(2,.88);
+   hm40.set(2.25,.92);
+   hm40.set(2.5,.95);
+   hm40.set(2.75,.98);
+   hm40.set(3,1.01);
+    
+   const hm45=new Map()
+   hm45.set(.15,.3);
+   hm45.set(.25,.38);
+   hm45.set(.5,.51);
+   hm45.set(.75,.6);
+   hm45.set(1,.68);
+   hm45.set(1.25,.74);
+   hm45.set(1.5,.79);
+   hm45.set(1.75,.84);
+   hm45.set(2,.88);
+   hm45.set(2.25,.92);
+   hm45.set(2.5,.95);
+   hm45.set(2.75,.98);
+   hm45.set(3,1.01);
+
+    
+   const hm50=new Map()
+   hm50.set(.15,.3);
+   hm50.set(.25,.38);
+   hm50.set(.5,.51);
+   hm50.set(.75,.6);
+   hm50.set(1,.68);
+   hm50.set(1.25,.74);
+   hm50.set(1.5,.79);
+   hm50.set(1.75,.84);
+   hm50.set(2,.88);
+   hm50.set(2.25,.92);
+   hm50.set(2.5,.95);
+   hm50.set(2.75,.98);
+   hm50.set(3,1.01);
+   
+   
+   const hm55=new Map()
+   hm55.set(.15,.3);
+   hm55.set(.25,.38);
+   hm55.set(.5,.51);
+   hm55.set(.75,.6);
+   hm55.set(1,.68);
+   hm55.set(1.25,.74);
+   hm55.set(1.5,.79);
+   hm55.set(1.75,.84);
+   hm55.set(2,.88);
+   hm55.set(2.25,.92);
+   hm55.set(2.5,.95);
+   hm55.set(2.75,.98);
+   hm55.set(3,1.01);
+
+   let I115 =0.15;
+   let I116=E108;
+   let I117;
+
+   let J115;
+   let J116;
+   let J117;
+
+   if(D9 == 15){
+
+    J115= hm15.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm15.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm15.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm15.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm15.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm15.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm15.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm15.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm15.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm15.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm15.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm15.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm15.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 20){
+
+    
+J115= hm20.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm20.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm20.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm20.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm20.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm20.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm20.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm20.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm20.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm20.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm20.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm20.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm20.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 25){
+    
+J115= hm25.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm25.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm25.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm25.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm25.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm25.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm25.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm25.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm25.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm25.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm25.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm25.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm25.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 30){
+    
+J115= hm30.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm30.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm30.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm30.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm30.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm30.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm30.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm30.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm30.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm30.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm30.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm30.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm30.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 35){
+    
+J115= hm35.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm35.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm35.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm35.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm35.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm35.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm35.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm35.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm35.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm35.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm35.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm35.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm35.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 40){
+    
+J115= hm40.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm40.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm40.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm40.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm40.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm40.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm40.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm40.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm40.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm40.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm40.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm40.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm40.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 45){
+    
+J115= hm45.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm45.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm45.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm45.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm45.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm45.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm45.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm45.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm45.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm45.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm45.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm45.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm45.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 50){
+    
+J115= hm50.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm50.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm50.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm50.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm50.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm50.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm50.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm50.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm50.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm50.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm50.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm50.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm50.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+   else if(D9 == 55){
+    
+J115= hm55.get(.15);
+    
+    
+    if(I116>=0.15 && I116<=0.25){
+      J117= hm55.get(.25);
+      I117= 0.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+      
+    }
+    else if(I116>0.25 && I116<=0.5){
+      J117= hm55.get(.5);
+      I117= 0.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+      
+    }
+    else if(I116>0.5 && I116<=0.75){
+      J117= hm55.get(.75);
+      I117= 0.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>0.75 && I116<=1){
+      J117= hm55.get(1);
+      I117= 1;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1 && I116<=1.25){
+      J117= hm55.get(1.25);
+      I117= 1.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115); 
+    }
+    else if(I116>1.25 && I116<=1.5){
+      
+      J117= hm55.get(1.5);
+      I117= 1.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.5 && I116<=1.75){
+      
+      J117= hm55.get(1.75);
+      I117= 1.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>1.75 && I116<=2){
+      
+      J117= hm55.get(2);
+      I117= 2;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2 && I116<=2.25){
+      
+      J117= hm55.get(2.25);
+      I117= 2.25;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.25 && I116<=2.5){
+      
+      J117= hm55.get(2.5);
+      I117= 2.5;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.5 && I116<=2.75){
+      
+      J117= hm55.get(2.75);
+      I117= 2.75;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+    else if(I116>2.75 && I116<=3){
+      
+      J117= hm55.get(3);
+      I117= 3;
+      J116= J115+(J117-J115)/(I117-I115)*(I116-I115);
+    }
+   }
+  
+
+       F110 = J116
+        document.getElementById("F110").innerHTML = F110.toFixed(2)+" N/mm<sup>2</sup>";
+
+        let B112;
+        if(F110<E103){
+         B112="OK since τc < τv shear reinforcemnet shall be designed."
+        }else{
+         B112="NOT OK hence no need to design shear reinforcement"
+        }
+        document.getElementById("B112").innerHTML = B112;
+        let D115=F110*E4*D33*.001;
+       
+        document.getElementById("D115").innerHTML = D115.toFixed(2)+" KN";
+
+        let D118=D52-D115;
+     
+        document.getElementById("D118").innerHTML = D118.toFixed(2)+" KN";
+
+        let Dtest=((Math.PI)*D25*D25)/4;
+        let D120=Dtest.toFixed(2);
+        
+        document.getElementById("D120").innerHTML = D120+" mm<sup>2</sup>";
+
+        let D122=(0.87*D12*D120)/(E4*(E103-F110));
+        
+        document.getElementById("D122").innerHTML = D122.toFixed(2)+" mm";
+
+        let D127=(0.87*D12*D120)/(E4*0.4);
+     
+        document.getElementById("D127").innerHTML = D127.toFixed(2)+" mm";
+
+        let H128=0.75*D33;
+    
+        document.getElementById("H128").innerHTML = H128+" mm";
+
+        let H129=300;
+     
+        document.getElementById("H129").innerHTML = H129.toFixed(2)+" mm";
+
+        let H130=D127-D127%10;
+      
+        document.getElementById("H130").innerHTML = H130.toFixed(2)+" mm";
+
+        let H131=D122;
+       
+        document.getElementById("H131").innerHTML = H131.toFixed(2)+" mm";
+
+        let C134=D25;
+     
+        document.getElementById("C134").innerHTML = C134+" mm Ø bar two legged stirrups @";
+
+     
+        let G134=Math.min(H128,H129,H130,H131);
+     
+         document.getElementById("G134").innerHTML = G134+" mm c/c";
+         let G138;
+         if(D9==15){
+          G138=1;
+         }
+         
+        else if(D9==20){
+          G138=1.2;
+        }
+        
+        else if(D9==25){
+          G138=1.4;
+        }
+        
+        else if(D9==30){
+          G138=1.5;
+        }
+         
+        else if(D9==35){
+          G138=1.7;
+        }
+         
+        else if(D9==40){
+          G138=1.9;
+        }
+         
+        else if(D9==45){
+          G138=1.9;
+        }
+         
+        else if(D9==50)
+        {G138=1.9;}
+        
+        else if(D9==55){
+          G138=1.9;
+        }
+         
+         document.getElementById("G138").innerHTML=G138+" fixed";
+         let D138=(D25*0.87*D12)/(4*G138);
+
+         document.getElementById("D138").innerHTML=D138+" mm";
+     
+
+         let E146=E4;
+         document.getElementById("E146").innerHTML=E146+" mm ";
+         document.getElementById("div2").innerHTML=E146+"mm";
+
+         let E147=E5;
+         document.getElementById("E147").innerHTML=E147+" mm ";
+         document.getElementById("div1").innerHTML=E147+"mm";
+
+         let E150=D19;
+         document.getElementById("E150").innerHTML=E150+" mm "
+
+         let E151=E97.toFixed(0);
+         document.getElementById("E151").innerHTML=E151+" nos ";
+         
+         document.getElementById("div3").innerHTML=E151+"-"+E150+"mm Ø";
+
+         let E152=E151*(3.14/4)*E150*E150;
+         document.getElementById("E152").innerHTML=E152.toFixed(2)+ " mm<sup>2</sup>"
+
+         let E153=D33;
+         document.getElementById("E153").innerHTML=E153+" mm ";
+
+         let E156=D22;
+         document.getElementById("E156").innerHTML=E156+" mm ";
+
+         let E157=E78.toFixed(0);
+         document.getElementById("E157").innerHTML=E157+" nos ";
+         document.getElementById("div5").innerHTML=E157+"-"+E156+"mm Ø";
+
+         let E158=E157*(3.14/4)*E156*E156;
+         document.getElementById("E158").innerHTML=E158+" mm <sup>2</sup>";
+         let E159=D29;
+         document.getElementById("E159").innerHTML=E159+" mm ";
+
+         let E162=D25;
+         document.getElementById("E162").innerHTML=E162+" mm ";
+         
+         let E163=G134;
+         document.getElementById("E163").innerHTML=E163+" mm ";
+         let E164=D138+D138%10;
+         document.getElementById("div6").innerHTML=E162+"mm Ø"+"@"+E163+"mm c/c 2 lgd Stirrups";
+
+         document.getElementById("E164").innerHTML=E164+" mm ";
+
+         let C166=D9;
+         document.getElementById("C166").innerHTML=C166+" N/mm <sup>2</sup>";
+
+         let C167=D12;
+         document.getElementById("C167").innerHTML=C167+"  N/mm <sup>2</sup> ";
+
+
+
+        
+
+     }
+// }
+
+      
+</script>
+<script data-ad-client="ca-pub-1356083154313781" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta content="Construction cost estimator, Construction cost calculator, House construction cost estimation, Cost estimator calculator, Cost per square feet" name="keywords" /><meta content="The construction cost estimator/calculator helps to finalize the approximate amount of cost &amp; quantity of material required for constructing a home.The calculator estimates the approximate cost and quantity of Cement, Sand, Aggregate, Steel, Paint, Flooring, Tiles, Bricks, Fittings, Window, Doors, Plumbing, Electrical, Sanitary, etc." name="description" /><meta content="ASWDC - App Software Website Development Center - Darshan Institute of Engineering and Technology" name="author" />
+
+<link rel="shortcut icon" href="../Images/Icons/Favicon.ico" />
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/uniform.default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+<link rel="stylesheet" type="text/css" href="css/select2.css" />
+<link rel="stylesheet" type="text/css" href="css/multi-select.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-fileinput.css" />
+<link rel="stylesheet" type="text/css" href="css/clockface.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/colorpicker.css" />
+<link rel="stylesheet" type="text/css" href="css/daterangepicker-bs3.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.scroller.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.colReorder.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css" />
+<link href="css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+<link href="css/css/plugins.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/default.css" rel="stylesheet" type="text/css" id="style_color" />
+<link href="css/custom.css" rel="stylesheet" type="text/css" />
+<link href="css/gnmis.css" rel="stylesheet" />
+<link href="css/GNCustom.css" rel="stylesheet" />
+<style type="text/css">
+        .noTextDecoration:hover {
+            text-decoration: none !important;
+        }
+
+        .noTextDecorationHL:hover {
+            text-decoration: none !important;
+            border-bottom: none !important;
+            color: lightgray !important;
+        }
+    </style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECQLZF848N"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ECQLZF848N');
+    </script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<form name="aspnetForm" method="post"  id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzODIwMTEzMDAPZBYCZg9kFgQCAQ9kFgQCBA8WAh4HY29udGVudAWOAUNvbnN0cnVjdGlvbiBjb3N0IGVzdGltYXRvciwgQ29uc3RydWN0aW9uIGNvc3QgY2FsY3VsYXRvciwgSG91c2UgY29uc3RydWN0aW9uIGNvc3QgZXN0aW1hdGlvbiwgQ29zdCBlc3RpbWF0b3IgY2FsY3VsYXRvciwgQ29zdCBwZXIgc3F1YXJlIGZlZXRkAgUPFgIfAAXPAlRoZSBjb25zdHJ1Y3Rpb24gY29zdCBlc3RpbWF0b3IvY2FsY3VsYXRvciBoZWxwcyB0byBmaW5hbGl6ZSB0aGUgYXBwcm94aW1hdGUgYW1vdW50IG9mIGNvc3QgJiBxdWFudGl0eSBvZiBtYXRlcmlhbCByZXF1aXJlZCBmb3IgY29uc3RydWN0aW5nIGEgaG9tZS5UaGUgY2FsY3VsYXRvciBlc3RpbWF0ZXMgdGhlIGFwcHJveGltYXRlIGNvc3QgYW5kIHF1YW50aXR5IG9mIENlbWVudCwgU2FuZCwgQWdncmVnYXRlLCBTdGVlbCwgUGFpbnQsIEZsb29yaW5nLCBUaWxlcywgQnJpY2tzLCBGaXR0aW5ncywgV2luZG93LCBEb29ycywgUGx1bWJpbmcsIEVsZWN0cmljYWwsIFNhbml0YXJ5LCBldGMuZAIDD2QWBmYPZBYCAgEPDxYCHgtOYXZpZ2F0ZVVybAUOfi9EZWZhdWx0LmFzcHhkZAIBD2QWAgIDD2QWAgIDDw8WAh8BBSB+L1F1YW50aXR5LUVzdGltYXRvci1DYWxjdWxhdG9yc2RkAgIPZBY2AhUPDxYCHgRUZXh0BRAxMCwwMCwwMDAuMDAgUnMuZGQCFw8PFgIfAgUPMSw2NCwwMDAuMDAgUnMuZGQCGQ8PFgIfAgUPMSwyMywwMDAuMDAgUnMuZGQCGw8PFgIfAgUNNzQsMDAwLjAwIFJzLmRkAh0PDxYCHwIFDzIsNDYsMDAwLjAwIFJzLmRkAh8PDxYCHwIFDzEsNjUsMDAwLjAwIFJzLmRkAiEPDxYCHwIFDzIsMjgsMDAwLjAwIFJzLmRkAiMPDxYCHwIFEDEwLDAwLDAwMC4wMCBScy5kZAIlDw8WAh8CBQQxMDAwZGQCKQ8PFgIfAgULNDAwLjAwIEJhZ3NkZAItDw8WAh8CBQo4MTYuMDAgVG9uZGQCMQ8PFgIfAgUKNjA4LjAwIFRvbmRkAjUPDxYCHwIFCzQwMDAuMDAgS2cuZGQCOw8PFgIfAgUJMTgwLjAwIGx0ZGQCQQ8PFgIfAgUMODAwMC4wMCBQY3MuZGQCRw8PFgIfAgUWMTMwMC4wMCBmdDxzdXA+Mjwvc3VwPmRkAksPDxYCHwIFBDEwMDBkZAJPDw8WAh8CBd4CPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+QXBwcm94IGNvc3QgcGVyIHNxLiBmdC48L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJTDw8WAh8CBY0GPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+QnVpbHR1cCBhcmVhPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC40PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEwMDA8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwLjAwIEJhZ3M8L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPkNlbWVudCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xNi40PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTY0MDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlcPDxYCHwIFjgY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjgxNjwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC44MTY8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODE2LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+U2FuZCBBbW91bnQ8L2g0PjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4xMi4zPC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+VG90YWwgY29zdDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTIuMzwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTIzMDAwLjAwIFJzLjwvbWk+PC9tYXRoPmRkAlsPDxYCHwIFkAY8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT5CdWlsdHVwIGFyZWE8L21pPjxtbz4mI3hENzs8L21vPjxtaT4wLjYwODwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MC42MDg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NjA4LjAwIFRvbjwvbWk+PC9tYXRoPjxoci8+IDxoNCBjbGFzcz0nYm9sZCc+QWdncmVnYXRlIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjcuNDwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPjEwMDAwMDAuMDA8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NzQwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCXw8PFgIfAgWIBjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjQ8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+NDAwMC4wMCBLZy48L21pPjwvbWF0aD48aHIvPiA8aDQgY2xhc3M9J2JvbGQnPlN0ZWVsIEFtb3VudDwvaDQ+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjI0LjY8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yNC42PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yNDYwMDAuMDAgUnMuPC9taT48L21hdGg+ZGQCYw8PFgIfAgXGAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjAuMTg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTgwLjAwIGx0PC9taT48L21hdGg+ZGQCZw8PFgIfAgXDAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+MTAwMDwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjg8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWk+ODAwMC4wMCBQY3MuPC9taT48L21hdGg+ZGQCaw8PFgIfAgXKAjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPkJ1aWx0dXAgYXJlYTwvbWk+PG1vPiYjeEQ3OzwvbW8+PG1pPjEuMzwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4xMDAwPC9taT48bW8+JiN4RDc7PC9tbz48bWk+MS4zPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjEzMDAuMDAgU3EuIGZ0LjwvbWk+PC9tYXRoPmRkAm0PDxYCHwIFngM8bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtZnJhYz48bXJvdz48bW4+MTYuNTwvbW4+PC9tcm93Pjxtbj4xMDA8L21uPjwvbWZyYWM+PG1vPiYjeEQ3OzwvbW8+PG1pPlRvdGFsIGNvc3Q8L21pPjwvbWF0aD48YnIvPjxici8+PG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjE2LjU8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT4xMDAwMDAwLjAwPC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1pPjE2NTAwMC4wMCBScy48L21pPjwvbWF0aD5kZAJvDw8WAh8CBZ4DPG1hdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTgvTWF0aC9NYXRoTUwiPjxtbz49PC9tbz48bWZyYWM+PG1yb3c+PG1uPjIyLjg8L21uPjwvbXJvdz48bW4+MTAwPC9tbj48L21mcmFjPjxtbz4mI3hENzs8L21vPjxtaT5Ub3RhbCBjb3N0PC9taT48L21hdGg+PGJyLz48YnIvPjxtYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk4L01hdGgvTWF0aE1MIj48bW8+PTwvbW8+PG1mcmFjPjxtcm93Pjxtbj4yMi44PC9tbj48L21yb3c+PG1uPjEwMDwvbW4+PC9tZnJhYz48bW8+JiN4RDc7PC9tbz48bWk+MTAwMDAwMC4wMDwvbWk+PC9tYXRoPjxici8+PGJyLz48bWF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OC9NYXRoL01hdGhNTCI+PG1vPj08L21vPjxtaT4yMjgwMDAuMDAgUnMuPC9taT48L21hdGg+ZGRk9O0GLTDcdZyofhUXLA4bexhUJk1gnr8xk0YoS2ynSxI=" />
+</div>
+
+<script src="/WebResource.axd?d=B455V_GwydW_2ea2Qi7COTwdtTtIK7_LJHmiiZb_i2pgsrSdJ20zhbRhlIi9oCWOrDUTSVvG1fUPx-UGbxGkSX4cJnL00twWayTcbtjFLHM1&amp;t=637811927229275428" type="text/javascript"></script>
+<script src="/WebResource.axd?d=lCIuCT4Oba0HCCZ5rlxJnJxPQla4RattWzX5NgnFoxcFDjRX2xq_FKEL46UKyxUD9rxiBSQK6RqU9U1ND54XBXdMp1mkgvWRqba5NUc9yKc1&amp;t=637811927229275428" type="text/javascript"></script>
+
+<div>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7C004586" />
+<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+</div>
+<div id="ctl00_pnltopmenu">
+<div class="page-header">
+
+<div class="page-header-top">
+<div class="container-fluid margin-bottom-10">
+<div class="col-md-2 col-sm-3 col-xs-8">
+<div style="padding-top: 5px;">
+<a id="ctl00_hlLogo" title="Civil Engineering Calculators - Concrete Technology, Transport Technology, Geotechnical Engineering, Quantity Estimators" href="../Default.aspx"><img id="ctl00_imgCompanyLogo" class="img-responsive" src="images/Asset 9@300x-1.png" alt="logo Civil Engineering Calculators" style="border-width:0px;height: 80px; width: auto;" /></a>
+</div>
+</div>
+<div class="col-md-8 col-sm-6 col-xs-1 text-center margin-top-10">
+<style type="text/css">
+    .adslot_3 {
+        display: inline-block;
+        width: 728px;
+        height: 90px;
+    }
+
+    @media (max-width:1000px) {
+        .adslot_3 {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 1540px){
+        #div1{
+            margin-top:-132px;
+      margin-left:-24px;
+      z-index:1;
+      width:100px;
+        }
+        #div2{
+            margin-top:-118px;
+        margin-left:69px;
+        z-index:1;
+       width:100px;
+        }
+        #div3{
+            margin-top:184px;
+          margin-left:82px;
+          z-index:1;
+          color:red;
+         width:100px;
+
+        }
+        #div4{
+            margin-top:-129px;
+            margin-left:170px;
+            z-index:1;
+             width:100px;
+        }
+        #div5{
+            margin-top:-126px;
+              margin-left:169px;
+              z-index:1;
+             color:green;
+              width:400px;
+
+        }
+        #div6{
+            margin-top:-4px;
+                margin-left:332px;
+                z-index:1;
+                 width:400px;
+
+        }
+    }
+
+
+    @media (min-width:1000px) {
+        .adslot_3 {
+            width: 728px;
+            height: 90px;
+        }
+    @media screen and (min-width:600px) {
+      .panel{
+        height: 8rem;
+      }
+      
+      
+    }
+    }
+    @media only screen and (max-width: 600px){
+
+        .goodbox{
+        height: 28rem;
+      }
+      
+    }
+
+
+    @media only screen and (max-width: 500px){
+        #div1{
+            margin-top:-20%;
+      margin-left:-3%;
+      z-index:1;
+      width:70px;
+      font-size: 10px;
+        }
+        #div2{
+            margin-top:-15%;
+        margin-left:10%;
+        z-index:1;
+       width:70px;
+       font-size: 10px;
+        }
+        #div3{
+            margin-top:23%;
+          margin-left:7%;
+          z-index:1;
+          color:red;
+         width:70px;
+         font-size: 10px;
+        }
+        #div4{
+            margin-top:-18%;
+            margin-left:24%;
+            z-index:1;
+             width:70px;
+             font-size: 10px;
+        }
+        #div5{
+            margin-top:-16%;
+              margin-left:30%;
+              z-index:1;
+             color:green;
+              width:150px;
+              font-size: 10px;
+
+        }
+        #div6{
+            margin-top:-2%;
+                margin-left:52%;
+                z-index:1;
+                 width:200px;
+                 font-size: 10px;
+
+        }
+
+    }
+    @media only screen and (max-width: 470px){
+
+        #div1{
+            margin-top:-20%;
+      margin-left:-4%;
+      z-index:1;
+      width:70px;
+      font-size: 10px;
+        }
+        #div4{
+            margin-top:-18%;
+            margin-left:23%;
+            z-index:1;
+             width:70px;
+             font-size: 10px;
+        }
+        #div6{
+            margin-top:-3%;
+                margin-left:52%;
+                z-index:1;
+                 width:200px;
+                 font-size: 10px;
+
+        }
+    }
+
+    @media only screen and (max-width: 450px){
+
+   
+        #div5{
+            margin-top:-18%;
+              margin-left:30%;
+              z-index:1;
+             color:green;
+              width:150px;
+              font-size: 10px;
+
+        }
+        #div4{
+            margin-top:-18%;
+            margin-left:22%;
+            z-index:1;
+             width:70px;
+             font-size: 10px;
+        }
+                        
+    }
+
+    @media only screen and (max-width: 420px){
+        .goodbox{
+            height: 18rem;
+        }
+        #div1{
+            font-size: 7px;
+        }
+        #div2{font-size: 7px;}
+        #div3{font-size: 7px;
+            margin-top:24%}
+        #div4{
+            font-size: 7px;
+        }
+        #div5{font-size: 7px;
+            margin-top:-14%;}
+        #div6{font-size: 7px;}
+        
+    }
+    @media only screen and (max-width: 390px){
+
+        #div1{
+            margin-top:-20%;
+      margin-left:-6%;
+        }
+        #div2{
+            margin-top:-15%;
+            margin-left:7%;
+        
+        }
+
+        #div4{
+            margin-top:-18%;
+            margin-left:21%;
+        }
+        #div5{font-size: 7px;
+            margin-top:-15%;}
+        
+    }
+
+</style>
+
+<ins class="adsbygoogle adslot_3" data-ad-client="ca-pub-1356083154313781" data-ad-slot="9876442097"></ins>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1356083154313781" crossorigin="anonymous"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<a href="javascript:;" class="menu-toggler"><img src="images/images.png" width=30 height=30/></a>
+
+
+</div>
+</div>
+
+<div class="page-header-menu" >
+  <div class="container-fluid">
+  <div class="hor-menu">
+  <ul class="nav navbar-nav" >
+  <li class="menu-dropdown">
+    <a id="ctl00_hlDashboard" title="Civil Engineering Calculators" href="../Default.aspx"><img src="images/home.png" width="20" height="20"   /><span class="hidden-lg hidden-md hidden-sm">&nbsp;Home</span></a>
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="index.html"> ONE WAY SLAB
+
+  </a>
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="TWO-WAY.html" >TWO WAY SLAB
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="TENSION MEMBER BOLTED.html" >TENSION MEMBER BOLTED
+  
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+    <a  href="TENSION MEMBER WELDED.html" >TENSION MEMBER WELDED
+    </a>
+   
+    </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+  <a  href="DESIGN-LONG-COLUMN.html" >LONG COLUMN 
+  </a>
+ 
+  </li>
+  <li class="menu-dropdown mega-menu-dropdown">
+    <a  href="DESIGN-SHORT-COLUMN.html" >SHORT COLUMN
+
+    </a>
+   
+    </li>
+ 
+    <li class="menu-dropdown mega-menu-dropdown">
+      <a  href="SINGLY REINFORCED BEAM.html" >SINGLY REINFORCED BEAM
+     
+      </a>
+     
+      </li>
+      <li class="menu-dropdown mega-menu-dropdown">
+      <a  href="DOUBLY REINFORCED BEAM.html" >DOUBLY REINFORCED BEAM
+      </a>
+     
+      </li>
+      
+  </ul>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="page-container">
+<div id="ctl00_divPageHead" class="page-head">
+<div class="container-fluid">
+<div class="row">
+
+
+</div>
+</div>
+</div>
+<div class="page-content" >
+<div class="container-fluid">
+<div class="row" >
+<div class="col-md-12">
+<div class="row">
+<div class="col-lg-12 col-md-9 col-sm-12 col-xs-12">
+
+
+<div class="row" >
+<div class="col-md-6" >
+<div class="portlet light" >
+<div class="portlet-title">
+<h2 class="caption H2_MarginTB5" title="Brick masonry calculator">
+
+<span id="ctl00_cphPageContent_lblTitle" class="caption-subject bold uppercase">Design Of Doubly REINFORCED</span>
+</h2>
+</div>
+<div class="portlet-body form">
+<div class="row">
+<div class="col-md-12">
+<div id="ctl00_cphPageContent_vsClayBricks" style="color:Red;display:none;">
+
+</div>
+</div>
+</div>
+<div role="form" class="form-horizontal" >
+<div class="form-body" >
+<div class="form-group">
+  <div class="form-group">
+    <label class="col-md-12 control-label" style="background-color: #0f053d; color:whitesmoke;font-size: 14px;text-align: center;">
+      DIMENSION OF BEAM&nbsp; </label>
+</div>
+  <label class="col-md-4 control-label">
+      WIDTH OF BEAM(B) =&nbsp;     </label>
+      <div class="col-md-6">
+      <div class="input-group"  style="margin-top: 10px;">
+      <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="E4" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+      <span class="input-group-addon">
+      <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+      </span>
+      </div>
+      <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+      <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+      </div>
+    
+</div>
+
+
+
+  <div class="form-group">
+      <label class="col-md-4 control-label">
+        DEPTH OF BEAM(d) =    </label>
+          <div class="col-md-6">
+          <div class="input-group"  style="margin-top: 10px;">
+          <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="E5" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+          <span class="input-group-addon">
+          <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+          </span>
+          </div>
+          <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+          <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+          </div>
+        
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+        CLEAR SPAN OF BEAM(L)=    </label>
+        <div class="col-md-6">
+        <div class="input-group"  style="margin-top: 10px;">
+        <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="E6" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+        <span class="input-group-addon">
+        <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+        </span>
+        </div>
+        <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+        <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+        </div>
+      
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label">
+        WIDTH OF SUPPORT=    </label>
+        <div class="col-md-6">
+        <div class="input-group"  style="margin-top: 10px;">
+        <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="E7" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+        <span class="input-group-addon">
+        <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+        </span>
+        </div>
+        <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+        <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+        </div>
+      
+  </div>
+    
+
+
+ 
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">
+          GRADE OF CONCRETE (fck)
+        </label>
+            <div class="col-md-6">
+             
+              <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D9" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+                <option value="15">15 N/mm<sup>2</sup> </option>
+              <option value="20">20 N/mm<sup>2</sup> </option>
+              <option value="25">25 N/mm<sup>2</sup></option>
+              <option value="30">30 N/mm<sup>2</sup></option>
+              <option value="35">35 N/mm<sup>2</sup></option>
+              <option value="40">40 N/mm<sup>2</sup></option>
+              <option value="45">45 N/mm<sup>2</sup></option>
+              <option value="50">50 N/mm<sup>2</sup></option>
+              <option value="55">55 N/mm<sup>2</sup></option>
+          
+              </select>
+           
+              </div>
+          
+    </div>
+
+
+  
+      <div class="form-group">
+          <label class="col-md-4 control-label">
+            GRADE OF STEEL (fy)=   </label>
+              <div class="col-md-6">
+               
+                <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D12" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 10px;">
+              
+                <option value="250">250 N/mm<sup>2</sup></option>
+                <option value="415">415 N/mm<sup>2</sup></option>
+                <option value="500">500 N/mm<sup>2</sup></option>
+                
+            
+                </select>
+             
+                </div>
+            
+      </div>
+      <div class="form-group">
+        <div class="form-group">
+          <label class="col-md-12 control-label" style="background-color: #0f053d; color:whitesmoke;font-size: 14px;text-align: center;">
+            LOADS&nbsp; </label>
+      </div>
+        <label class="col-md-4 control-label">
+        DEAD LOAD=</label>
+            <div class="col-md-6">
+            <div class="input-group"  style="margin-top: 10px;">
+            <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="C16" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+            <span class="input-group-addon">
+            <span id="ctl00_cphPageContent_lblLengthUnitA">KN/m</span>
+            </span>
+            </div>
+            <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+            <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+            </div>
+          
+    </div>
+  
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+      LIVE LOAD= </label>
+          <div class="col-md-6">
+          <div class="input-group"  style="margin-top: 10px;">
+          <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="C17" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+          <span class="input-group-addon">
+          <span id="ctl00_cphPageContent_lblLengthUnitA">KN/m</span>
+          </span>
+          </div>
+          <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+          <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+          </div>
+        
+  </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">
+            TENSION BAR DIAMETER =   </label>
+              <div class="col-md-6">
+               
+                <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D19" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+              
+                <option value="8">8 mm</option>
+                <option value="10">10 mm</option>
+                <option value="12">12 mm</option>
+                <option value="16">16 mm</option>
+                <option value="20">20 mm</option>
+                <option value="25">25 mm</option>
+                <option value="28">28 mm</option>
+                <option value="32">32 mm</option>
+                <option value="36">36 mm</option>
+                <option value="40">40 mm</option>
+            
+                </select>
+             
+                </div>
+            
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">
+          COMPRESSION BAR DIAMETER =   </label>
+            <div class="col-md-6">
+             
+              <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D22" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+            
+              <option value="8">8 mm</option>
+              <option value="10">10 mm</option>
+              <option value="12">12 mm</option>
+              <option value="16">16 mm</option>
+              <option value="20">20 mm</option>
+              <option value="25">25 mm</option>
+              <option value="28">28 mm</option>
+              <option value="32">32 mm</option>
+              <option value="36">36 mm</option>
+              <option value="40">40 mm</option>
+          
+              </select>
+           
+              </div>
+          
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+        STIRRUP DIAMETER=   </label>
+          <div class="col-md-6">
+           
+            <select name="ctl00$cphPageContent$ddlGradeofConcrete" id="D25" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" class="form-control" style="margin-top: 5px;">
+          
+            <option value="8">8 mm</option>
+            <option value="10">10 mm</option>
+            <option value="12">12 mm</option>
+            <option value="16">16 mm</option>
+            <option value="20">20 mm</option>
+            <option value="25">25 mm</option>
+            <option value="28">28 mm</option>
+            <option value="32">32 mm</option>
+            <option value="36">36 mm</option>
+            <option value="40">40 mm</option>
+        
+            </select>
+         
+            </div>
+        
+  </div>
+    
+      <div class="form-group">
+        <label class="col-md-4 control-label">
+        CLEAR COVER FOR TENSION  </label>
+            <div class="col-md-6">
+            <div class="input-group"  style="margin-top: 10px;">
+            <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D28" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+            <span class="input-group-addon">
+            <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+            </span>
+            </div>
+            <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+            <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+            </div>
+          
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">
+      CLEAR COVER FOR COMP.=  </label>
+          <div class="col-md-6">
+          <div class="input-group"  style="margin-top: 10px;">
+          <input name="ctl00$cphPageContent$txtWallLengthA" type="text" value="" maxlength="7" id="D29" title="Enter length" class="form-control" onkeypress="return IsPositiveInteger(event)" />
+          <span class="input-group-addon">
+          <span id="ctl00_cphPageContent_lblLengthUnitA">mm</span>
+          </span>
+          </div>
+          <span id="ctl00_cphPageContent_rfvLengthA" style="color:Red;display:none;"></span>
+          <span id="ctl00_cphPageContent_cvLengthA" style="color:Red;display:none;"></span>
+          </div>
+        
+  </div>
+  
+<div class="form-actions text-right">
+    <input type="Button" name="ctl00$cphPageContent$btnCalculateBricks" value="Calculate" onclick="return fun1()" id="ctl00_cphPageContent_btnCalculateBricks" title="Calculate Bricks" class="btn blue" />
+    <input type="submit" name="ctl00$cphPageContent$btnReset" value="Reset" id="ctl00_cphPageContent_btnReset" title="Reset" class="btn red" />
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<div id="printableArea">
+  <div class="portlet light">
+  <div class="portlet-title">
+  <h2 class="caption H2_MarginTB5" title="Cost estimator calculator | House cost estimator calculator">
+
+ Design Summary  </h2>
+  </div>
+  <div class="portlet-body">
+  <div class="row">
+  <div class="col-md-12 col-12">
+  <div class="panel panel-default ">
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+  <h4 class="panel-title bold">Design Summary  </h4>
+  </div>
+  <ul class="list-group">
+  <li class="list-group-item">WIDTH OF BEAM (B) =
+  <span class="label label-primary pull-right">
+  <Label id="E146"></span>
+  </span>
+  </li>
+
+  <li class="list-group-item">OVERALL DEPTH OF BEAM (D) =
+    <span class="label label-primary pull-right">
+    <Label id="E147"></span>
+    </span>
+    </li>
+  </ul>
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+    <h4 class="panel-title bold">REINFORCEMENT AT BOTTOM</h4>
+    </div>
+    <ul class="list-group">
+  <li class="list-group-item">DIA BARS @ BOTTOM = 
+  <span class="label label-info pull-right">
+    <Label id="E150"></Label>
+  </span>
+  </li>
+  <li class="list-group-item">NOS. OF BAR PROVIDED = 
+  <span class="label label-warning pull-right">
+    <Label id="E151"></Label>
+
+  </span>
+  </li>
+  <li class="list-group-item">Ast provided =
+    <span class="label label-warning pull-right">
+      <Label id="E152"></Label>
+  
+    </span>
+    </li>
+    <li class="list-group-item">effective depth(d) =
+      <span class="label label-warning pull-right">
+        <Label id="E153"></Label>
+    
+      </span>
+      </li>
+  </ul>
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+   
+    </div>
+  
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+    <h4 class="panel-title bold">REINFORCEMENT AT TOP</h4>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">DIA OF BARS @ TOP= 
+        <span class="label label-info pull-right">
+          <Label id="E156"></Label>
+        </span>
+        </li>
+        <li class="list-group-item" >NOS. OF BAR PROVIDED = 
+        <span class="label label-warning pull-right">
+          <Label id="E157"></Label>
+        </span>
+        </li>
+        <li class="list-group-item">Ast provided =
+          <span class="label label-warning pull-right">
+            <Label id="E158"></Label>
+        
+          </span>
+          </li>
+          <li class="list-group-item">cover from top(d') =
+            <span class="label label-warning pull-right">
+              <Label id="E159"></Label>
+          
+            </span>
+            </li>
+  
+  </ul>
+  
+  <div class="panel-heading" title="Approximate cost on various work of materials">
+    <h4 class="panel-title bold">STIRRUPS</h4>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">DIA OF STIRRUP BARS= 
+        <span class="label label-info pull-right">
+          <Label id="E162"></Label>
+        </span>
+        </li>
+        <li class="list-group-item" >SPACING PROVIDED = 
+        <span class="label label-warning pull-right">
+          <Label id="E163"></Label>
+        </span>
+        </li>
+        <li class="list-group-item" >DEVELOPMEMT LENGTH= 
+          <span class="label label-warning pull-right">
+            <Label id="E164"></Label>
+          </span>
+          </li>
+  
+  </ul>
+</div>
+  </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="panel panel-default">
+      <div class="panel-heading" title="Approximate cost on various work of materials">
+      
+      </div>
+      <ul class="list-group">
+      <li class="list-group-item">fck
+      <span class="label label-primary pull-right">
+        <Label id="C166"></span>
+      </span>
+      </li>
+      <li class="list-group-item">fy
+      <span class="label label-info pull-right">
+    <Label id="C167"></Label>
+      </span>
+      </li>
+      
+      </ul>
+      </div>
+      </div>
+      <div class="col-md-5 text-center">
+    
+      </div>
+  </div>
+
+  </div>
+  </div>
+  <div class="portlet-body">
+    <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+    <div class="panel panel-default goodbox">
+    
+    <div id="container" style="position: relative;">
+      <img
+        src="images/Singly-Rein/doubly.jpg"
+        style="width: 100%"
+      />
+      <div id="div1" >
+        <h5></h5>
+        </div>
+        <div id="div2" >
+          <h4></h4>
+          </div>
+          <div id="div3">
+            <h4></h4>
+            </div>
+            <div id="div4" >
+              <h4></h4>
+              </div>
+              <div id="div5" >
+                <h4></h4>
+                </div>
+                <div id="div6" >
+                  <h4></h4>
+                  </div> 
+      </div>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+</div>
+  
+</div>
+<!-- Calulation part star here--------------------------------------------------- -->
+<div class="col-md-6">
+    <div class="portlet light">
+        <div class="portlet-title">
+        <h2 class="caption H2_MarginTB5" title="Brick masonry calculator">
+        
+        <span id="ctl00_cphPageContent_lblTitle" class="caption-subject bold uppercase">Calculation & Used Formulas</span>
+        </h2>
+    </div>
+    <div role="form" class="form-horizontal">
+        <div class="form-body">
+
+    
+          <div class="form-group">
+            <label class="col-md-6 control-label" style="text-align: center;color: darkred;">
+            EFFECTIVE DEPTH(D):-
+            </label>
+            <label class="col-md-6 control-label" style="text-align: center; color: darkred;" id="D33">
+             
+            </label>
+              <label class="col-md-6 control-label" style="text-align: center; color: darkred;" id="B40">
+
+              </label>
+          </div>
+          <hr/>
+          <div class="form-group">
+            <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+              EFFECTIVE SPAN :-
+            </label>
+            <label class="col-md-12 control-label">
+              <label class="col-md-6 control-label" style="text-align: left;">
+                a)C/C distance
+                 </label>
+                 <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D37">
+               
+                  </label>
+                 <label class="col-md-6 control-label" style="text-align: left;">
+                  b)CLEAR SPAN+d=
+                   </label>
+                   <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D38">
+               
+                    </label>
+                   <label class="col-md-6 control-label" style="text-align: left;">
+                    EFFECTIVE SPAN=
+                     </label>
+                     <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D40">
+                  
+                      </label>
+             
+         
+            </label>
+          </div>
+          <hr/>
+          <div class="form-group"> 
+            <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+              LOAD CALCULATION: -
+              </label>
+            <label class="col-md-12 control-label">
+              
+              <label class="col-md-6 control-label" style="text-align: left;">
+                DEAD LOAD = ƍ x b x D=
+              </label>
+              <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D44">
+            
+              </label>
+              </label>
+            <label class="col-md-12 control-label">
+              <label class="col-md-6 control-label" style="text-align: left;">
+                TOTAL LOAD=
+               </label>
+               <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D46">
+               
+                </label>
+            </label>
+            <label class="col-md-12 control-label" style="text-align: left;">
+              <label class="col-md-6 control-label" style="text-align: left;">
+                 FACTOED LOAD=
+              </label>
+              <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D48">
+         
+              </label>
+              </label>
+                    <label class="col-md-12 control-label" style="text-align: left;">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                      BENDING MOMENT(M)=
+                        </label>
+                        <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D50">
+                    
+                         </label>
+                         </label>
+
+                         <label class="col-md-12 control-label" style="text-align: left;">
+                          <label class="col-md-6 control-label" style="text-align: left;">
+                          SHEAR FORCE(S)=
+                            </label>
+                            <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D52">
+                            
+                             </label>
+                             </label>
+            <hr>
+           
+          </div>
+          <hr>
+            <div class="form-group"> 
+              <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+                
+               DESIGN FACTORS:-
+                </label>
+
+              <label class="col-md-12 control-label">
+                <label class="col-md-6 control-label" style="text-align: left;">
+                 Xumax/d=
+                </label>
+                <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C56">
+             
+                </label>
+                </label>
+             
+  
+              
+              <label class="col-md-12 control-label" style="text-align: left;">
+              <label class="col-md-6 control-label" style="text-align: left;">
+                Mulim =
+              </label>
+              <label class="col-md-6 control-label" style="text-align: center; color:darkred;" id="C60">
+           
+              </label>
+              </label>
+
+              <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="A63">
+
+              </label>
+            
+
+              </div>
+          
+              </div>
+              <hr>
+              <div class="form-group"> 
+                <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+                  Determination of compression R/F: -
+                </label>
+                  <label class="col-md-12 control-label">
+                  
+                  <label class="col-md-6 control-label" style="text-align: left;">
+                   d'/d =
+                  </label>
+                  <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C68">
+                 
+                  </label>
+                  </label>
+
+                    <label class="col-md-12 control-label" style="text-align: left;">
+                      <label class="col-md-6 control-label" style="text-align: left;">
+                      fcc=0.446 fck =
+                      </label>
+                      <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D70">
+                      
+                       </label>
+                       </label>
+                       <label class="col-md-12 control-label" style="text-align: left;">
+                        <label class="col-md-6 control-label" style="text-align: left;">
+                        fsc =
+                        </label>
+                        <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C72">
+                         
+                         </label>
+                         </label>
+                         <label class="col-md-12 control-label" style="text-align: left;">
+                          <label class="col-md-6 control-label" style="text-align: left;">
+                          Asc=(Mu-Mulim)/(fsc-fcc)(d-d') =
+                          </label>
+                          <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="F74">
+                         
+                           </label>
+                           </label>
+                             <label class="col-md-12 control-label" style="text-align: left;">
+                              <label class="col-md-6 control-label" style="text-align: left;">
+                              Nos. Of bars required =
+                              </label>
+                              <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E76">
+                           
+                               </label>
+                               </label>
+                                 <label class="col-md-12 control-label" style="text-align: left;">
+                                  <label class="col-md-6 control-label" style="text-align: left;">
+                                  Nos. Of bars provided =
+                                  </label>
+                                  <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E78">
+                             
+                                   </label>
+
+                                   <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B80">
+
+                                   </label>
+
+                                   </label>
+                       </div>
+                  
+                        <div class="form-group">
+                          <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+                             Determination of tension R/F:-
+                          </label>
+                          <label class="col-md-12 control-label">
+                            <label class="col-md-6 control-label" style="text-align: left;">
+                              Ptlim=
+                               </label>
+                               <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C84">
+                               
+                                </label>
+                                </label>
+                               <label class="col-md-12 control-label" style="text-align: left;">
+                                <label class="col-md-6 control-label" style="text-align: left;">
+                                Ast1=
+                                 </label>
+                                 <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C89">
+                                  
+                                  </label>
+                                </label>
+                                 <label class="col-md-12 control-label" style="text-align: left;">
+                                  <label class="col-md-6 control-label" style="text-align: left;">
+                                  Ast2=
+                                   </label>
+                                   <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C91">
+                                
+                                    </label>
+                                    </label>
+                                   <label class="col-md-12 control-label" style="text-align: left;">
+                                    <label class="col-md-6 control-label" style="text-align: left;">
+                                    Ast=
+                                     </label>
+                                     <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="C93">
+                                   
+                                      </label>
+                                      </label>
+                                      <label class="col-md-12 control-label" style="text-align: left;">
+                                        <label class="col-md-6 control-label" style="text-align: left;">
+                                        NO. of bars required=
+                                         </label>
+                                         <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E95">
+                                       
+                                          </label>
+                                      </label>
+                                          <label class="col-md-12 control-label" style="text-align: left;">
+                                            <label class="col-md-6 control-label" style="text-align: left;">
+                                            Nos. Of bars provided=
+                                             </label>
+                                             <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E97">
+                                           
+                                              </label> 
+
+                                              <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B99">
+
+                                              </label>
+                                          </label>
+                                            </div>
+                                            <hr/>
+                          
+                        <div class="form-group"> 
+                          <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+                           DESIGN OF SHEAR REINFORCEMENT:-
+                            </label>
+                          <label class="col-md-12 control-label">
+                  
+                            <label class="col-md-6 control-label" style="text-align: left;">
+                             Nominal Shear stress=
+                          </label>
+                          <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E103">
+                           
+                            </label>
+                          </label>
+                         
+              
+                      
+                          <label class="col-md-12 control-label" style="text-align: left;">
+                            <label class="col-md-6 control-label" style="text-align: left;">
+
+                            Maximum Shear stress =
+                        </label>
+                        <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E106">
+                   
+                          </label>
+                          </label>
+                         
+                          </div>
+                          <div class="form-group"> 
+                        
+                            <label class="col-md-12 control-label">
+                            
+                              
+                              <label class="col-md-6 control-label" style="text-align: left;">
+                                100*As/bd=
+                            </label>
+                            <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="E108">
+                         
+                              </label>
+
+                              <label class="col-md-12 control-label" style="text-align: center; color:rgb(218, 120, 120)" id="B112">
+
+                              </label>
+
+                              
+                              </label>
+                          
+                
+                          
+                            <label class="col-md-12 control-label">
+                              
+                            <label class="col-md-6 control-label" style="text-align: left;" >
+                                Design Shear Strength of Concrete =  
+                            </label>
+                            <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="F110">
+                            
+                              </label>
+                              </label>
+                            
+                         
+                                <label class="col-md-12 control-label" style="text-align: left;">
+                              <label class="col-md-6 control-label" style="text-align: LEFT;" >
+                                Shear resistance of concrete  Vuc=τc bd=
+                              </label>
+                              
+                              <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D115">
+                            
+                                </label>
+                                </label>
+                          
+                                  <label class="col-md-12 control-label" >
+                                  <label class="col-md-6 control-label" style="text-align: LEFT;" >
+                                    Shear to be resisted by stirrups  Vus=Vu-Vuc=
+                                  </label>
+                                <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D118">
+                              
+                                </label>
+                                </label>
+                                <label class="col-md-12 control-label" style="text-align: LEFT;" >
+                                  <label class="col-md-6 control-label" style="text-align: left;">
+                                  Asv=
+                              </label>
+                              <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D120">
+                               
+                                </label>
+                                </label>
+                                <label class="col-md-12 control-label"  >
+                                  <label class="col-md-6 control-label" style="text-align: left;">
+                                  <img src="images/D122DR.png"  />
+                              </label>
+                              <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D122">
+                          
+                                </label>
+                                </label>
+                              
+                                  <label class="col-md-12 control-label" >
+                              <label class="col-md-6 control-label" style="text-align: left;">
+                                Minimum Shear reinforcement,  <img src="images/D127DR.png"/>
+                                </label>
+                             
+                                <label class="col-md-6 control-label"  id="D127" style="text-align: center;color: darkred;">
+                             
+                                  </label>
+                                </label>
+                                <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+                                  Spacing should not exceed,
+                                  </label>
+                                  <label class="col-md-12 control-label" >
+                                  <label class="col-md-6 control-label" style="text-align: left;">
+                                    a)0.75d=
+                            
+                                  </label>
+                                <label class="col-md-6 control-label" id="H128"  style="text-align: center;color: darkred;">
+                               
+                              </label>
+                       </label>
+                              
+                              <label class="col-md-12 control-label" >
+                                <label class="col-md-6 control-label" style="text-align: left;">
+                                  b)300=
+                              </label>
+                              <label class="col-md-6 control-label" id="H129" style="text-align: center;color: darkred;">
+                             
+                                </label>
+                                </label>
+                                <label class="col-md-12 control-label">
+                                  <label class="col-md-6 control-label"  style="text-align: left;">
+                                  c)mini spaci=
+                                  </label>
+                              <label class="col-md-6 control-label"  id="H130" style="text-align: center;color: darkred;">
+                              
+                                </label>
+                                </label>
+                                <label class="col-md-12 control-label" >
+                                  <label class="col-md-6 control-label" style="text-align: left;">
+                                  d)req.spaci=
+                              </label>
+                                <label class="col-md-6 control-label"  id="H131" style="text-align:center;color: darkred;">
+                           
+                                </label>
+                                </label>
+                                <label class="col-md-12 control-label" >
+                                <label class="col-md-4 control-label" style="text-align: left;" >
+                                  provide
+                              </label>
+                              <label class="col-md-4 control-label" style="text-align: left;color: darkred;" id="C134">
+                             bb
+                              </label>
+
+                               
+                              <label class="col-md-4 control-label" style="text-align: left;color: darkred;" id="G134">
+                              aa
+                                </label>
+                              </label>
+                           
+                           
+                              </label>
+                      
+                          </div>
+                          <hr>
+                          <div class="form-group"> 
+                            <label class="col-md-12 control-label" style="text-align: center;color: darkred;">
+                              CHECK FOR DEVELOPMENT LENGTH: -
+                              </label>
+                            <label class="col-md-12 control-label">
+                              <label class="col-md-6 control-label" style="text-align: left;">
+                              <img src="images/D138DR.png">
+                            </label>
+                            <label class="col-md-6 control-label" style="text-align: center;color: darkred;" id="D138">
+                            
+                              </label>
+                              </label>
+                              <label class="col-md-12 control-label" style="text-align: center;">
+
+                              <label class="col-md-6 control-label" style="text-align: left;">
+                               <img src="images/G138DR.png">
+                              </label>
+                            <label class="col-md-6 control-label" style="text-align:center; color:darkred" id="G138">
+                      
+                            </label>
+                            </label>
+                            </div>
+ 
+        </div>
+      
+     
+        </div>
+       
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+</div>
+    
+</div>
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="scroll-to-top">
+  <img src="images/down.png" alt="" class="icon-arrow-up" width="30px" height="20px">
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="js/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="js/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/metronic.js" type="text/javascript"></script>
+<script src="js/layout.js" type="text/javascript"></script>
+<script src="js/demo.js" type="text/javascript"></script>
+<script src="js/components-dropdowns.js"></script>
+<script src="js/CommonJSFunctions.js"></script>
+<script src="js/CommonValidation.js"></script>
+<script src="js/GN_UI.js"></script>
+<script src="js/components-pickers.js"></script>
+
+
+<script>
+            jQuery(document).ready(function () {
+
+                Metronic.init();
+                Layout.init();
+                Demo.init();
+                ComponentsDropdowns.init();
+                ComponentsPickers.init();
+                //ComponentsFormTools.init();
+            });
+
+            $('select.multiselect2').select2({
+                allowClear: true
+            });
+
+            if (typeof (Sys) !== 'undefined') {
+                Page = Sys.WebForms.PageRequestManager.getInstance();
+                Page.add_beginRequest(OnBeginRequest);
+                Page.add_endRequest(endRequest);
+            }
+
+            function OnBeginRequest(sender, args) {
+                Metronic.blockUI({
+                    boxed: true
+                });
+            }
+
+            function endRequest(sender, args) {
+                Metronic.unblockUI();
+                $('select').select2({
+                    width: 'fixed'
+                });
+
+                $('.timepicker-no-seconds').timepicker({
+                    autoclose: true,
+                    minuteStep: 5,
+                    defaultTime: null
+                });
+
+                $('.timepicker').parent('.input-group').on('blur', '.input-group-btn', function (e) {
+                    e.preventDefault();
+                    $(this).parent('.input-group').find('.timepicker').timepicker('hideWidget');
+                });
+
+                $(".form_meridian_datetime").datetimepicker({
+                    isRTL: Metronic.isRTL(),
+                    format: "dd-mm-yyyy HH:ii P",
+                    showMeridian: true,
+                    autoclose: true,
+                    pickerPosition: (Metronic.isRTL() ? "bottom-right" : "bottom-left"),
+                    todayBtn: true,
+                    todayHighlight: true
+                });
+
+                $('.date-picker-nofuture').datepicker({
+                    startDate: "01-01-1900",
+                    endDate: "new date()",
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('.date-picker-nopastdate').datepicker({
+                    startDate: "new date()",
+                    todayHighlight: true
+                });
+                $('.date-picker').datepicker({
+                    startDate: "01-01-1900",
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('a.modalButton').on('click', function (e) {
+                    var src = $(this).attr('href');
+                    var target = $(this).attr('data-target');
+
+                    $(target + " iframe").attr({
+                        'src': src
+                    });
+                });
+
+                var initPickers = function () {
+                    //init date pickers
+                    $('.date-picker').datepicker({
+                        rtl: Metronic.isRTL(),
+                        autoclose: true,
+                        todayHighlight: true
+                    });
+                }
+
+                initPickers();
+                $('select.multiselect2').select2({
+                    allowClear: true
+                });
+
+                function closeModalAndRefreshPage() {
+                    $('.modal').modal('hide');
+                    location.reload();
+                }
+
+                $('.modal .fade').on('hidden.bs.modal', function () {
+                    $(".modal .fade iframe").attr({
+                        'src': 'about:blank'
+                    });
+                });
+
+                //function ShowHelp() {
+                //    $(".DivHelp").slideToggle('slow');
+                //}
+
+                function closemyModal() {
+                    $('.modal').modal('hide');
+                }
+            }
+
+        </script>
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_cphPageContent_vsCostEstimatorCalculation"));
+var Page_Validators =  new Array(document.getElementById("ctl00_cphPageContent_rfvBuiltup"), document.getElementById("ctl00_cphPageContent_rfvApproxCost"));
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_cphPageContent_vsCostEstimatorCalculation = document.all ? document.all["ctl00_cphPageContent_vsCostEstimatorCalculation"] : document.getElementById("ctl00_cphPageContent_vsCostEstimatorCalculation");
+ctl00_cphPageContent_vsCostEstimatorCalculation.headertext = "Please Correct follwing error(s)";
+ctl00_cphPageContent_vsCostEstimatorCalculation.validationGroup = "CostEstimatorCalculation";
+var ctl00_cphPageContent_rfvBuiltup = document.all ? document.all["ctl00_cphPageContent_rfvBuiltup"] : document.getElementById("ctl00_cphPageContent_rfvBuiltup");
+ctl00_cphPageContent_rfvBuiltup.controltovalidate = "ctl00_cphPageContent_txtBuiltup";
+ctl00_cphPageContent_rfvBuiltup.errormessage = "Enter builtup square feet";
+ctl00_cphPageContent_rfvBuiltup.display = "None";
+ctl00_cphPageContent_rfvBuiltup.validationGroup = "CostEstimatorCalculation";
+ctl00_cphPageContent_rfvBuiltup.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphPageContent_rfvBuiltup.initialvalue = "";
+var ctl00_cphPageContent_rfvApproxCost = document.all ? document.all["ctl00_cphPageContent_rfvApproxCost"] : document.getElementById("ctl00_cphPageContent_rfvApproxCost");
+ctl00_cphPageContent_rfvApproxCost.controltovalidate = "ctl00_cphPageContent_txtApproxCost";
+ctl00_cphPageContent_rfvApproxCost.errormessage = "Enter approxe cost per square feet";
+ctl00_cphPageContent_rfvApproxCost.display = "None";
+ctl00_cphPageContent_rfvApproxCost.validationGroup = "CostEstimatorCalculation";
+ctl00_cphPageContent_rfvApproxCost.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_cphPageContent_rfvApproxCost.initialvalue = "";
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+updateChartPie([164000.000000,123000.000000,74000.000000,246000.000000,165000.000000,228000.000000], [['Cement', '16.4%'],['Sand', '12.3%'],['Aggregate', '7.4%'],['Steel', '24.6%'],['Finisher', '16.5%'],['Fitting', '22.8%']]);updateChartBar([219000.000000,184000.000000,111000.000000,169000.000000,178000.000000,139000.000000], [['1st Month', '21.9%'],['2nd Month', '18.4%'],['3rd Month', '11.1%'],['4th Month', '16.9%'],['5th Month', '17.8%'],['6th Month', '13.9%']]);
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+</body>
+</html>
